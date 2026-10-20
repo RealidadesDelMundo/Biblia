@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import crypto from 'node:crypto';
 import { wrap, httpError } from '../util.js';
 import { hashPassword, checkPassword, signSession, setSessionCookie, clearSessionCookie, sha256, randomToken, validatePassword, EMAIL_RE, requireAuth } from '../auth.js';
 import { publicUser, usage } from '../plans.js';
@@ -13,7 +14,7 @@ export function authRoutes({ db, config, mailer }) {
   async function session(req, res, user) {
     const token = signSession(config, user);
     setSessionCookie(config, res, token);
-    const body = { user: publicUser(user), usage: await usage(db, config, user) };
+    const body = { user: publicUser(user, Date.now(), config.adminEmails), usage: await usage(db, config, user) };
     if (wantsToken(req)) body.token = token;
     return body;
   }
@@ -24,6 +25,11 @@ export function authRoutes({ db, config, mailer }) {
     if (!EMAIL_RE.test(email)) throw httpError(400, 'Escribe un correo válido.', 'BAD_EMAIL');
     const pwErr = validatePassword(password, email);
     if (pwErr) throw httpError(400, pwErr, 'BAD_PASSWORD');
+    if (config.inviteCode) {
+      const a = Buffer.from(String(req.body?.inviteCode || '').trim().toLowerCase());
+      const b = Buffer.from(config.inviteCode.toLowerCase());
+      if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) throw httpError(403, 'Necesitas un código de invitación válido para crear una cuenta.', 'INVITE_REQUIRED');
+    }
     if (req.body?.consent !== true) throw httpError(400, 'Necesitamos tu consentimiento expreso para tratar tus oraciones y confirmar que eres mayor de edad.', 'CONSENT_REQUIRED');
     if (await db('users').where({ email }).first()) throw httpError(409, 'Ya existe una cuenta con ese correo. Prueba a iniciar sesión.', 'EMAIL_TAKEN');
     const now = Date.now();
@@ -74,7 +80,7 @@ export function authRoutes({ db, config, mailer }) {
     res.json({ ok: true });
   }));
 
-  r.get('/session', requireAuth, wrap(async (req, res) => res.json({ user: publicUser(req.user), usage: await usage(db, config, req.user) })));
+  r.get('/session', requireAuth, wrap(async (req, res) => res.json({ user: publicUser(req.user, Date.now(), config.adminEmails), usage: await usage(db, config, req.user) })));
 
   return r;
 }

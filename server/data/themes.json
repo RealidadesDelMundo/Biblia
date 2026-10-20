@@ -1,46 +1,824 @@
 {
-  "labels": {
-    "ansiedad": "Ansiedad", "miedo": "Miedo", "duelo": "Duelo", "gratitud": "Gratitud", "trabajo": "Trabajo", "familia": "Familia",
-    "decision": "Decisiones", "salud": "Salud", "proteccion": "Protección", "fortaleza": "Fortaleza", "confianza": "Confianza", "fe": "Fe",
-    "amor": "Amor", "esperanza": "Esperanza", "perdon": "Perdón", "soledad": "Soledad", "paciencia": "Paciencia", "proposito": "Propósito",
-    "perseverancia": "Perseverancia", "sabiduria": "Sabiduría", "humildad": "Humildad", "generosidad": "Generosidad", "tentacion": "Tentación",
-    "alegria": "Alegría", "paz": "Paz", "servicio": "Servicio", "arrepentimiento": "Arrepentimiento", "guia": "Guía", "matrimonio": "Matrimonio",
-    "dinero": "Dinero", "incertidumbre": "Incertidumbre", "ira": "Enojo", "alabanza": "Alabanza", "nuevos_comienzos": "Nuevos comienzos", "general": "General"
-  },
-  "keywords": {
-    "ansiedad": ["ansied", "ansios", "nervios", "agobi", "estres", "preocup", "angusti", "insomni", "no puedo dormir", "panico"],
-    "miedo": ["miedo", "temor", "asust", "terror", "fobia", "pavor"],
-    "duelo": ["fallec", "murio", "muerte", "perdi a", "luto", "duelo", "extrano a", "funeral", "difunt"],
-    "gratitud": ["gracias", "agradec", "gratitud", "bendecid", "agradezco"],
-    "trabajo": ["trabajo", "empleo", "jefe", "entrevista", "despido", "carrera", "oficina", "empresa", "negocio", "proyecto"],
-    "familia": ["familia", "hijo", "hija", "madre", "padre", "mama", "papa", "hermano", "hermana", "abuel", "nieto", "sobrin"],
-    "decision": ["decidir", "decision", "elegir", "no se que hacer", "dilema", "encrucijada", "mudarme", "cambiar de"],
-    "salud": ["enferm", "salud", "operacion", "hospital", "cirugia", "dolor", "tratamiento", "diagnost", "recuper", "cancer", "sanar", "sanidad"],
-    "proteccion": ["proteg", "protecc", "viaje", "peligro", "cuidar", "cuidado de"],
-    "fortaleza": ["fuerza", "fortaleza", "agotad", "cansad", "debil", "sin energia", "aguantar"],
-    "confianza": ["confiar", "confianza", "dudas", "me cuesta creer", "entregar"],
-    "fe": ["fe ", "creer", "creo", "milagro", "mi fe"],
-    "amor": ["amor", "amar", "cariño", "querer a", "pareja"],
-    "esperanza": ["esperanza", "futuro", "ilusion", "desanim", "desesper"],
-    "perdon": ["perdon", "perdonar", "rencor", "resentim", "culpa", "me hizo dano", "traicion"],
-    "soledad": ["solo", "sola", "soledad", "aislad", "nadie me", "sin amigos"],
-    "paciencia": ["paciencia", "esperar", "tardanza", "cuando llegara", "demora"],
-    "proposito": ["proposito", "vocacion", "mision", "sentido", "para que estoy", "llamado"],
-    "perseverancia": ["rendirme", "no abandonar", "perseverar", "constancia", "seguir adelante", "no me rindo"],
-    "sabiduria": ["sabiduria", "discernim", "consejo", "entender", "prudencia"],
-    "humildad": ["humildad", "orgullo", "soberbia", "humilde"],
-    "generosidad": ["generos", "ayudar a", "dar a los", "donar", "compartir"],
-    "tentacion": ["tentacion", "adiccion", "vicio", "caer en", "recaer", "pornograf", "alcohol", "apuestas"],
-    "alegria": ["alegria", "feliz", "gozo", "celebrar", "contento"],
-    "paz": ["paz", "tranquilidad", "calma", "serenidad", "descanso"],
-    "servicio": ["servir", "voluntari", "servicio a", "ayudar en la iglesia"],
-    "arrepentimiento": ["arrepent", "me equivoque", "pecado", "pecar", "fallé", "falle a"],
-    "guia": ["guia", "direccion", "rumbo", "perdido", "orientacion", "que camino"],
-    "matrimonio": ["matrimonio", "esposo", "esposa", "marido", "boda", "casarme", "divorcio"],
-    "dinero": ["dinero", "deuda", "economi", "hipoteca", "ingresos", "pagar", "factura", "abundancia", "prosperidad"],
-    "incertidumbre": ["incertidumbre", "no se que pasara", "inseguro", "no se si", "mañana"],
-    "ira": ["enojo", "rabia", "ira ", "furia", "enfad", "coraje", "rencor"],
-    "alabanza": ["alabar", "alabanza", "adorar", "adoracion", "cantar"],
-    "nuevos_comienzos": ["empezar", "nuevo comienzo", "nueva etapa", "comenzar de nuevo", "mudanza", "nuevo trabajo", "cambio de vida"]
-  }
+ "labels": {
+  "ansiedad": "Ansiedad",
+  "miedo": "Miedo",
+  "duelo": "Duelo",
+  "gratitud": "Gratitud",
+  "trabajo": "Trabajo",
+  "familia": "Familia",
+  "decision": "Decisiones",
+  "salud": "Salud",
+  "proteccion": "Protección",
+  "fortaleza": "Fortaleza",
+  "confianza": "Confianza",
+  "fe": "Fe",
+  "amor": "Amor",
+  "esperanza": "Esperanza",
+  "perdon": "Perdón",
+  "soledad": "Soledad",
+  "paciencia": "Paciencia",
+  "proposito": "Propósito",
+  "perseverancia": "Perseverancia",
+  "sabiduria": "Sabiduría",
+  "humildad": "Humildad",
+  "generosidad": "Generosidad",
+  "tentacion": "Tentación",
+  "alegria": "Alegría",
+  "paz": "Paz",
+  "servicio": "Servicio",
+  "arrepentimiento": "Arrepentimiento",
+  "guia": "Guía",
+  "matrimonio": "Matrimonio",
+  "dinero": "Dinero",
+  "incertidumbre": "Incertidumbre",
+  "ira": "Enojo",
+  "alabanza": "Alabanza",
+  "nuevos_comienzos": "Nuevos comienzos",
+  "general": "General",
+  "tristeza": "Tristeza",
+  "cansancio": "Cansancio",
+  "culpa": "Culpa y vergüenza",
+  "identidad": "Identidad",
+  "injusticia": "Injusticia",
+  "conflictos": "Conflictos",
+  "heridas": "Heridas y traición",
+  "envidia": "Envidia y comparación",
+  "libertad": "Libertad",
+  "hijos": "Hijos",
+  "juventud": "Juventud",
+  "vejez": "Vejez",
+  "estudios": "Estudios y exámenes",
+  "viajes": "Viajes",
+  "provision": "Provisión",
+  "compasion": "Compasión",
+  "pais": "Mi país y sus gobernantes",
+  "guerra": "Guerra y violencia",
+  "creacion": "Creación",
+  "manana": "Nuevo día",
+  "tormenta": "Crisis y tormentas",
+  "silencio_de_dios": "Cuando Dios calla",
+  "dudas": "Dudas",
+  "oracion": "La oración",
+  "palabra": "La Palabra de Dios",
+  "espiritu": "El Espíritu Santo",
+  "gracia": "Gracia",
+  "salvacion": "Salvación",
+  "resurreccion": "Resurrección",
+  "navidad": "Navidad",
+  "eternidad": "Eternidad",
+  "valentia": "Valentía",
+  "integridad": "Integridad",
+  "palabras": "Las palabras",
+  "amistad": "Amistad",
+  "comunidad": "Comunidad",
+  "unidad": "Unidad",
+  "liderazgo": "Liderazgo",
+  "exito": "Éxito y ambición",
+  "contentamiento": "Contentamiento",
+  "tiempo": "El tiempo",
+  "sufrimiento": "Pruebas y sufrimiento",
+  "fracaso": "Fracaso",
+  "consuelo": "Consuelo",
+  "refugio": "Refugio",
+  "luz": "Luz",
+  "reconciliacion": "Reconciliación",
+  "bendicion": "Bendición",
+  "misericordia": "Misericordia",
+  "promesas": "Promesas",
+  "verdad": "Verdad",
+  "pensamientos": "Pensamientos",
+  "noche": "La noche y el insomnio",
+  "hogar": "Hogar",
+  "enfermos": "Acompañar a un enfermo",
+  "embarazo": "Embarazo y nacimiento"
+ },
+ "keywords": {
+  "ansiedad": [
+   "ansied",
+   "ansios",
+   "nervios",
+   "agobi",
+   "estres",
+   "preocup",
+   "angusti",
+   "insomni",
+   "no puedo dormir",
+   "panico"
+  ],
+  "miedo": [
+   "miedo",
+   "temor",
+   "asust",
+   "terror",
+   "fobia",
+   "pavor"
+  ],
+  "duelo": [
+   "fallec",
+   "murio",
+   "muerte",
+   "perdi a",
+   "luto",
+   "duelo",
+   "extrano a",
+   "funeral",
+   "difunt",
+   "hemos perdido",
+   "perdimos",
+   "perdido a",
+   "nos dejo",
+   "se nos fue",
+   "murio mi"
+  ],
+  "gratitud": [
+   "gracias",
+   "agradec",
+   "gratitud",
+   "bendecid",
+   "agradezco"
+  ],
+  "trabajo": [
+   "trabajo",
+   "empleo",
+   "jefe",
+   "entrevista",
+   "despido",
+   "carrera",
+   "oficina",
+   "empresa",
+   "negocio",
+   "proyecto"
+  ],
+  "familia": [
+   "familia",
+   "hijo",
+   "hija",
+   "madre",
+   "padre",
+   "mama",
+   "papa",
+   "hermano",
+   "hermana",
+   "abuel",
+   "nieto",
+   "sobrin"
+  ],
+  "decision": [
+   "decidir",
+   "decision",
+   "elegir",
+   "no se que hacer",
+   "dilema",
+   "encrucijada",
+   "mudarme",
+   "cambiar de"
+  ],
+  "salud": [
+   "enferm",
+   "salud",
+   "operacion",
+   "hospital",
+   "cirugia",
+   "dolor",
+   "tratamiento",
+   "diagnost",
+   "recuper",
+   "cancer",
+   "sanar",
+   "sanidad"
+  ],
+  "proteccion": [
+   "proteg",
+   "protecc",
+   "viaje",
+   "peligro",
+   "cuidar",
+   "cuidado de"
+  ],
+  "fortaleza": [
+   "fuerza",
+   "fortaleza",
+   "agotad",
+   "cansad",
+   "debil",
+   "sin energia",
+   "aguantar"
+  ],
+  "confianza": [
+   "confiar",
+   "confianza",
+   "dudas",
+   "me cuesta creer",
+   "entregar"
+  ],
+  "fe": [
+   "fe ",
+   "creer",
+   "creo",
+   "milagro",
+   "mi fe"
+  ],
+  "amor": [
+   "amor",
+   "amar",
+   "cariño",
+   "querer a",
+   "pareja"
+  ],
+  "esperanza": [
+   "esperanza",
+   "futuro",
+   "ilusion",
+   "desanim",
+   "desesper"
+  ],
+  "perdon": [
+   "perdon",
+   "perdonar",
+   "rencor",
+   "resentim",
+   "culpa",
+   "me hizo dano",
+   "traicion"
+  ],
+  "soledad": [
+   "solo",
+   "sola",
+   "soledad",
+   "aislad",
+   "nadie me",
+   "sin amigos"
+  ],
+  "paciencia": [
+   "paciencia",
+   "esperar",
+   "tardanza",
+   "cuando llegara",
+   "demora"
+  ],
+  "proposito": [
+   "proposito",
+   "vocacion",
+   "mision",
+   "sentido",
+   "para que estoy",
+   "llamado"
+  ],
+  "perseverancia": [
+   "rendirme",
+   "no abandonar",
+   "perseverar",
+   "constancia",
+   "seguir adelante",
+   "no me rindo"
+  ],
+  "sabiduria": [
+   "sabiduria",
+   "discernim",
+   "consejo",
+   "entender",
+   "prudencia"
+  ],
+  "humildad": [
+   "humildad",
+   "orgullo",
+   "soberbia",
+   "humilde"
+  ],
+  "generosidad": [
+   "generos",
+   "ayudar a",
+   "dar a los",
+   "donar",
+   "compartir"
+  ],
+  "tentacion": [
+   "tentacion",
+   "adiccion",
+   "vicio",
+   "caer en",
+   "recaer",
+   "pornograf",
+   "alcohol",
+   "apuestas"
+  ],
+  "alegria": [
+   "alegria",
+   "feliz",
+   "gozo",
+   "celebrar",
+   "contento"
+  ],
+  "paz": [
+   "paz",
+   "tranquilidad",
+   "calma",
+   "serenidad",
+   "descanso"
+  ],
+  "servicio": [
+   "servir",
+   "voluntari",
+   "servicio a",
+   "ayudar en la iglesia"
+  ],
+  "arrepentimiento": [
+   "arrepent",
+   "me equivoque",
+   "pecado",
+   "pecar",
+   "fallé",
+   "falle a"
+  ],
+  "guia": [
+   "guia",
+   "direccion",
+   "rumbo",
+   "perdido",
+   "orientacion",
+   "que camino"
+  ],
+  "matrimonio": [
+   "matrimonio",
+   "esposo",
+   "esposa",
+   "marido",
+   "boda",
+   "casarme",
+   "divorcio"
+  ],
+  "dinero": [
+   "dinero",
+   "deuda",
+   "economi",
+   "hipoteca",
+   "ingresos",
+   "pagar",
+   "factura",
+   "abundancia",
+   "prosperidad"
+  ],
+  "incertidumbre": [
+   "incertidumbre",
+   "no se que pasara",
+   "inseguro",
+   "no se si",
+   "mañana"
+  ],
+  "ira": [
+   "enojo",
+   "rabia",
+   "ira ",
+   "furia",
+   "enfad",
+   "coraje",
+   "rencor"
+  ],
+  "alabanza": [
+   "alabar",
+   "alabanza",
+   "adorar",
+   "adoracion",
+   "cantar"
+  ],
+  "nuevos_comienzos": [
+   "empezar",
+   "nuevo comienzo",
+   "nueva etapa",
+   "comenzar de nuevo",
+   "mudanza",
+   "nuevo trabajo",
+   "cambio de vida"
+  ],
+  "tristeza": [
+   "tristeza",
+   "triste",
+   "llorar",
+   "lloro",
+   "depre",
+   "desanimo",
+   "sin ganas"
+  ],
+  "cansancio": [
+   "cansad",
+   "agotad",
+   "burnout",
+   "sin fuerzas",
+   "exhaust",
+   "estres",
+   "no puedo mas",
+   "descansar"
+  ],
+  "culpa": [
+   "culpa",
+   "culpable",
+   "verguenza",
+   "remordimiento",
+   "me averguenzo"
+  ],
+  "identidad": [
+   "autoestima",
+   "quien soy",
+   "no valgo",
+   "inseguridad",
+   "identidad",
+   "me odio",
+   "complejo"
+  ],
+  "injusticia": [
+   "injusticia",
+   "injusto",
+   "abuso",
+   "discrimin",
+   "corrupcion",
+   "me estafaron"
+  ],
+  "conflictos": [
+   "pelea",
+   "discusion",
+   "conflicto",
+   "enemigo",
+   "enemistad",
+   "peleado",
+   "me odia"
+  ],
+  "heridas": [
+   "traicion",
+   "traicionad",
+   "herida",
+   "infidelidad",
+   "me enganaron",
+   "abandon",
+   "me hizo dano"
+  ],
+  "envidia": [
+   "envidia",
+   "celos",
+   "celoso",
+   "me comparo",
+   "comparacion",
+   "menos que los demas",
+   "me siento menos"
+  ],
+  "libertad": [
+   "libertad",
+   "adiccion",
+   "cadena",
+   "esclav",
+   "vicio",
+   "dependencia"
+  ],
+  "hijos": [
+   "mi hijo",
+   "mi hija",
+   "mis hijos",
+   "bebe",
+   "adolescente",
+   "crianza",
+   "ninos"
+  ],
+  "juventud": [
+   "joven",
+   "adolescen",
+   "juventud",
+   "instituto"
+  ],
+  "vejez": [
+   "vejez",
+   "anciano",
+   "jubilacion",
+   "envejec"
+  ],
+  "estudios": [
+   "examen",
+   "estudiar",
+   "estudios",
+   "universidad",
+   "oposicion",
+   "colegio",
+   "tesis"
+  ],
+  "viajes": [
+   "viaje",
+   "viajar",
+   "vuelo",
+   "avion",
+   "carretera",
+   "trayecto"
+  ],
+  "provision": [
+   "no tengo para",
+   "comida",
+   "sustento",
+   "falta de dinero",
+   "escasez",
+   "desempleo",
+   "sin trabajo",
+   "necesidad economica",
+   "no tengo dinero",
+   "fin de mes",
+   "alquiler",
+   "deudas",
+   "no llego"
+  ],
+  "compasion": [
+   "pobres",
+   "necesitados",
+   "caridad",
+   "limosna",
+   "sin hogar",
+   "refugiados"
+  ],
+  "pais": [
+   "mi pais",
+   "gobierno",
+   "politica",
+   "gobernantes",
+   "elecciones",
+   "presidente",
+   "nacion"
+  ],
+  "guerra": [
+   "guerra",
+   "violencia",
+   "bombas",
+   "terroris",
+   "atentado",
+   "ejercito"
+  ],
+  "creacion": [
+   "naturaleza",
+   "creacion",
+   "montana",
+   "bosque",
+   "estrellas",
+   "universo"
+  ],
+  "manana": [
+   "buenos dias",
+   "amanecer",
+   "por la manana",
+   "nuevo dia",
+   "despertar"
+  ],
+  "tormenta": [
+   "crisis",
+   "tormenta",
+   "emergencia",
+   "catastrofe",
+   "desastre",
+   "todo se derrumba"
+  ],
+  "silencio_de_dios": [
+   "dios no responde",
+   "no me escucha",
+   "silencio de dios",
+   "dios calla",
+   "lejos de dios",
+   "no oigo a dios"
+  ],
+  "dudas": [
+   "duda",
+   "dudas",
+   "no se si creer",
+   "ateo",
+   "incredul",
+   "escept",
+   "dudo"
+  ],
+  "oracion": [
+   "no se orar",
+   "como orar",
+   "ensenarme a orar",
+   "aprender a orar",
+   "orar mejor"
+  ],
+  "palabra": [
+   "biblia",
+   "escritura",
+   "leer la biblia",
+   "evangelio",
+   "palabra de dios"
+  ],
+  "espiritu": [
+   "espiritu santo",
+   "bautismo",
+   "dones del espiritu"
+  ],
+  "gracia": [
+   "gracia",
+   "no lo merezco",
+   "inmerecido"
+  ],
+  "salvacion": [
+   "salvacion",
+   "salvarme",
+   "ser salvo",
+   "conversion",
+   "aceptar a jesus",
+   "nacer de nuevo"
+  ],
+  "resurreccion": [
+   "pascua",
+   "resurreccion",
+   "semana santa",
+   "viernes santo"
+  ],
+  "navidad": [
+   "navidad",
+   "nochebuena",
+   "adviento",
+   "belen",
+   "reyes magos"
+  ],
+  "eternidad": [
+   "cielo",
+   "eternidad",
+   "vida eterna",
+   "despues de la muerte",
+   "mas alla"
+  ],
+  "valentia": [
+   "valentia",
+   "valiente",
+   "coraje",
+   "atrever",
+   "enfrentar"
+  ],
+  "integridad": [
+   "integridad",
+   "honest",
+   "mentira",
+   "trampa",
+   "hipocres",
+   "sinceridad"
+  ],
+  "palabras": [
+   "lengua",
+   "chisme",
+   "hablar mal",
+   "palabras hirientes",
+   "calumnia",
+   "insulto"
+  ],
+  "amistad": [
+   "amigo",
+   "amiga",
+   "amistad",
+   "mejor amigo"
+  ],
+  "comunidad": [
+   "iglesia",
+   "comunidad",
+   "congregacion",
+   "hermanos de la"
+  ],
+  "unidad": [
+   "unidad",
+   "dividid",
+   "division",
+   "unirnos"
+  ],
+  "liderazgo": [
+   "lider",
+   "liderazgo",
+   "mi equipo",
+   "dirigir",
+   "responsabilidad",
+   "soy el jefe",
+   "soy lider",
+   "dirijo",
+   "dirigir un equipo"
+  ],
+  "exito": [
+   "exito",
+   "ambicion",
+   "triunfar",
+   "prosperar",
+   "mi negocio"
+  ],
+  "contentamiento": [
+   "contento",
+   "conformar",
+   "nunca tengo bastante",
+   "codicia",
+   "materialismo"
+  ],
+  "tiempo": [
+   "pasa el tiempo",
+   "se me pasa el tiempo",
+   "no tengo tiempo",
+   "el tiempo vuela",
+   "envejecer",
+   "cumpleanos",
+   "fin de ano",
+   "ano nuevo",
+   "prisas"
+  ],
+  "sufrimiento": [
+   "sufrimiento",
+   "sufrir",
+   "prueba",
+   "dolor",
+   "aflicc",
+   "padecer"
+  ],
+  "fracaso": [
+   "fracaso",
+   "fracase",
+   "me equivoque",
+   "suspendi",
+   "suspender",
+   "fallar"
+  ],
+  "consuelo": [
+   "consuelo",
+   "consolar",
+   "necesito consuelo",
+   "acompanamiento"
+  ],
+  "refugio": [
+   "refugio",
+   "amparo",
+   "protegido",
+   "escudo"
+  ],
+  "luz": [
+   "oscuridad",
+   "tinieblas",
+   "sin salida"
+  ],
+  "reconciliacion": [
+   "reconcili",
+   "volver a hablar",
+   "hacer las paces",
+   "distanciad",
+   "separad"
+  ],
+  "bendicion": [
+   "bendicion",
+   "bendecir",
+   "bendiga",
+   "bendiciones"
+  ],
+  "misericordia": [
+   "misericordia",
+   "piedad"
+  ],
+  "promesas": [
+   "promesa",
+   "promesas",
+   "fidelidad de dios"
+  ],
+  "verdad": [
+   "verdad",
+   "mentir",
+   "transparencia"
+  ],
+  "pensamientos": [
+   "pensamientos",
+   "obsesion",
+   "rumiar",
+   "intrusiv",
+   "dar vueltas",
+   "mi mente"
+  ],
+  "noche": [
+   "insomnio",
+   "no puedo dormir",
+   "desvelo",
+   "pesadillas",
+   "no duermo",
+   "dormir",
+   "conciliar el sueno",
+   "no consigo dormir",
+   "sueno"
+  ],
+  "hogar": [
+   "hogar",
+   "mudanza",
+   "vivienda",
+   "alquiler"
+  ],
+  "enfermos": [
+   "cuidador",
+   "enfermo",
+   "hospital",
+   "paciente",
+   "cuidar a"
+  ],
+  "embarazo": [
+   "embarazo",
+   "embarazada",
+   "parto",
+   "dar a luz",
+   "fertilidad",
+   "esteril",
+   "concebir",
+   "nacido",
+   "nacio",
+   "nacimiento",
+   "recien nacid"
+  ]
+ }
 }

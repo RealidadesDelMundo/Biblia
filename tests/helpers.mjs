@@ -50,7 +50,7 @@ export async function signup(base, over = {}) {
 }
 
 /** Cliente de IA falso: registra cada llamada y responde según el modelo (rápido = clasificación, principal = texto). */
-export function fakeAnthropic({ assess = () => ({ risk: 'none', theme: 'ansiedad' }), text = () => 'Señor, gracias por escucharme. Dame calma y claridad para hoy.', failMain = false } = {}) {
+export function fakeAnthropic({ assess = () => ({ risk: 'none', theme: 'ansiedad' }), choose = (candidatesText) => ({ ref: candidatesText.split('\n')[1].split(' — ')[0] }), text = () => 'Señor, gracias por escucharme. Dame calma y claridad para hoy.', failMain = false } = {}) {
   const calls = [];
   return {
     calls,
@@ -59,7 +59,8 @@ export function fakeAnthropic({ assess = () => ({ risk: 'none', theme: 'ansiedad
         calls.push(args);
         if (args.model === 'claude-haiku-5-5') {
           const userText = args.messages[0].content;
-          return { content: [{ type: 'text', text: JSON.stringify(assess(userText)) }] };
+          const isChoose = /elige el versículo|Eliges el versículo/i.test(args.system);
+          return { content: [{ type: 'text', text: JSON.stringify(isChoose ? choose(userText) : assess(userText)) }] };
         }
         if (failMain) { const e = new Error('servicio caído'); e.status = 529; throw e; }
         return { content: [{ type: 'text', text: text(args) }] };

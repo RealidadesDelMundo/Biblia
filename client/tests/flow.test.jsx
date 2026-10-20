@@ -33,8 +33,8 @@ describe('Recorrido completo de la interfaz', () => {
     await user.click(screen.getByRole('checkbox'));
     await user.click(screen.getByRole('button', { name: 'Crear cuenta' }));
     expect(await screen.findByRole('heading', { name: 'Versículo del día' })).toBeInTheDocument();
-    expect(await screen.findByText(/Reina-Valera 1909/)).toBeInTheDocument();
-    expect(screen.getByText(/Modo de demostración/)).toBeInTheDocument();
+    expect(await screen.findByRole('figure')).toBeInTheDocument();
+    expect(screen.getByText(/Versión de prueba/)).toBeInTheDocument();
   });
 
   test('escribir una oración, encender una vela desde ella, verla en el diario y en la capilla', async () => {
@@ -97,7 +97,7 @@ describe('Recorrido completo de la interfaz', () => {
     expect(await screen.findByText(/No es Dios, ni un pastor, ni un terapeuta/)).toBeInTheDocument();
     await user.type(screen.getByLabelText('Tu mensaje'), 'Me siento perdido con mi trabajo');
     await user.click(screen.getByRole('button', { name: 'Enviar' }));
-    expect(await screen.findByText(/Modo demostración/)).toBeInTheDocument();
+    expect(await screen.findByText(/Versión de prueba/)).toBeInTheDocument();
     await user.type(screen.getByLabelText('Tu mensaje'), 'no quiero seguir viviendo');
     await user.click(screen.getByRole('button', { name: 'Enviar' }));
     expect(await screen.findByRole('alert')).toHaveTextContent(/estés a salvo/);
@@ -164,5 +164,36 @@ describe('Recorrido completo de la interfaz', () => {
       expect(await screen.findByText('Premium llegará pronto.')).toBeInTheDocument();
       expect(screen.queryByText(/Modo de pruebas/)).not.toBeInTheDocument();
     } finally { globalThis.fetch = real; }
+  });
+
+  test('registro cerrado: aparece el campo del código de invitación solo cuando el servidor lo exige', async () => {
+    const user = userEvent.setup();
+    const real = globalThis.fetch;
+    globalThis.fetch = async (u, i) => {
+      const r = await real(u, i);
+      if (String(u).endsWith('/api/config')) { const j = await r.json(); j.inviteRequired = true; return new Response(JSON.stringify(j), { status: 200, headers: { 'content-type': 'application/json' } }); }
+      return r;
+    };
+    try {
+      localStorage.setItem('oracion.seen', '1');
+      render(<App />);
+      expect(await screen.findByLabelText('Código de invitación')).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Ya tengo cuenta' }));
+      expect(screen.queryByLabelText('Código de invitación')).not.toBeInTheDocument();
+    } finally { globalThis.fetch = real; }
+  });
+
+  test('un usuario normal no ve el panel de administración ni puede abrirlo escribiendo /admin', async () => {
+    const user = userEvent.setup();
+    await registrar(user);
+    await user.click(tab('Cuenta'));
+    expect(await screen.findByRole('heading', { name: 'Tus datos' })).toBeInTheDocument();
+    expect(screen.queryByText('Administración')).not.toBeInTheDocument();
+    expect(screen.queryByText('Ver personas registradas')).not.toBeInTheDocument();
+    // intento de entrar directamente por la dirección
+    window.history.pushState({}, '', '/admin');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    await waitFor(() => expect(screen.queryByRole('heading', { name: 'Personas registradas' })).not.toBeInTheDocument());
+    expect(screen.getByRole('navigation', { name: 'Secciones' })).toBeInTheDocument(); // sigue en la app normal
   });
 });

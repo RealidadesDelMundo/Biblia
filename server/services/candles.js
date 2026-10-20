@@ -1,5 +1,5 @@
 import { isPremium } from '../plans.js';
-import { pickVerse } from './verses.js';
+import { selectVerse } from './verseSelect.js';
 
 export const clean = (s, max) => String(s ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
 
@@ -10,7 +10,7 @@ export async function createCandle({ db, config, ai }, user, { name, intention, 
   let verse = null;
   if (isPremium(user, now)) {
     const a = await ai.assess(intention);
-    verse = pickVerse(a.theme);
+    verse = await selectVerse({ ai, text: intention, assessment: a });
   }
   const row = {
     user_id: user.id,

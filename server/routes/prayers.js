@@ -5,6 +5,7 @@ import { clean } from '../services/candles.js';
 import { assessRiskPatterns, maxRisk, helplineForRequest, highRiskText } from '../services/crisis.js';
 import { usage, isPremium } from '../plans.js';
 import * as V from '../services/verses.js';
+import { selectVerse } from '../services/verseSelect.js';
 
 const publicEntry = (e) => ({
   id: e.id,
@@ -43,8 +44,9 @@ export function prayerRoutes({ db, config, ai, aiLimiter }) {
 
     const recent = await db('entries').where({ user_id: user.id }).orderBy('created_at', 'desc').limit(14).select('theme', 'verse_ref');
     const recentThemes = isPremium(user) ? [...new Set(recent.slice(0, 5).map((e) => V.LABELS[e.theme] || e.theme))] : [];
-    const prayer = await ai.writePrayer({ intention, theme: a.theme, risk, recentThemes });
-    const verse = V.pickVerse(a.theme, { avoidRefs: recent.map((e) => e.verse_ref) });
+    // Primero el versículo (el que mejor encaja con lo escrito) y después la oración, que parte de él
+    const verse = await selectVerse({ ai, text: intention, assessment: a, avoidRefs: recent.map((e) => e.verse_ref) });
+    const prayer = await ai.writePrayer({ intention, theme: a.theme, risk, recentThemes, verse });
 
     const row = {
       user_id: user.id, original: intention, prayer: prayer.text, theme: verse.theme, verse_ref: verse.ref, verse_text: verse.text,

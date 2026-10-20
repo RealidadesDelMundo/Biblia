@@ -21,7 +21,7 @@ export function billingRoutes({ db, config, stripe, billing }) {
 
   r.use(requireAuth);
   const needStripe = () => { if (config.paymentsMode !== 'stripe') throw httpError(503, 'Los pagos no están disponibles todavía.', 'PAYMENTS_OFF'); };
-  const me = async (userId) => { const u = await db('users').where({ id: userId }).first(); return { user: publicUser(u), usage: await usage(db, config, u) }; };
+  const me = async (userId) => { const u = await db('users').where({ id: userId }).first(); return { user: publicUser(u, Date.now(), config.adminEmails), usage: await usage(db, config, u) }; };
 
   r.post('/checkout', wrap(async (req, res) => {
     const interval = req.body?.interval === 'year' ? 'year' : 'month';

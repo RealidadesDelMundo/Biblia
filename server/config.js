@@ -55,6 +55,10 @@ export function loadConfig(overrides = {}) {
       resendKey: e.RESEND_API_KEY || '',
       from: e.MAIL_FROM || 'Oración <no-reply@example.com>',
     },
+    // Registro cerrado: si se define INVITE_CODE, solo se puede crear cuenta con ese código.
+    inviteCode: (e.INVITE_CODE || '').trim(),
+    // Administradores (correos separados por comas): ven el panel /admin.
+    adminEmails: (e.ADMIN_EMAILS || '').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean),
     supportEmail: e.SUPPORT_EMAIL || 'soporte@example.com',
     legalDraftBanner: bool(e.LEGAL_DRAFT_BANNER, true),
     legalEntity: e.LEGAL_ENTITY || '[RAZÓN SOCIAL / TITULAR]',

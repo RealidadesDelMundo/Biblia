@@ -3,12 +3,13 @@ import { wrap, httpError } from '../util.js';
 import { requireAuth, checkPassword, clearSessionCookie } from '../auth.js';
 import { publicUser, usage } from '../plans.js';
 import { countries } from '../services/crisis.js';
+import { deleteUserData } from '../services/accounts.js';
 
 export function meRoutes({ db, config, stripe }) {
   const r = Router();
   r.use(requireAuth);
 
-  r.get('/', wrap(async (req, res) => res.json({ user: publicUser(req.user), usage: await usage(db, config, req.user) })));
+  r.get('/', wrap(async (req, res) => res.json({ user: publicUser(req.user, Date.now(), config.adminEmails), usage: await usage(db, config, req.user) })));
 
   r.patch('/', wrap(async (req, res) => {
     const patch = {};
@@ -19,7 +20,7 @@ export function meRoutes({ db, config, stripe }) {
     }
     if (Object.keys(patch).length) await db('users').where({ id: req.user.id }).update(patch);
     const user = await db('users').where({ id: req.user.id }).first();
-    res.json({ user: publicUser(user) });
+    res.json({ user: publicUser(user, Date.now(), config.adminEmails) });
   }));
 
   // Derecho de acceso y portabilidad (RGPD art. 15 y 20)
@@ -49,11 +50,7 @@ export function meRoutes({ db, config, stripe }) {
     if (stripe && req.user.stripe_subscription_id) {
       try { await stripe.subscriptions.cancel(req.user.stripe_subscription_id); } catch (e) { console.error('[delete] no se pudo cancelar la suscripción', e?.message); }
     }
-    const id = req.user.id;
-    await db.transaction(async (trx) => {
-      for (const t of ['entries', 'candles', 'orders', 'chat_messages', 'password_resets']) await trx(t).where({ user_id: id }).del();
-      await trx('users').where({ id }).del();
-    });
+    await deleteUserData(db, req.user.id);
     clearSessionCookie(config, res);
     res.json({ ok: true });
   }));

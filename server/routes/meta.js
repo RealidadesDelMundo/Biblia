@@ -22,6 +22,7 @@ export function metaRoutes({ db, config, ai }) {
       candleSizes: Object.fromEntries(Object.entries(config.candle.sizes).map(([k, s]) => [k, { label: s.label, hours: s.hours, cents: config.prices.candle[k] ?? 0 }])),
       themes: Object.fromEntries(V.THEMES.map((t) => [t, V.LABELS[t]])),
       legalDraftBanner: config.legalDraftBanner,
+      inviteRequired: !!config.inviteCode,
       supportEmail: config.supportEmail,
       legal: { entity: config.legalEntity, address: config.legalAddress },
       privacyVersion: config.privacyVersion,

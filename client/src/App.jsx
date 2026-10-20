@@ -13,6 +13,7 @@ import Chapel from './screens/Chapel.jsx';
 import Companion from './screens/Companion.jsx';
 import Account, { applyScale } from './screens/Account.jsx';
 import { Privacy, Terms } from './screens/Legal.jsx';
+import Admin from './screens/Admin.jsx';
 
 const TABS = [
   { id: 'hoy', label: 'Hoy', Icon: Sun, View: Today },
@@ -84,6 +85,7 @@ function Root() {
   if (route.path === '/terminos') return <Terms />;
   if (route.path === '/restablecer') return <ResetPassword />;
   if (auth.status === 'anon') return seen ? <Auth /> : <Onboarding onDone={() => { localStorage.setItem('oracion.seen', '1'); setSeen(true); }} />;
+  if (route.path === '/admin' && auth.user?.isAdmin) return <Admin />;
   return <Main />;
 }
 

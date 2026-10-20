@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Flame } from 'lucide-react';
 import { api } from '../api.js';
 import { useApp } from '../store.jsx';
@@ -14,6 +14,9 @@ export default function Today() {
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState(null);
   const paymentsOn = config?.paymentsMode !== 'off';
+  const crisisRef = useRef(null);
+  // Si hay riesgo alto, la ayuda debe verse al instante, sin tener que buscarla
+  useEffect(() => { if (result?.risk === 'high') crisisRef.current?.scrollIntoView?.({ block: 'start', behavior: 'smooth' }); }, [result]);
 
   useEffect(() => {
     let live = true;
@@ -50,7 +53,7 @@ export default function Today() {
       </header>
 
       <section className="card" aria-label="Versículo del día">
-        {votd ? <Verse verse={votd.verse} share note={votd.note} /> : <p className="muted">Cargando el versículo…</p>}
+        {votd ? <Verse verse={votd.verse} share note={votd.note} openGist /> : <p className="muted">Cargando el versículo…</p>}
         {votd && !isPremium && paymentsOn && (
           <p className="tiny muted" style={{ marginTop: 10 }}>
             Con Premium este versículo se elige según lo que has orado esta semana. <button className="btn quiet sm" style={{ minHeight: 28, padding: '0 4px' }} onClick={() => setPremiumOpen(true)}>Ver Premium</button>
@@ -58,15 +61,17 @@ export default function Today() {
         )}
       </section>
 
-      {config?.aiMode === 'demo' && <p className="notice warn" role="note">Modo de demostración: la IA no está conectada y las oraciones son de ejemplo.</p>}
+      {config?.aiMode === 'demo' && <p className="notice warn" role="note">Versión de prueba: las oraciones de esta versión son de ejemplo.</p>}
 
       {result?.risk === 'high' ? (
-        <CrisisCard data={result} onHelpline={setHelpline}>
-          <button className="btn block" onClick={() => setResult(null)}>Volver</button>
-        </CrisisCard>
+        <div ref={crisisRef} style={{ scrollMarginTop: 12 }}>
+          <CrisisCard data={result} onHelpline={setHelpline}>
+            <button className="btn block" onClick={() => setResult(null)}>Volver</button>
+          </CrisisCard>
+        </div>
       ) : result?.entry ? (
         <section className="card stack" aria-label="Tu oración">
-          <Verse verse={result.entry.verse} small />
+          <Verse verse={result.entry.verse} small openGist />
           <hr className="divider" style={{ margin: '4px 0' }} />
           <div className="prayer">{result.entry.prayer.split(/\n{2,}/).map((p, i) => <p key={i}>{p}</p>)}</div>
           <p className="tiny muted">Oración escrita por una IA. Guardada en tu diario.</p>

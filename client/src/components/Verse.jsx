@@ -12,14 +12,13 @@ export async function shareText(text, toast) {
 }
 
 /** Texto bíblico (siempre de la base curada) con su referencia y, opcionalmente, la paráfrasis en lenguaje actual. */
-export default function Verse({ verse, small = false, share = false, note }) {
-  const { config, toast } = useApp();
-  const [gist, setGist] = useState(false);
-  const tr = config?.translation?.name || 'Reina-Valera 1909';
+export default function Verse({ verse, small = false, share = false, note, openGist = false }) {
+  const { toast } = useApp();
+  const [gist, setGist] = useState(openGist);
   return (
     <figure style={{ margin: 0 }}>
       <blockquote className={`scripture ${small ? 'small-s' : ''}`} style={{ margin: 0 }}>«{verse.text}»</blockquote>
-      <figcaption className="verse-ref" style={{ marginTop: 10 }}>{verse.ref} · {tr}</figcaption>
+      <figcaption className="verse-ref" style={{ marginTop: 10 }}>{verse.ref}</figcaption>
       {note && <p className="tiny muted" style={{ marginTop: 8 }}>{note}</p>}
       {verse.gist && (
         <div style={{ marginTop: 8 }}>
@@ -30,7 +29,7 @@ export default function Verse({ verse, small = false, share = false, note }) {
         </div>
       )}
       {share && (
-        <button className="btn quiet sm" style={{ paddingLeft: 0 }} onClick={() => shareText(`«${verse.text}» (${verse.ref}, ${tr}) — ${APP_NAME}`, toast)}>
+        <button className="btn quiet sm" style={{ paddingLeft: 0 }} onClick={() => shareText(`«${verse.text}» (${verse.ref}) — ${APP_NAME}`, toast)}>
           <Share2 size={16} /> Compartir
         </button>
       )}

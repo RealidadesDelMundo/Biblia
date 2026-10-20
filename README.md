@@ -21,7 +21,8 @@ El navegador **nunca** habla con la IA ni con Stripe directamente: todo pasa por
 1. **Textos legales** (`client/src/screens/Legal.jsx`): son un borrador. Los debe revisar un abogado. Los datos de religión y de salud emocional son categoría especial del RGPD.
 2. **Detección de riesgo** (`server/services/crisis.js`): es heurística, no clínica. Debe revisarla un profesional de salud mental.
 3. **Teléfonos de ayuda** (`server/data/helplines.json`): verificados el 2026-10-20. Revisa al menos una vez al año. Para Andorra solo consta el 112.
-4. **Versículos** (`server/data/verses.json`): texto real de la Reina-Valera 1909, tomado del repositorio `scrollmapper/bible_databases` (declarado como dominio público). Confirma tú su situación legal. Revisa también que cada versículo encaje con su tema. Se regenera con `scripts/build-verses.mjs`.
+4. **Versículos** (`server/data/verses.json`): ~1.000 versículos en 91 temas. El texto es el real de la Reina-Valera 1909, tomado del repositorio `scrollmapper/bible_databases` (declarado como dominio público): confirma tú su situación legal. Las referencias y los resúmenes en lenguaje actual los elegí yo y se validaron automáticamente (que cada referencia exista y el texto sea el correcto), pero **conviene que una persona con formación bíblica revise que cada versículo encaje con su tema**. Para añadir o cambiar versículos edita `scripts/verses-source.json` y ejecuta `node scripts/build-verses.mjs <SpaRV.json>` (descarga `formats/json/SpaRV.json` del repositorio anterior). El script también marca cuáles se leen bien hoy (`readable`), que son los únicos que usa el versículo del día.
+   - **Licencias de traducciones modernas** (RVR1960, NVI…): requieren licencia. Biblica (NVI) permite citar hasta 500 versículos sin permiso, con aviso de copyright y sin superar el 25 % de la obra; este catálogo ya pasa de 500, así que haría falta permiso escrito. API.Bible (American Bible Society) ofrece licencias comerciales por traducción con cuota mensual según el número de usuarios (el precio sale en su proceso de compra), pero cuenta como comercial cualquier app con suscripción o plan gratis con venta, exige renovar la caché cada 30 días y no todas las traducciones están disponibles. Antes de usarlas hay que cambiar cómo se guardan los versículos en el diario (hoy se guarda el texto).
 5. **Condiciones de Anthropic sobre datos de la API:** verifica las vigentes y actualiza la política de privacidad.
 6. **IVA e impuestos:** pregunta a tu gestor cómo facturar servicios digitales a consumidores de la UE (y de Andorra). Stripe Tax está soportado (`STRIPE_AUTOMATIC_TAX=true`) pero hay que configurarlo en Stripe.
 7. **Precios y límites:** son propuestas (ver `.env.example`).
@@ -65,6 +66,12 @@ Para usar la IA real en local, crea un `.env` o exporta `ANTHROPIC_API_KEY`. **N
 ### Versión para enseñar a amigos (sin pagos, sin Resend)
 Con solo estas variables funciona: `NODE_ENV=production`, `JWT_SECRET`, `DATABASE_URL=${{Postgres.DATABASE_URL}}`, `APP_URL` y, opcionalmente, `ANTHROPIC_API_KEY`. No pongas Stripe ni Resend: los pagos salen como «próximamente» y nadie puede activarse Premium. Sin Resend, quien olvide su contraseña no podrá recuperarla.
 
+### Quién puede registrarse y cómo ver a las personas
+- **Registro cerrado:** define `INVITE_CODE` y solo podrá crear cuenta quien tenga ese código. Sin la variable, cualquiera con el enlace puede registrarse.
+- **No hay verificación de correo** (necesitaría Resend): cualquiera podría registrarse con un correo ajeno. El código de invitación lo evita mientras sea una prueba.
+- **Panel de administración:** define `ADMIN_EMAILS` con tu correo y **regístrate tú primero**. Verás en Cuenta una sección «Administración» con la lista de personas (alta, último acceso, plan y cuántas oraciones, velas y mensajes tienen) y podrás borrar cuentas. Nunca muestra lo que escriben.
+- Además, en Railway puedes ver las tablas en el servicio PostgreSQL → pestaña Database. Ahí sí se ve el contenido que escribe la gente: evítalo, y menciona en la política de privacidad quién tiene acceso.
+
 ### Stripe (primero en modo test)
 1. Crea la cuenta de Stripe y copia la clave secreta **de test** en `STRIPE_SECRET_KEY`.
 2. Developers → Webhooks → añade el endpoint `https://TU-DOMINIO/api/billing/webhook` con estos eventos: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_failed`.
@@ -89,7 +96,7 @@ Crea una cuenta en Resend, verifica tu dominio y pon `RESEND_API_KEY` y `MAIL_FR
 | Nombre de la app | `client/src/brand.js`, `client/index.html`, `client/public/manifest.webmanifest`, `scripts/make-icons.mjs` |
 
 Decisiones de diseño que conviene conocer:
-- La IA solo **elige el tema**: el versículo lo elige el servidor de la base curada, así nunca se inventa una cita.
+- **Cómo se elige el versículo:** (1) una IA rápida detecta de 1 a 2 temas; (2) el servidor reúne los versículos de esos temas (sin los vistos hace poco); (3) la IA elige el que mejor encaja **solo entre esos candidatos**; si devuelve algo que no está en la lista, se ignora; (4) la oración se escribe a partir de ese versículo, sin citarlo. Sin IA (o si falla) se elige por coincidencia de palabras con lo escrito. Así nunca se inventa una cita. Con ~10 versículos por tema el ajuste tiene un techo: ampliar la base mejora la relevancia.
 - Riesgo = máximo entre los patrones fijos y la IA. La IA puede subirlo, nunca bajarlo.
 - Riesgo alto: no se genera oración, **no se guarda el texto** y no gasta cupo.
 - Si la IA falla, se entrega una oración de respaldo y **no se gasta el cupo** del usuario.

@@ -84,7 +84,6 @@ export default function Account() {
               style={{ fontSize: `${0.95 + i * 0.25}rem`, borderColor: scale === s.v ? 'var(--gold)' : undefined, flex: 1 }} onClick={() => chooseScale(s.v)}>{s.label}</button>
           ))}
         </div>
-        <p className="small muted">Traducción bíblica: {config.translation.name} ({config.translation.note.toLowerCase()}). Añadiremos otras cuando se resuelvan sus licencias.</p>
       </section>
 
       <section className="card stack" aria-labelledby="help-h">
@@ -105,6 +104,13 @@ export default function Account() {
           {installEvt
             ? <button className="btn" onClick={async () => { installEvt.prompt(); await installEvt.userChoice; window.__installPrompt = null; setInstallEvt(null); }}><Download size={16} /> Añadir a la pantalla de inicio</button>
             : <p className="small muted">En el iPhone: toca el botón Compartir del navegador y elige «Añadir a pantalla de inicio».</p>}
+        </section>
+      )}
+
+      {user.isAdmin && (
+        <section className="card stack" aria-labelledby="adm-h">
+          <h2 id="adm-h" className="label">Administración</h2>
+          <a className="btn" href="/admin" onClick={link('/admin')}>Ver personas registradas</a>
         </section>
       )}
 

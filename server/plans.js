@@ -37,9 +37,10 @@ export async function usage(db, config, user, now = Date.now()) {
   };
 }
 
-export const publicUser = (user, now = Date.now()) => ({
+export const publicUser = (user, now = Date.now(), adminEmails = []) => ({
   id: user.id,
   email: user.email,
+  isAdmin: adminEmails.includes(user.email),
   plan: isPremium(user, now) ? 'premium' : 'free',
   planInterval: isPremium(user, now) ? user.plan_interval : null,
   planStatus: user.plan_status,

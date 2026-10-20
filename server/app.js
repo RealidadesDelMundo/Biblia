@@ -18,6 +18,7 @@ import { prayerRoutes } from './routes/prayers.js';
 import { candleRoutes } from './routes/candles.js';
 import { companionRoutes } from './routes/companion.js';
 import { billingRoutes } from './routes/billing.js';
+import { adminRoutes } from './routes/admin.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -63,6 +64,7 @@ export function createApp({ config, db, ai, stripe, mailer, billing, clientDir }
   app.use('/api/candles', candleRoutes({ db, config, ai, billing }));
   app.use('/api/companion', companionRoutes({ db, config, ai, aiLimiter }));
   app.use('/api/billing', billingRoutes({ db, config, stripe, billing }));
+  app.use('/api/admin', adminRoutes({ db, config, stripe }));
   app.use('/api', (_req, res) => res.status(404).json({ error: 'No encontrado.' }));
 
   // Frontend (React compilado)

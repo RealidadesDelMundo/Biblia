@@ -19,7 +19,8 @@ function Password({ id, label, value, onChange, autoComplete, hint }) {
 }
 
 export default function Auth() {
-  const { applySession, toast, route } = useApp();
+  const { config, applySession, toast, route } = useApp();
+  const [inviteCode, setInviteCode] = useState('');
   const [mode, setMode] = useState('register'); // register | login | forgot
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,7 +36,7 @@ export default function Auth() {
     setBusy(true);
     try {
       if (mode === 'forgot') { await api.post('/api/auth/forgot', { email }); setSent(true); return; }
-      const d = await api.post(mode === 'register' ? '/api/auth/register' : '/api/auth/login', mode === 'register' ? { email, password, consent: true } : { email, password });
+      const d = await api.post(mode === 'register' ? '/api/auth/register' : '/api/auth/login', mode === 'register' ? { email, password, consent: true, inviteCode } : { email, password });
       applySession(d);
       if (mode === 'register') toast('Cuenta creada. Bienvenido.');
     } catch (err) { setError(err.message); } finally { setBusy(false); }
@@ -62,6 +63,13 @@ export default function Auth() {
           </div>
           {mode !== 'forgot' && (
             <Password id="password" label="Contraseña" value={password} onChange={setPassword} autoComplete={mode === 'register' ? 'new-password' : 'current-password'} hint={mode === 'register' ? 'Mínimo 8 caracteres.' : undefined} />
+          )}
+          {mode === 'register' && config?.inviteRequired && (
+            <div className="field">
+              <label htmlFor="invite">Código de invitación</label>
+              <input id="invite" type="text" value={inviteCode} onChange={(e) => setInviteCode(e.target.value)} autoCapitalize="none" autoComplete="off" spellCheck="false" required />
+              <span className="hint">Esta versión es solo para personas invitadas.</span>
+            </div>
           )}
           {mode === 'register' && (
             <label className="check">

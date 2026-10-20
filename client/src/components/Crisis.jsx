@@ -48,9 +48,8 @@ export function CrisisCard({ data, onHelpline, children }) {
   const hl = data.helpline;
   return (
     <section className="card danger stack" role="alert" aria-live="assertive">
-      <div className="prayer" style={{ fontSize: '1.3rem' }}>
-        {data.messages.map((m, i) => <p key={i}>{m}</p>)}
-      </div>
+      <div className="prayer" style={{ fontSize: '1.3rem' }}><p>{data.messages[0]}</p></div>
+      {/* Los teléfonos van justo después del primer párrafo: lo primero que hay que ver */}
       <div className="stack" style={{ gap: 10 }}>
         {hl?.line
           ? <Line line={hl.line} note={hl.note} title={hl.name} />
@@ -59,6 +58,7 @@ export function CrisisCard({ data, onHelpline, children }) {
           ? <Line line={hl.emergency} note="Si hay peligro inmediato, llama ahora." title="Emergencias" />
           : <div className="help-line"><b>Emergencias</b><span>Si hay peligro inmediato, llama al número de emergencias de tu país.</span></div>}
       </div>
+      <div className="prayer" style={{ fontSize: '1.2rem' }}>{data.messages.slice(1).map((m, i) => <p key={i}>{m}</p>)}</div>
       <CountryPicker helpline={hl} onHelpline={onHelpline} />
       <p className="small muted">Esta aplicación no puede darte la ayuda que necesitas ahora, pero estas personas sí. Lo que has escrito no se ha guardado.</p>
       {children}
