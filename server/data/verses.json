@@ -1,0 +1,1750 @@
+{
+ "translation": "Reina-Valera 1909 (dominio público)",
+ "themes": {
+  "ansiedad": [
+   {
+    "ref": "Filipenses 4:6-7",
+    "text": "Por nada estéis afanosos; sino sean notorias vuestras peticiones delante de Dios en toda oracion y ruego, con hacimiento de gracias. Y la paz de Dios, que sobrepuja todo entendimiento, guardará vuestros corazones y vuestros entendimientos en Cristo Jesús.",
+    "summary": "No te angusties por nada; la paz de Dios cuidará tu corazón."
+   },
+   {
+    "ref": "1 Pedro 5:7",
+    "text": "Echando toda vuestra solicitud en él, porque él tiene cuidado de vosotros.",
+    "summary": "Puedes entregarle toda tu preocupación, porque Él cuida de ti."
+   },
+   {
+    "ref": "Mateo 6:34",
+    "text": "Así que, no os congojéis por el día de mañana; que el día de mañana traerá su fatiga: basta al día su afan.",
+    "summary": "No te angusties por el mañana; cada día tiene sus propios afanes."
+   },
+   {
+    "ref": "Salmo 94:19",
+    "text": "En la multitud de mis pensamientos dentro de mí, tus consolaciones alegraban mi alma.",
+    "summary": "Cuando la ansiedad crece en mí, tu consuelo trae alegría a mi alma."
+   },
+   {
+    "ref": "Juan 14:27",
+    "text": "La paz os dejo, mi paz os doy: no como el mundo la da, yo os la doy. No se turbe vuestro corazon, ni tenga miedo.",
+    "summary": "Te dejo mi paz; no se turbe tu corazón, ni tengas miedo."
+   },
+   {
+    "ref": "Isaías 26:3",
+    "text": "Tú le guardaras en completa paz, cuyo pensamiento en ti persevera; porque en ti se ha confiado.",
+    "summary": "Guardas en completa paz a quien en ti confía."
+   },
+   {
+    "ref": "Salmo 55:22",
+    "text": "Echa sobre Jehová tu carga, y él te sustentará; no dejará para siempre caído al justo.",
+    "summary": "Deja tus cargas en manos del Señor, y Él te sostendrá."
+   },
+   {
+    "ref": "Proverbios 12:25",
+    "text": "El cuidado congojoso en el corazon del hombre, lo abate; mas la buena palabra lo alegra.",
+    "summary": "La ansiedad abate el corazón, pero la palabra amable lo alegra."
+   },
+   {
+    "ref": "Lucas 12:25",
+    "text": "¿Y quién de vosotros podrá con afan añadir á su estatura un codo?",
+    "summary": "¿Quién de ustedes, por más que se preocupe, puede añadir una hora a su vida?"
+   },
+   {
+    "ref": "Salmo 34:4",
+    "text": "Busqué á Jehová, y él me oyó, y librome de todos mis temores.",
+    "summary": "Busqué al Señor, y Él me respondió; me libró de todos mis temores."
+   },
+   {
+    "ref": "Proverbios 3:24",
+    "text": "Cuando te acostares, no tendras temor; antes te acostaras, y tu sueño será suave.",
+    "summary": "Te acostarás sin temor, y tu sueño será placentero."
+   }
+  ],
+  "miedo": [
+   {
+    "ref": "Isaías 41:10",
+    "text": "No temas, que yo soy contigo; no desmayes, que yo soy tu Dios que te esfuerzo: siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.",
+    "summary": "No temas, porque Dios está contigo y te sostiene."
+   },
+   {
+    "ref": "Salmo 23:4",
+    "text": "Aunque ande en valle de sombra de muerte, no temeré mal alguno; porque tú estaras conmigo: tu vara y tu cayado me infundiran aliento.",
+    "summary": "Aunque camines por el valle oscuro, no estás solo."
+   },
+   {
+    "ref": "2 Timoteo 1:7",
+    "text": "Porque no nos ha dado Dios el espíritu de temor, sino el de fortaleza, y de amor, y de templanza.",
+    "summary": "Dios no te dio espíritu de miedo, sino de poder, amor y dominio propio."
+   },
+   {
+    "ref": "Salmo 27:1",
+    "text": "Jehová es mi luz y mi salvacion: ¿de quién temeré? Jehová es la fortaleza de mi vida: ¿de quién he de atemorizarme?",
+    "summary": "El Señor es mi luz, ¿a quién temeré?"
+   },
+   {
+    "ref": "Deuteronomio 31:6",
+    "text": "Esforzaos y cobrad ánimo; no temais, ni tengais miedo de ellos: que Jehová tu Dios es el que va contigo: no te dejará ni te desamparará.",
+    "summary": "Sé fuerte y valiente; Dios va contigo, nunca te dejará."
+   },
+   {
+    "ref": "Juan 14:1",
+    "text": "No se turbe vuestro corazon: creéis en Dios, creed también en mí.",
+    "summary": "No se turbe tu corazón; cree, y confía."
+   },
+   {
+    "ref": "Salmo 118:6",
+    "text": "Jehová está por mí: no temeré lo que me pueda hacer el hombre.",
+    "summary": "El Señor está conmigo, no tengo miedo; ¿qué puede hacerme el hombre?"
+   },
+   {
+    "ref": "Isaías 43:1-2",
+    "text": "Y AHORA, así dice Jehová Criador tuyo, oh Jacob, y Formador tuyo, oh Israel: No temas, porque yo te redimí; te puse nombre, mío eres tú. Cuando pasares por las aguas, yo seré contigo; y por los ríos, no te anegaran. Cuando pasares por el fuego, no te quemaras, ni la llama arderá en ti.",
+    "summary": "No temas, porque te he redimido; te he llamado por tu nombre, tú eres mío."
+   },
+   {
+    "ref": "Salmo 46:2",
+    "text": "Por tanto no temeremos aunque la tierra sea removida; aunque se traspasen los montes al corazon de la mar.",
+    "summary": "No temeremos, aunque la tierra tiemble y los montes caigan al mar."
+   },
+   {
+    "ref": "Isaías 12:2",
+    "text": "He aquí Dios es salud mía; aseguraréme, y no temeré; porque mi fortaleza y mi cancion es JAH Jehová, el cual ha sido salud para mí.",
+    "summary": "Dios es mi salvación; confiaré en Él y no temeré."
+   },
+   {
+    "ref": "2 Reyes 6:16",
+    "text": "Y él le dijo: No hayas miedo: porque mas son los que estan con nosotros que los que estan con ellos.",
+    "summary": "No temas, porque son más los que están con nosotros que los que están con ellos."
+   }
+  ],
+  "duelo": [
+   {
+    "ref": "Salmo 34:18",
+    "text": "Cercano está Jehová á los quebrantados de corazon; y salvará á los contritos de espíritu.",
+    "summary": "Dios está cerca de los que tienen el corazón quebrantado."
+   },
+   {
+    "ref": "Mateo 5:4",
+    "text": "Bienaventurados los que lloran: porque ellos recibiran consolacion.",
+    "summary": "Los que lloran serán consolados."
+   },
+   {
+    "ref": "Filipenses 1:21",
+    "text": "Porque para mí el vivir es Cristo, y el morir es ganancia.",
+    "summary": "Vivir tiene sentido, y lo que viene después es aún mejor."
+   },
+   {
+    "ref": "Apocalipsis 21:4",
+    "text": "Y limpiará Dios toda lagrima de los ojos de ellos; y la muerte no será mas; y no habrá mas llanto, ni clamor, ni dolor: porque las primeras cosas son pasadas.",
+    "summary": "Enjugará toda lágrima; ya no habrá muerte, ni llanto, ni dolor."
+   },
+   {
+    "ref": "Salmo 147:3",
+    "text": "El sana á los quebrantados de corazon, y liga sus heridas.",
+    "summary": "Sana a los quebrantados de corazón y venda sus heridas."
+   },
+   {
+    "ref": "2 Corintios 1:3-4",
+    "text": "Bendito sea el Dios y Padre del Señor Jesucristo, el Padre de misericordias, y el Dios de toda consolacion, El cual nos consuela en todas nuestras tribulaciones, para que podamos también nosotros consolar á los que estan en cualquiera angustia, con la consolacion con que nosotros somos consolados de Dios.",
+    "summary": "Dios nos consuela en toda tribulación para que podamos consolar a otros."
+   },
+   {
+    "ref": "Salmo 30:11",
+    "text": "Has tornado mi endecha en baile; desataste mi saco, y ceñísteme de alegría.",
+    "summary": "Cambiaste mi lamento en danza; me vestiste de alegría."
+   },
+   {
+    "ref": "Isaías 61:3",
+    "text": "A ordenar á Sion á los enlutados, para darles gloria en lugar de ceniza, óleo de gozo en lugar del luto, manto de alegría en lugar del espíritu angustiado; y seran llamados árboles de justicia, plantío de Jehová, para gloria suya.",
+    "summary": "Les dará una corona en vez de cenizas, alegría en vez de luto."
+   },
+   {
+    "ref": "Job 1:21",
+    "text": "Y dijo: Desnudo salí del vientre de mi madre, y desnudo tornaré allá. Jehová dió, y Jehová quitó: sea el nombre de Jehová bendito.",
+    "summary": "El Señor dio, y el Señor quitó; bendito sea el nombre del Señor."
+   },
+   {
+    "ref": "Salmo 116:15",
+    "text": "Estimada es en los ojos de Jehová la muerte de sus santos.",
+    "summary": "Preciosa es a los ojos del Señor la muerte de sus fieles."
+   },
+   {
+    "ref": "Isaías 57:1-2",
+    "text": "Perece el justo, y no hay quien pare mientes; y los píos son recogidos, y no hay quien entienda que delante de la afliccion es recogido el justo. Entrará en la paz; descansaran en sus lechos todos los que andan delante de Dios.",
+    "summary": "Los justos son llevados, y entran en la paz al descansar de su camino."
+   }
+  ],
+  "gratitud": [
+   {
+    "ref": "1 Tesalonicenses 5:18",
+    "text": "Dad gracias en todo; porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.",
+    "summary": "Da gracias en toda circunstancia, sea cual sea."
+   },
+   {
+    "ref": "Salmo 118:24",
+    "text": "Este es el día que hizo Jehová: nos gozaremos y alegraremos en él.",
+    "summary": "Este es el día que Dios hizo; alégrate en él."
+   },
+   {
+    "ref": "Salmo 100:4",
+    "text": "Entrad por sus puertas con reconocimiento, por sus atrios con alabanza: alabadle, bendecid su nombre.",
+    "summary": "Entra por sus puertas con gratitud, dale gracias y bendice su nombre."
+   },
+   {
+    "ref": "Colosenses 3:15",
+    "text": "Y la paz de Dios gobierne en vuestros corazones, á la cual asimismo sois llamados en un cuerpo; y sed agradecidos.",
+    "summary": "Que la paz de Cristo gobierne tu corazón, y sé agradecido."
+   },
+   {
+    "ref": "Salmo 107:1",
+    "text": "Alabad á Jehová, porque es bueno; porque para siempre es su misericordia.",
+    "summary": "Da gracias al Señor, porque es bueno, y su amor es eterno."
+   },
+   {
+    "ref": "Efesios 5:20",
+    "text": "Dando gracias siempre de todo al Dios y Padre en el nombre de nuestro Señor Jesucristo:",
+    "summary": "Da gracias siempre por todo, en el nombre de nuestro Señor."
+   },
+   {
+    "ref": "Salmo 92:1",
+    "text": "Bueno es alabar á Jehová, y cantar salmos á tu nombre, oh Altísimo;",
+    "summary": "Bueno es dar gracias al Señor, y cantar salmos a tu nombre."
+   },
+   {
+    "ref": "1 Crónicas 16:34",
+    "text": "Celebrad á Jehová, porque es bueno; porque su misericordia es eterna.",
+    "summary": "Den gracias al Señor, porque Él es bueno; su amor es eterno."
+   },
+   {
+    "ref": "Salmo 136:1",
+    "text": "Alabad á Jehová, porque es bueno; porque para siempre es su misericordia.",
+    "summary": "Den gracias al Señor, porque Él es bueno; su gran amor perdura para siempre."
+   },
+   {
+    "ref": "Filipenses 1:3",
+    "text": "Doy gracias á mi Dios en toda memoria de vosotros,",
+    "summary": "Doy gracias a mi Dios cada vez que me acuerdo de ustedes."
+   },
+   {
+    "ref": "Salmo 9:1",
+    "text": "Te alabaré, oh Jehová, con todo mi corazon; contaré todas tus maravillas.",
+    "summary": "Te daré gracias, Señor, con todo mi corazón; contaré todas tus maravillas."
+   }
+  ],
+  "trabajo": [
+   {
+    "ref": "Colosenses 3:23",
+    "text": "Y todo lo que hagais, hacedlo de ánimo, como al Señor, y no á los hombres;",
+    "summary": "Todo lo que hagas, hazlo de corazón, no solo por cumplir."
+   },
+   {
+    "ref": "Proverbios 16:3",
+    "text": "Encomienda á Jehová tus obras, y tus pensamientos seran afirmados.",
+    "summary": "Encomienda a Dios lo que haces, y tus planes se afirmarán."
+   },
+   {
+    "ref": "Eclesiastés 3:13",
+    "text": "Y también que es don de Dios que todo hombre coma y beba, y goce el bien de toda su labor.",
+    "summary": "Disfrutar del propio trabajo también es un regalo de Dios."
+   },
+   {
+    "ref": "2 Tesalonicenses 3:13",
+    "text": "Y vosotros, hermanos, no os canséis de hacer bien.",
+    "summary": "No te canses de hacer el bien."
+   },
+   {
+    "ref": "Proverbios 14:23",
+    "text": "En toda labor hay fruto: mas la palabra de los labios solamente empobrece.",
+    "summary": "En todo trabajo hay ganancia; hablar sin hacer solo lleva a la pobreza."
+   },
+   {
+    "ref": "Salmo 90:17",
+    "text": "Y sea la luz de Jehová nuestro Dios sobre nosotros: y ordena en nosotros la obra de nuestras manos, la obra de nuestras manos confirma.",
+    "summary": "Que la obra de nuestras manos sea confirmada y bendecida."
+   },
+   {
+    "ref": "Proverbios 12:24",
+    "text": "La mano de los diligentes se enseñoreará: mas la negligencia será tributaria.",
+    "summary": "La mano diligente prosperará; la persona floja quedará atrás."
+   },
+   {
+    "ref": "Génesis 2:15",
+    "text": "Tomó, pues, Jehová Dios al hombre, y le puso en el huerto de Edén, para que lo labrara y lo guardase.",
+    "summary": "Dios puso al hombre en el jardín para que lo cultivara y cuidara."
+   },
+   {
+    "ref": "Proverbios 22:29",
+    "text": "¿Has visto hombre solícito en su obra? delante de los reyes estará; no estará delante de los de baja suerte.",
+    "summary": "El diligente en su trabajo se presentará ante reyes, no ante gente sin importancia."
+   },
+   {
+    "ref": "Éxodo 20:9",
+    "text": "Seis días trabajaras, y haras toda tu obra;",
+    "summary": "Seis días trabajarás y harás toda tu obra."
+   },
+   {
+    "ref": "Salmo 128:2",
+    "text": "Cuando comieres el trabajo de tus manos, bienaventurado tú, y tendras bien.",
+    "summary": "Comerás del fruto de tu trabajo; serás dichoso y todo te irá bien."
+   }
+  ],
+  "familia": [
+   {
+    "ref": "Salmo 127:1",
+    "text": "Si Jehová no edificare la casa, en vano trabajan los que la edifican: si Jehová no guardare la ciudad, en vano vela la guarda.",
+    "summary": "Si Dios no edifica la casa, en vano trabajan los que la construyen."
+   },
+   {
+    "ref": "Josué 24:15",
+    "text": "Y si mal os parece servir á Jehová, escogeos hoy á quién sirvais; si á los dioses á quienes sirvieron vuestros padres, cuando estuvieron de esotra parte del río, ó á los dioses de los Amorrheos en cuya tierra habitais: que yo y mi casa serviremos á Jehová.",
+    "summary": "Elige hoy a quién servirás, tú y los tuyos."
+   },
+   {
+    "ref": "Números 6:24-26",
+    "text": "Jehová te bendiga, y te guarde: Haga resplandecer Jehová su rostro sobre ti, y haya de ti misericordia: Jehová alce á ti su rostro, y ponga en ti paz.",
+    "summary": "Que el Señor te bendiga, te guarde y te dé su paz."
+   },
+   {
+    "ref": "Proverbios 22:6",
+    "text": "Instruye al niño en su carrera: aun cuando fuere viejo no se apartará de ella.",
+    "summary": "Enseña al niño el camino correcto, y no se apartará de él."
+   },
+   {
+    "ref": "Efesios 6:4",
+    "text": "Y vosotros, padres, no provoquéis á ira á vuestros hijos; sino criadlos en disciplina y amonestacion del Señor.",
+    "summary": "Críen a sus hijos con amor, guiándolos con paciencia."
+   },
+   {
+    "ref": "Génesis 2:24",
+    "text": "Por tanto, dejará el hombre á su padre y á su madre, y allegarse ha á su mujer, y seran una sola carne.",
+    "summary": "Por eso el hombre y la mujer se unen y son una sola vida."
+   },
+   {
+    "ref": "Efesios 5:25",
+    "text": "Maridos, amad á vuestras mujeres, así como Cristo amó á la iglesia, y se entregó á sí mismo por ella,",
+    "summary": "Esposos, amen a sus esposas, así como Cristo amó a la iglesia."
+   },
+   {
+    "ref": "Salmo 133:1",
+    "text": "¡Mirad cuan bueno y cuan delicioso es habitar los hermanos igualmente en uno!",
+    "summary": "Qué bueno y agradable es cuando los hermanos conviven en armonía."
+   },
+   {
+    "ref": "Salmo 128:3",
+    "text": "Tu mujer será como parra que lleva fruto á los lados de tu casa; tus hijos como plantas de olivas alrededor de tu mesa.",
+    "summary": "Tus hijos serán como vástagos de olivo alrededor de tu mesa."
+   },
+   {
+    "ref": "Proverbios 17:6",
+    "text": "Corona de los viejos son los hijos de los hijos; y la honra de los hijos, sus padres.",
+    "summary": "Los nietos son la corona de los ancianos, y los padres son el orgullo de sus hijos."
+   },
+   {
+    "ref": "Colosenses 3:20",
+    "text": "Hijos, obedeced á vuestros padres en todo; porque esto agrada al Señor.",
+    "summary": "Hijos, obedezcan a sus padres en todo, porque esto agrada al Señor."
+   }
+  ],
+  "decision": [
+   {
+    "ref": "Proverbios 3:5-6",
+    "text": "Fíate de Jehová de todo tu corazon, y no estribes en tu prudencia. Reconocelo en todos tus caminos, y él enderezará tus veredas.",
+    "summary": "Confía de todo corazón, y Él enderezará tu camino."
+   },
+   {
+    "ref": "Santiago 1:5",
+    "text": "Y si alguno de vosotros tiene falta de sabiduría, demandela á Dios, el cual da á todos abundantemente, y no zahiere; y le será dada.",
+    "summary": "Si te falta sabiduría, pídela, y se te dará."
+   },
+   {
+    "ref": "Salmo 32:8",
+    "text": "Te haré entender, y te enseñaré el camino en que debes andar: sobre ti fijaré mis ojos.",
+    "summary": "Te instruiré y te enseñaré el camino que debes seguir."
+   },
+   {
+    "ref": "Proverbios 16:9",
+    "text": "El corazon del hombre piensa su camino: mas Jehová endereza sus pasos.",
+    "summary": "El corazón planea su camino, pero Dios dirige sus pasos."
+   },
+   {
+    "ref": "Isaías 30:21",
+    "text": "Entonces tus oídos oiran á tus espaldas palabra que diga: Este es el camino, andad por él; y no echéis á la mano derecha, ni tampoco torzais á la mano izquierda.",
+    "summary": "Oirás una voz que te dirá: este es el camino, síguelo."
+   },
+   {
+    "ref": "Proverbios 4:26",
+    "text": "Examina la senda de tus pies, y todos tus caminos sean ordenados.",
+    "summary": "Traza con cuidado el camino de tus pies, y todos tus pasos serán firmes."
+   },
+   {
+    "ref": "Salmo 37:23",
+    "text": "Por Jehová son ordenados los pasos del hombre, y aprueba su camino.",
+    "summary": "El Señor afirma los pasos del hombre que le agrada."
+   },
+   {
+    "ref": "Proverbios 15:22",
+    "text": "Los pensamientos son frustrados donde no hay consejo; mas en la multitud de consejeros se afirman.",
+    "summary": "Los planes fracasan por falta de consejo; con muchos consejeros, se afirman."
+   },
+   {
+    "ref": "Deuteronomio 30:19",
+    "text": "A los cielos y la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendicion y la maldicion: escoge pues la vida, porque vivas tú y tu simiente:",
+    "summary": "Elige la vida, para que vivas tú y tu descendencia."
+   },
+   {
+    "ref": "Salmo 25:4-5",
+    "text": "Muéstrame, oh Jehová, tus caminos; enséñame tus sendas. Encamíname en tu verdad, y enséñame; porque tú eres el Dios de mi salud: en ti he esperado todo el día.",
+    "summary": "Muéstrame, Señor, tus caminos; guíame en tu verdad."
+   },
+   {
+    "ref": "Proverbios 11:14",
+    "text": "Cuando faltaren las industrias, caerá el pueblo: mas en la multitud de consejeros hay salud.",
+    "summary": "Sin dirección sabia, una nación tropieza; con muchos consejeros, hay liberación."
+   }
+  ],
+  "salud": [
+   {
+    "ref": "Jeremías 17:14",
+    "text": "Saname, oh Jehová, y seré sano; salvame, y seré salvo: porque tú eres mi alabanza.",
+    "summary": "Sáname, y seré sano; sálvame, y seré salvo."
+   },
+   {
+    "ref": "Salmo 41:3",
+    "text": "Jehová lo sustentará sobre el lecho del dolor: mulliras toda su cama en su enfermedad.",
+    "summary": "Dios sostiene al que está postrado en su dolencia."
+   },
+   {
+    "ref": "Éxodo 23:25",
+    "text": "Mas á Jehová vuestro Dios serviréis, y él bendecirá tu pan y tus aguas; y yo quitaré toda enfermedad de en medio de ti.",
+    "summary": "Bendeciré tu pan y tu agua, y alejaré de ti la enfermedad."
+   },
+   {
+    "ref": "3 Juan 1:2",
+    "text": "Amado, yo deseo que tú seas prosperado en todas cosas, y que tengas salud, así como tu alma está en prosperidad.",
+    "summary": "Ruego que te vaya bien en todo, y que tengas buena salud."
+   },
+   {
+    "ref": "Salmo 103:2-3",
+    "text": "Bendice, alma mía á Jehová, y no olvides ninguno de sus beneficios. El es quien perdona todas tus iniquidades, el que sana todas tus dolencias;",
+    "summary": "Bendice al Señor, que perdona tus pecados y sana tus enfermedades."
+   },
+   {
+    "ref": "Isaías 53:5",
+    "text": "Mas él herido fué por nuestras rebeliones, molido por nuestros pecados: el castigo de nuestra paz sobre él; y por su llaga fuimos nosotros curados.",
+    "summary": "Por sus heridas fuimos nosotros sanados."
+   },
+   {
+    "ref": "Salmo 30:2",
+    "text": "Jehová Dios mío, á ti clamé, y me sanaste.",
+    "summary": "Señor, clamé a ti, y me sanaste."
+   },
+   {
+    "ref": "Santiago 5:15",
+    "text": "Y la oracion de fe salvará al enfermo, y el Señor lo levantará; y si estuviere en pecados, le seran perdonados.",
+    "summary": "La oración de fe sanará al enfermo, y el Señor lo levantará."
+   },
+   {
+    "ref": "Salmo 6:2",
+    "text": "Ten misericordia de mí, oh Jehová, porque yo estoy debilitado: saname, oh Jehová, porque mis huesos estan conmovidos.",
+    "summary": "Ten piedad de mí, Señor, porque desfallezco; sáname, pues mis huesos se estremecen."
+   },
+   {
+    "ref": "Mateo 9:22",
+    "text": "Mas Jesús volviéndose, y mirandola, dijo: Confía, hija, tu fe te ha salvado. Y la mujer fué salva desde aquella hora.",
+    "summary": "Ten ánimo, tu fe te ha sanado."
+   },
+   {
+    "ref": "Isaías 58:8",
+    "text": "Entonces nacerá tu luz como el alba, y tu salud se dejará ver presto; é irá tu justicia delante de ti, y la gloria de Jehová será tu retaguardia.",
+    "summary": "Tu luz despuntará como la aurora, y tu sanidad se manifestará pronto."
+   }
+  ],
+  "proteccion": [
+   {
+    "ref": "Salmo 121:7-8",
+    "text": "Jehová te guardará de todo mal: él guardará tu alma. Jehová guardará tu salida y tu entrada, desde ahora y para siempre.",
+    "summary": "El Señor te cuidará de todo mal, ahora y para siempre."
+   },
+   {
+    "ref": "Salmo 91:1-2",
+    "text": "El que habita al abrigo del Altísimo, morará bajo la sombra del Omnipotente. Diré yo á Jehová: Esperanza mía, y castillo mío; mi Dios, en él confiaré.",
+    "summary": "El que vive bajo la protección de Dios está a salvo."
+   },
+   {
+    "ref": "Proverbios 18:10",
+    "text": "Torre fuerte es el nombre de Jehová: á él correrá el justo, y será levantado.",
+    "summary": "El nombre del Señor es una torre fuerte; el justo corre a ella y está a salvo."
+   },
+   {
+    "ref": "Salmo 34:7",
+    "text": "El ángel de Jehová acampa en derredor de los que le temen, y los defiende.",
+    "summary": "El ángel de Dios acampa alrededor de los que le temen, y los libra."
+   },
+   {
+    "ref": "2 Tesalonicenses 3:3",
+    "text": "Mas fiel es el Señor, que os confirmará y guardará del mal.",
+    "summary": "El Señor es fiel; Él te fortalecerá y te protegerá del mal."
+   },
+   {
+    "ref": "Salmo 121:3",
+    "text": "No dará tu pie al resbaladero; ni se dormirá el que te guarda.",
+    "summary": "No permitirá que tu pie resbale; el que te cuida no duerme."
+   },
+   {
+    "ref": "Salmo 3:3",
+    "text": "Mas tú, Jehová, eres escudo alrededor de mí: mi gloria, y el que ensalza mi cabeza.",
+    "summary": "Tú, Señor, eres escudo alrededor de mí, mi gloria, el que sostiene mi cabeza."
+   },
+   {
+    "ref": "Proverbios 3:26",
+    "text": "Porque Jehová será tu confianza, y él preservará tu pie de ser preso.",
+    "summary": "El Señor será tu confianza, y guardará tu pie de quedar atrapado."
+   },
+   {
+    "ref": "Salmo 27:5",
+    "text": "Porque él me esconderá en su tabernaculo en el día del mal; ocultarame en lo reservado de su pabellon; pondrame en alto sobre una roca.",
+    "summary": "En el día malo, Él me esconderá en su morada."
+   },
+   {
+    "ref": "Salmo 61:3",
+    "text": "Porque tú has sido mi refugio, y torre de fortaleza delante del enemigo.",
+    "summary": "Tú has sido mi refugio, torre fuerte frente al enemigo."
+   },
+   {
+    "ref": "Proverbios 14:26",
+    "text": "En el temor de Jehová está la fuerte confianza; y esperanza tendran sus hijos.",
+    "summary": "El temor del Señor es un baluarte seguro para sus hijos."
+   }
+  ],
+  "fortaleza": [
+   {
+    "ref": "Filipenses 4:13",
+    "text": "Todo lo puedo en Cristo que me fortalece.",
+    "summary": "Todo lo puedes en Cristo, que te da las fuerzas."
+   },
+   {
+    "ref": "Isaías 40:31",
+    "text": "Mas los que esperan á Jehová tendran nuevas fuerzas; levantaran las alas como águilas; correran, y no se cansaran; caminaran, y no se fatigaran.",
+    "summary": "Los que confían en el Señor renuevan sus fuerzas."
+   },
+   {
+    "ref": "Salmo 28:7",
+    "text": "Jehová es mi fortaleza y mi escudo: en él esperó mi corazon, y fuí ayudado; por lo que se gozó mi corazon, y con mi cancion le alabaré.",
+    "summary": "El Señor es mi fuerza y mi escudo; en Él confía mi corazón."
+   },
+   {
+    "ref": "Habacuc 3:19",
+    "text": "Jehová el Señor es mi fortaleza, el cual pondrá mis pies como de ciervas, y me hará andar sobre mis alturas.",
+    "summary": "Dios es mi fuerza; me hace andar firme incluso en las alturas."
+   },
+   {
+    "ref": "Nehemías 8:10",
+    "text": "Díjoles luego: Id, comed grosuras, y bebed vino dulce, y enviad porciones á los que no tienen prevenido; porque día santo es á nuestro Señor: y no os entristezcais, porque el gozo de Jehová es vuestra fortaleza.",
+    "summary": "El gozo del Señor es tu fuerza."
+   },
+   {
+    "ref": "Efesios 6:10",
+    "text": "Por lo demas, hermanos míos, confortaos en el Señor, y en la potencia de su fortaleza.",
+    "summary": "Fortalécete en el Señor y en su gran poder."
+   },
+   {
+    "ref": "Salmo 73:26",
+    "text": "Mi carne y mi corazon desfallecen: mas la roca de mi corazon y mi porcion es Dios para siempre.",
+    "summary": "Mi cuerpo y mi corazón desfallecen, pero Dios es mi fuerza para siempre."
+   },
+   {
+    "ref": "Deuteronomio 33:27",
+    "text": "El eterno Dios es tu refugio, y acá abajo los brazos eternos; él echará de delante de ti al enemigo, y dirá: Destruye.",
+    "summary": "El Dios eterno es tu refugio, y por debajo están sus brazos eternos."
+   },
+   {
+    "ref": "Salmo 18:32",
+    "text": "Dios es el que me ciñe de fuerza, é hizo perfecto mi camino;",
+    "summary": "Dios es quien me arma de valor, y hace perfecto mi camino."
+   },
+   {
+    "ref": "2 Corintios 12:9",
+    "text": "Y me ha dicho: Bastate mi gracia; porque mi potencia en la flaqueza se perfecciona. Por tanto, de buena gana me gloriaré mas bien en mis flaquezas, porque habite en mí la potencia de Cristo.",
+    "summary": "Mi poder se perfecciona en la debilidad, dice el Señor."
+   },
+   {
+    "ref": "Salmo 138:3",
+    "text": "En el día que clamé, me respondiste; esforzasteme con fortaleza en mi alma.",
+    "summary": "El día que clamé, me respondiste, y me fortalecieron con vigor."
+   }
+  ],
+  "confianza": [
+   {
+    "ref": "Salmo 37:5",
+    "text": "Encomienda á Jehová tu camino, y espera en él; y él hará.",
+    "summary": "Encomienda tu camino al Señor, confía, y Él actuará."
+   },
+   {
+    "ref": "Romanos 8:28",
+    "text": "Y sabemos que á los que á Dios aman, todas las cosas les ayudan á bien, es á saber, á los que conforme al proposito son llamados.",
+    "summary": "Todas las cosas ayudan a bien a los que aman a Dios."
+   },
+   {
+    "ref": "Salmo 56:3",
+    "text": "En el día que temo, yo en ti confío.",
+    "summary": "Cuando siento miedo, decido confiar en ti."
+   },
+   {
+    "ref": "Salmo 9:10",
+    "text": "Y en ti confiaran los que conocen tu nombre; por cuanto tú, oh Jehová, no desamparaste á los que te buscaron.",
+    "summary": "Los que conocen tu nombre confían en ti, porque nunca abandonas a quien te busca."
+   },
+   {
+    "ref": "Isaías 26:4",
+    "text": "Confiad en Jehová perpetuamente: porque en el Señor Jehová está la fortaleza de los siglos.",
+    "summary": "Confía siempre en el Señor, porque Él es roca eterna."
+   },
+   {
+    "ref": "Nahúm 1:7",
+    "text": "Bueno es Jehová para fortaleza en el día de la angustia; y conoce á los que en él confían.",
+    "summary": "El Señor es bueno, refugio en el día de angustia; conoce a los que en Él confían."
+   },
+   {
+    "ref": "Proverbios 29:25",
+    "text": "El temor del hombre pondrá lazo: mas el que confía en Jehová será levantado.",
+    "summary": "El temor humano tiende trampas, pero el que confía en el Señor está a salvo."
+   },
+   {
+    "ref": "Salmo 62:8",
+    "text": "Esperad en él en todo tiempo, oh pueblos; derramad delante de él vuestro corazon: Dios es nuestro amparo. (Selah.)",
+    "summary": "Confía en Dios en todo tiempo; delante de Él expresa tu corazón."
+   },
+   {
+    "ref": "Job 13:15",
+    "text": "He aquí, aunque me matare, en él esperaré; empero defenderé delante de él mis caminos.",
+    "summary": "Aunque me quite la vida, en Él confiaré."
+   },
+   {
+    "ref": "Salmo 20:7",
+    "text": "Estos confían en carros, y aquéllos en caballos: mas nosotros del nombre de Jehová nuestro Dios tendremos memoria.",
+    "summary": "Unos confían en carros, otros en caballos, pero nosotros confiamos en el Señor."
+   },
+   {
+    "ref": "Proverbios 16:20",
+    "text": "El entendido en la palabra, hallará el bien: y el que confía en Jehová, él es bienaventurado.",
+    "summary": "El que confía en el Señor es bienaventurado."
+   }
+  ],
+  "fe": [
+   {
+    "ref": "Marcos 11:24",
+    "text": "Por tanto, os digo que todo lo que orando pidiereis, creed que lo recibiréis, y os vendrá.",
+    "summary": "Todo lo que pidas con fe creyendo, lo recibirás."
+   },
+   {
+    "ref": "2 Corintios 5:7",
+    "text": "(Porque por fe andamos, no por vista;)",
+    "summary": "Caminamos por fe, no por lo que vemos."
+   },
+   {
+    "ref": "Hebreos 11:1",
+    "text": "Es pues la fe la sustancia de las cosas que se esperan, la demostracion de las cosas que no se ven.",
+    "summary": "La fe es la certeza de lo que esperamos, la prueba de lo que no vemos."
+   },
+   {
+    "ref": "Mateo 17:20",
+    "text": "Y Jesús les dijo: Por vuestra incredulidad; porque de cierto os digo, que si tuviereis fe como un grano de mostaza, diréis á este monte: Pasate de aquí allá: y se pasará: y nada os será imposible.",
+    "summary": "Si tienes fe, nada te será imposible."
+   },
+   {
+    "ref": "Romanos 10:17",
+    "text": "Luego la fe es por el oir; y el oir por la palabra de Dios.",
+    "summary": "La fe nace de escuchar, y de escuchar la palabra de Dios."
+   },
+   {
+    "ref": "Marcos 9:23",
+    "text": "Y Jesús le dijo: Si puedes creer, al que cree todo es posible.",
+    "summary": "Todo es posible para el que cree."
+   },
+   {
+    "ref": "Romanos 1:17",
+    "text": "Porque en él la justicia de Dios se descubre de fe en fe; como está escrito: Mas el justo vivirá por la fe.",
+    "summary": "El justo vivirá por la fe."
+   },
+   {
+    "ref": "Santiago 2:26",
+    "text": "Porque como el cuerpo sin espíritu está muerto, así también la fe sin obras es muerta.",
+    "summary": "Así como el cuerpo sin espíritu está muerto, la fe sin obras está muerta."
+   },
+   {
+    "ref": "Lucas 1:37",
+    "text": "Porque ninguna cosa es imposible para Dios.",
+    "summary": "Para Dios no hay nada imposible."
+   },
+   {
+    "ref": "Efesios 2:8",
+    "text": "Porque por gracia sois salvos por la fe; y esto no de vosotros, pues es don de Dios:",
+    "summary": "Por gracia han sido salvados mediante la fe; no por obras, para que nadie se jacte."
+   },
+   {
+    "ref": "Habacuc 2:4",
+    "text": "He aquí se enorgullece aquel cuya alma no es derecha en él: mas el justo en su fe vivirá.",
+    "summary": "El justo vivirá por su fe."
+   }
+  ],
+  "amor": [
+   {
+    "ref": "1 Corintios 13:4-5",
+    "text": "La caridad es sufrida, es benigna; la caridad no tiene envidia, la caridad no hace sinrazon, no se ensancha; No es injuriosa, no busca lo suyo, no se irrita, no piensa el mal;",
+    "summary": "El amor es paciente y bondadoso; no guarda rencor."
+   },
+   {
+    "ref": "Mateo 22:37-39",
+    "text": "Y Jesús le dijo: Amaras al Señor tu Dios de todo tu corazon, y de toda tu alma, y de toda tu mente. Este es el primero y el grande mandamiento. Y el segundo es semejante á éste: Amaras á tu projimo como á ti mismo.",
+    "summary": "Ama a Dios con todo tu ser, y a tu prójimo como a ti mismo."
+   },
+   {
+    "ref": "Juan 3:16",
+    "text": "Porque de tal manera amó Dios al mundo, que ha dado á su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
+    "summary": "Tanto amó Dios al mundo que dio lo más valioso que tenía, por amor."
+   },
+   {
+    "ref": "1 Juan 4:18",
+    "text": "En amor no hay temor; mas el perfecto amor echa fuera el temor: porque el temor tiene pena. De donde el que teme, no está perfecto en el amor.",
+    "summary": "El amor perfecto elimina el miedo."
+   },
+   {
+    "ref": "Romanos 8:38-39",
+    "text": "Por lo cual estoy cierto que ni la muerte, ni la vida, ni ángeles, ni principados, ni potestades, ni lo presente, ni lo por venir, Ni lo alto, ni lo bajo, ni ninguna criatura nos podrá apartar del amor de Dios, que es en Cristo Jesús Señor nuestro.",
+    "summary": "Nada puede separarte del amor de Dios."
+   },
+   {
+    "ref": "1 Juan 4:19",
+    "text": "Nosotros le amamos á él, porque él nos amó primero.",
+    "summary": "Nosotros amamos porque Él nos amó primero."
+   },
+   {
+    "ref": "Cantares 8:7",
+    "text": "Las muchas aguas no podran apagar el amor, ni lo ahogaran los ríos. Si diese el hombre toda la hacienda de su casa por este amor, de cierto lo menospreciaran.",
+    "summary": "Ni las muchas aguas pueden apagar el amor."
+   },
+   {
+    "ref": "1 Pedro 4:8",
+    "text": "Y sobre todo, tened entre vosotros ferviente caridad; porque la caridad cubrirá multitud de pecados.",
+    "summary": "Sobre todo, ámense profundamente, porque el amor cubre multitud de faltas."
+   },
+   {
+    "ref": "Romanos 5:8",
+    "text": "Mas Dios encarece su caridad para con nosotros, porque siendo aún pecadores, Cristo murió por nosotros.",
+    "summary": "Dios demuestra su amor por nosotros al morir Cristo por nosotros, siendo aún pecadores."
+   },
+   {
+    "ref": "Juan 15:13",
+    "text": "Nadie tiene mayor amor que este, que ponga alguno su vida por sus amigos.",
+    "summary": "No hay amor más grande que dar la vida por los amigos."
+   },
+   {
+    "ref": "1 Corintios 13:13",
+    "text": "Y ahora permanecen la fe, la esperanza, y la caridad, estas tres: empero la mayor de ellas es la caridad.",
+    "summary": "Ahora permanecen la fe, la esperanza y el amor; el mayor es el amor."
+   }
+  ],
+  "esperanza": [
+   {
+    "ref": "Jeremías 29:11",
+    "text": "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperais.",
+    "summary": "Tengo planes de bienestar para ti, planes de un buen futuro."
+   },
+   {
+    "ref": "Romanos 8:18",
+    "text": "Porque tengo por cierto que lo que en este tiempo se padece, no es de comparar con la gloria venidera que en nosotros ha de ser manifestada.",
+    "summary": "Lo que sufrimos ahora no se compara con la gloria que vendrá."
+   },
+   {
+    "ref": "Romanos 15:13",
+    "text": "Y el Dios de esperanza os llene de todo gozo y paz creyendo, para que abundéis en esperanza por la virtud del Espíritu Santo.",
+    "summary": "Que el Dios de esperanza te llene de alegría y paz al confiar en Él."
+   },
+   {
+    "ref": "Lamentaciones 3:22-23",
+    "text": "Es por la misericordia de Jehová que no somos consumidos, porque nunca decayeron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad.",
+    "summary": "El amor de Dios es nuevo cada mañana; su fidelidad es muy grande."
+   },
+   {
+    "ref": "Salmo 42:11",
+    "text": "¿Por qué te abates, oh alma mía, y por qué te conturbas en mí? Espera á Dios; porque aun le tengo de alabar; es él salvamento delante de mí, y el Dios mío.",
+    "summary": "Espera en Dios; volverás a alabarlo, porque Él es tu salvación."
+   },
+   {
+    "ref": "Hebreos 6:19",
+    "text": "La cual tenemos como segura y firme ancla del alma, y que entra hasta dentro del velo;",
+    "summary": "Esta esperanza es firme y segura, como un ancla para el alma."
+   },
+   {
+    "ref": "Salmo 71:14",
+    "text": "Mas yo siempre esperaré, y añadiré sobre toda tu alabanza.",
+    "summary": "Yo siempre tendré esperanza, y te alabaré cada vez más."
+   },
+   {
+    "ref": "Tito 2:13",
+    "text": "Esperando aquella esperanza bienaventurada, y la manifestacion gloriosa del gran Dios y Salvador nuestro Jesucristo,",
+    "summary": "Esperamos la bendita esperanza y la gloriosa venida de nuestro Dios."
+   },
+   {
+    "ref": "Salmo 62:5",
+    "text": "Alma mía, en Dios solamente reposa; porque de él es mi esperanza.",
+    "summary": "Solo en Dios halla descanso mi alma; de Él viene mi esperanza."
+   },
+   {
+    "ref": "Proverbios 23:18",
+    "text": "Porque ciertamente hay fin, y tu esperanza no será cortada.",
+    "summary": "Hay un futuro para ti, y tu esperanza no será cortada."
+   },
+   {
+    "ref": "1 Pedro 1:3",
+    "text": "Bendito el Dios y Padre de nuestro Señor Jesucristo, que según su grande misericordia nos ha regenerado en esperanza viva, por la resurreccion de Jesucristo de los muertos,",
+    "summary": "Dios nos ha dado una esperanza viva mediante la resurrección de Jesucristo."
+   }
+  ],
+  "perdon": [
+   {
+    "ref": "Efesios 4:32",
+    "text": "Antes sed los unos con los otros benignos, misericordiosos, perdonandoos los unos á los otros, como también Dios os perdonó en Cristo.",
+    "summary": "Sean bondadosos y compasivos, perdonándose unos a otros como Dios los perdonó."
+   },
+   {
+    "ref": "Mateo 6:14",
+    "text": "Porque si perdonareis á los hombres sus ofensas, os perdonará también á vosotros vuestro Padre celestial.",
+    "summary": "Si perdonas a otros, tu Padre celestial también te perdonará."
+   },
+   {
+    "ref": "Colosenses 3:13",
+    "text": "Sufriéndoos los unos á los otros, y perdonandoos los unos á los otros si alguno tuviere queja del otro: de la manera que Cristo os perdonó, así también hacedlo vosotros.",
+    "summary": "Perdonen así como el Señor los perdonó a ustedes."
+   },
+   {
+    "ref": "1 Juan 1:9",
+    "text": "Si confesamos nuestros pecados, él es fiel y justo para que nos perdone nuestros pecados, y nos limpie de toda maldad.",
+    "summary": "Si confesamos, Él es fiel y nos perdona y nos limpia."
+   },
+   {
+    "ref": "Salmo 103:12",
+    "text": "Cuanto está lejos el oriente del occidente, hizo alejar de nosotros nuestras rebeliones.",
+    "summary": "Tan lejos como está el oriente del occidente, así aleja de ti tus culpas."
+   },
+   {
+    "ref": "Lucas 6:37",
+    "text": "No juzguéis, y no seréis juzgados: no condenéis, y no seréis condenados: perdonad, y seréis perdonados.",
+    "summary": "Perdona, y serás perdonado."
+   },
+   {
+    "ref": "Marcos 11:25",
+    "text": "Y cuando estuviereis orando, perdonad, si tenéis algo contra alguno, para que vuestro Padre que está en los cielos os perdone también á vosotros vuestras ofensas.",
+    "summary": "Cuando oren, perdonen, para que su Padre en el cielo también los perdone."
+   },
+   {
+    "ref": "Salmo 86:5",
+    "text": "Porque tú, Señor, eres bueno y perdonador, y grande en misericordia para con todos los que te invocan.",
+    "summary": "Tú, Señor, eres bueno y perdonador, grande en amor con los que te invocan."
+   },
+   {
+    "ref": "Salmo 130:3-4",
+    "text": "Jah, si mirares á los pecados, ¿quién, oh Señor, podrá mantenerse? Empero hay perdon cerca de ti, para que seas temido.",
+    "summary": "Si llevaras cuenta de los pecados, ¿quién podría sostenerse? Pero en ti hay perdón."
+   },
+   {
+    "ref": "Hechos 10:43",
+    "text": "A éste dan testimonio todos los profetas, de que todos los que en él creyeren, recibiran perdon de pecados por su nombre.",
+    "summary": "Todo el que cree en Él recibe el perdón de sus pecados."
+   },
+   {
+    "ref": "Miqueas 7:18-19",
+    "text": "¿Qué Dios como tú, que perdonas la maldad, y olvidas el pecado del resto de su heredad? No retuvo para siempre su enojo, porque es amador de misericordia. El tornará, él tendrá misericordia de nosotros; él sujetará nuestras iniquidades, y echará en los profundos de la mar todos nuestros pecados.",
+    "summary": "¿Qué Dios como tú, que perdona la maldad y olvida el pecado?"
+   }
+  ],
+  "soledad": [
+   {
+    "ref": "Deuteronomio 31:8",
+    "text": "Y Jehová es el que va delante de ti; él será contigo, no te dejará, ni te desamparará; no temas, ni te intimides.",
+    "summary": "El Señor va delante de ti; no te dejará ni te abandonará."
+   },
+   {
+    "ref": "Salmo 68:6",
+    "text": "El Dios que hace habitar en familia los solos; que saca á los aprisionados con grillos: mas los rebeldes habitan en sequedad.",
+    "summary": "Dios da un hogar a los que están solos."
+   },
+   {
+    "ref": "Hebreos 13:5",
+    "text": "Sean las costumbres vuestras sin avaricia; contentos de lo presente; porque él dijo: No te desampararé, ni te dejaré.",
+    "summary": "Nunca te dejaré ni te desampararé."
+   },
+   {
+    "ref": "Mateo 28:20",
+    "text": "Enseñándoles que guarden todas las cosas que os he mandado: y he aquí, yo estoy con vosotros todos los días, hasta el fin del mundo. Amén.",
+    "summary": "Estoy con ustedes todos los días, hasta el fin del mundo."
+   },
+   {
+    "ref": "Salmo 25:16",
+    "text": "Mírame, y ten misericordia de mí; porque estoy solo y afligido.",
+    "summary": "Mírame y ten compasión de mí, porque estoy solo y afligido."
+   },
+   {
+    "ref": "Juan 14:18",
+    "text": "No os dejaré huérfanos: vendré á vosotros.",
+    "summary": "No los dejaré huérfanos; volveré a ustedes."
+   },
+   {
+    "ref": "Salmo 27:10",
+    "text": "Aunque mi padre y mi madre me dejaran, Jehová con todo me recogerá.",
+    "summary": "Aunque mi padre y mi madre me abandonen, el Señor me recibirá."
+   },
+   {
+    "ref": "Isaías 54:10",
+    "text": "Porque los montes se moveran, y los collados temblaran; mas no se apartará de ti mi misericordia, ni el pacto de mi paz vacilará, dijo Jehová, el que tiene misericordia de ti.",
+    "summary": "Mi amor por ti no se apartará, ni mi pacto de paz será removido."
+   },
+   {
+    "ref": "Salmo 139:7-10",
+    "text": "¿Adonde me iré de tu espíritu? ¿y adonde huiré de tu presencia? Si subiere á los cielos, allí estas tú: y si en abismo hiciere mi estrado, he aquí allí tú estas. Si tomare las alas del alba, y habitare en el extremo de la mar, Aun allí me guiará tu mano, y me asirá tu diestra.",
+    "summary": "¿A dónde podría huir de tu presencia? Aun allí me guiará tu mano."
+   },
+   {
+    "ref": "Isaías 41:17",
+    "text": "Los afligidos y menesterosos buscan las aguas, que no hay; secose de sed su lengua; yo Jehová los oiré, yo el Dios de Israel no los desampararé.",
+    "summary": "Yo, el Señor, los escucharé; yo, el Dios de Israel, no los abandonaré."
+   },
+   {
+    "ref": "Génesis 28:15",
+    "text": "Y he aquí, yo soy contigo, y te guardaré por donde quiera que fueres, y te volveré á esta tierra; porque no te dejaré hasta tanto que haya hecho lo que te he dicho.",
+    "summary": "Yo estoy contigo, te protegeré por dondequiera que vayas."
+   }
+  ],
+  "paciencia": [
+   {
+    "ref": "Santiago 1:2-4",
+    "text": "Hermanos míos, tened por sumo gozo cuando cayereis en diversas tentaciones; Sabiendo que la prueba de vuestra fe obra paciencia. Mas tenga la paciencia perfecta su obra, para que seais perfectos y cabales, sin faltar en alguna cosa.",
+    "summary": "La prueba de la fe produce paciencia, y la paciencia te hace completo."
+   },
+   {
+    "ref": "Romanos 12:12",
+    "text": "Gozosos en la esperanza; sufridos en la tribulacion; constantes en la oracion;",
+    "summary": "Alégrate en la esperanza, ten paciencia en la aflicción, persevera en la oración."
+   },
+   {
+    "ref": "Gálatas 6:9",
+    "text": "No nos cansemos, pues, de hacer bien; que á su tiempo segaremos, si no hubiéremos desmayado.",
+    "summary": "No te canses de hacer el bien; a su tiempo cosecharás si no desmayas."
+   },
+   {
+    "ref": "Salmo 27:14",
+    "text": "Aguarda á Jehová; esfuérzate, y aliéntese tu corazon: sí, espera á Jehová.",
+    "summary": "Espera en el Señor; ten valor, y él fortalecerá tu corazón."
+   },
+   {
+    "ref": "Eclesiastés 3:1",
+    "text": "Para todas las cosas hay sazon, y todo lo que se quiere debajo del cielo, tiene su tiempo:",
+    "summary": "Todo tiene su momento; hay un tiempo para cada cosa bajo el cielo."
+   },
+   {
+    "ref": "Lamentaciones 3:25",
+    "text": "Bueno es Jehová á los que en él esperan, al alma que le buscare.",
+    "summary": "El Señor es bueno con los que esperan en Él."
+   },
+   {
+    "ref": "Efesios 4:2",
+    "text": "Con toda humildad y mansedumbre, con paciencia soportando los unos á los otros en amor;",
+    "summary": "Sean humildes, amables y pacientes, tolerándose unos a otros con amor."
+   },
+   {
+    "ref": "Colosenses 1:11",
+    "text": "Corroborados de toda fortaleza, conforme á la potencia de su gloria, para toda tolerancia y largura de ánimo con gozo;",
+    "summary": "Que se fortalezcan con toda paciencia y perseverancia, con alegría."
+   },
+   {
+    "ref": "Proverbios 16:32",
+    "text": "Mejor es el que tarde se aira que el fuerte; y el que se enseñorea de su espíritu, que el que toma una ciudad.",
+    "summary": "Más vale ser paciente que valiente, más vale dominarse que conquistar ciudades."
+   },
+   {
+    "ref": "Salmo 40:1",
+    "text": "Resignadamente esperé á Jehová, é inclinose á mí, y oyó mi clamor.",
+    "summary": "Puse en el Señor toda mi esperanza; Él se inclinó y escuchó mi clamor."
+   },
+   {
+    "ref": "Hebreos 10:36",
+    "text": "Porque la paciencia os es necesaria; para que, habiendo hecho la voluntad de Dios, obtengais la promesa.",
+    "summary": "Ustedes necesitan perseverancia, para recibir lo que Dios ha prometido."
+   }
+  ],
+  "proposito": [
+   {
+    "ref": "Jeremías 1:5",
+    "text": "Antes que te formase en el vientre te conocí, y antes que salieses de la matriz te santifiqué, te dí por profeta á las gentes.",
+    "summary": "Antes de formarte en el vientre, ya te conocía y tenía un propósito para ti."
+   },
+   {
+    "ref": "Efesios 2:10",
+    "text": "Porque somos hechura suya, criados en Cristo Jesús para buenas obras, las cuales Dios preparó para que anduviésemos en ellas.",
+    "summary": "Somos su obra, creados para hacer el bien que Dios ya preparó."
+   },
+   {
+    "ref": "Romanos 12:2",
+    "text": "Y no os conforméis á este siglo; mas reformaos por la renovacion de vuestro entendimiento, para que experimentéis cual sea la buena voluntad de Dios, agradable y perfecta.",
+    "summary": "No te amoldes a este mundo; transforma tu mente y descubre su voluntad."
+   },
+   {
+    "ref": "Proverbios 19:21",
+    "text": "Muchos pensamientos hay en el corazon del hombre; mas el consejo de Jehová permanecerá.",
+    "summary": "El corazón hace muchos planes, pero el propósito de Dios prevalece."
+   },
+   {
+    "ref": "Salmo 138:8",
+    "text": "Jehová cumplirá por mí: tu misericordia, oh Jehová, es para siempre; no dejaras la obra de tus manos.",
+    "summary": "El Señor cumplirá su propósito en mí."
+   },
+   {
+    "ref": "Isaías 43:1",
+    "text": "Y AHORA, así dice Jehová Criador tuyo, oh Jacob, y Formador tuyo, oh Israel: No temas, porque yo te redimí; te puse nombre, mío eres tú.",
+    "summary": "Te he llamado por tu nombre; eres mío."
+   },
+   {
+    "ref": "Efesios 1:11",
+    "text": "En él digo, en quien asimismo tuvimos suerte, habiendo sido predestinados conforme al proposito del que hace todas las cosas según el consejo de su voluntad,",
+    "summary": "En Él fuimos hechos herederos, conforme al propósito del que hace todas las cosas."
+   },
+   {
+    "ref": "Salmo 57:2",
+    "text": "Clamaré al Dios Altísimo, al Dios que me favorece.",
+    "summary": "Clamo al Dios Altísimo, al Dios que cumple su propósito en mí."
+   },
+   {
+    "ref": "Ester 4:14",
+    "text": "Porque si absolutamente callares en este tiempo, respiro y libertacion tendran los Judíos de otra parte; mas tú y la casa de tu padre pereceréis. ¿Y quién sabe si para esta hora te han hecho llegar al reino?",
+    "summary": "¿Quién sabe si no has llegado al reino precisamente para un momento como este?"
+   },
+   {
+    "ref": "2 Timoteo 1:9",
+    "text": "Que nos salvó y llamó con vocacion santa, no conforme á nuestras obras, mas según el intento suyo y gracia, la cual nos es dada en Cristo Jesús antes de los tiempos de los siglos,",
+    "summary": "Dios nos llamó a una vida santa, no por nuestras obras, sino según su propósito."
+   },
+   {
+    "ref": "Filipenses 1:6",
+    "text": "Estando confiado de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo;",
+    "summary": "El que comenzó en ustedes la buena obra la irá perfeccionando."
+   }
+  ],
+  "perseverancia": [
+   {
+    "ref": "Hebreos 12:1",
+    "text": "Por tanto nosotros también, teniendo en derredor nuestro una tan grande nube de testigos, dejando todo el peso del pecado que nos rodea, corramos con paciencia la carrera que nos es propuesta,",
+    "summary": "Corramos con perseverancia la carrera que tenemos por delante."
+   },
+   {
+    "ref": "Santiago 1:12",
+    "text": "Bienaventurado el varon que sufre la tentacion; porque cuando fuere probado, recibirá la corona de vida, que Dios ha prometido á los que le aman.",
+    "summary": "Dichoso el que soporta la prueba, porque recibirá la corona de la vida."
+   },
+   {
+    "ref": "Filipenses 3:14",
+    "text": "Prosigo al blanco, al premio de la soberana vocacion de Dios en Cristo Jesús.",
+    "summary": "Sigo avanzando hacia la meta, para ganar el premio que Dios me ofrece."
+   },
+   {
+    "ref": "Romanos 5:3-4",
+    "text": "Y no solo esto, mas aun nos gloriamos en las tribulaciones, sabiendo que la tribulacion produce paciencia; Y la paciencia, prueba; y la prueba, esperanza;",
+    "summary": "El sufrimiento produce constancia, la constancia carácter, y el carácter esperanza."
+   },
+   {
+    "ref": "1 Corintios 15:58",
+    "text": "Así que, hermanos míos amados, estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es vano.",
+    "summary": "Sean firmes y constantes, sabiendo que su trabajo en el Señor no es en vano."
+   },
+   {
+    "ref": "2 Timoteo 4:7",
+    "text": "He peleado la buena batalla, he acabado la carrera, he guardado la fe.",
+    "summary": "He peleado la buena batalla, he acabado la carrera, he guardado la fe."
+   },
+   {
+    "ref": "Santiago 1:3",
+    "text": "Sabiendo que la prueba de vuestra fe obra paciencia.",
+    "summary": "La prueba de su fe produce paciencia."
+   },
+   {
+    "ref": "Isaías 40:29",
+    "text": "El da esfuerzo al cansado, y multiplica las fuerzas al que no tiene ningunas.",
+    "summary": "Él da fuerzas al cansado, y aumenta el poder del débil."
+   },
+   {
+    "ref": "Salmo 37:24",
+    "text": "Cuando cayere, no quedará postrado; porque Jehová sostiene su mano.",
+    "summary": "Aunque el justo caiga, no quedará derribado, porque el Señor lo sostiene."
+   }
+  ],
+  "sabiduria": [
+   {
+    "ref": "Proverbios 1:7",
+    "text": "El principio de la sabiduría es el temor de Jehová: los insensatos desprecian la sabiduría y la enseñanza.",
+    "summary": "El principio del conocimiento es el temor del Señor."
+   },
+   {
+    "ref": "Proverbios 9:10",
+    "text": "El temor de Jehová es el principio de la sabiduría; y la ciencia de los santos es inteligencia.",
+    "summary": "El temor del Señor es el principio de la sabiduría."
+   },
+   {
+    "ref": "Santiago 3:17",
+    "text": "Mas la sabiduría que es de lo alto, primeramente es pura, después pacífica, modesta, benigna, llena de misericordia y de buenos frutos, no juzgadora, no fingida.",
+    "summary": "La sabiduría de Dios es pura, pacífica, amable y llena de buenos frutos."
+   },
+   {
+    "ref": "Proverbios 2:6",
+    "text": "Porque Jehová da la sabiduría, y de su boca viene el conocimiento y la inteligencia.",
+    "summary": "El Señor da sabiduría; de su boca vienen el conocimiento y el entendimiento."
+   },
+   {
+    "ref": "Eclesiastés 7:12",
+    "text": "Porque escudo es la ciencia, y escudo es el dinero: mas la sabiduría excede en que da vida á sus poseedores.",
+    "summary": "La sabiduría da vida a quienes la tienen."
+   },
+   {
+    "ref": "Colosenses 2:3",
+    "text": "En el cual estan escondidos todos los tesoros de sabiduría y conocimiento.",
+    "summary": "En Cristo están escondidos todos los tesoros de sabiduría y conocimiento."
+   },
+   {
+    "ref": "Proverbios 3:13",
+    "text": "Bienaventurado el hombre que halla la sabiduría, y que obtiene la inteligencia:",
+    "summary": "Dichoso el que halla sabiduría, el que adquiere entendimiento."
+   },
+   {
+    "ref": "1 Corintios 1:25",
+    "text": "Porque lo loco de Dios es mas sabio que los hombres; y lo flaco de Dios es mas fuerte que los hombres.",
+    "summary": "La necedad de Dios es más sabia que la sabiduría humana."
+   },
+   {
+    "ref": "Efesios 5:15",
+    "text": "Mirad, pues, como andéis avisadamente; no como necios, mas como sabios;",
+    "summary": "Cuídense de vivir sabiamente, no como necios sino como sabios."
+   }
+  ],
+  "humildad": [
+   {
+    "ref": "Miqueas 6:8",
+    "text": "Oh hombre, él te ha declarado qué sea lo bueno, y qué pida de ti Jehová: solamente hacer juicio, y amar misericordia, y humillarte para andar con tu Dios.",
+    "summary": "Solo te pide actuar con justicia, amar la misericordia y caminar humildemente con Dios."
+   },
+   {
+    "ref": "Santiago 4:10",
+    "text": "Humillaos delante del Señor, y él os ensalzará.",
+    "summary": "Humíllate delante del Señor, y Él te exaltará."
+   },
+   {
+    "ref": "Filipenses 2:3",
+    "text": "Nada hagais por contienda ó por vanagloria; antes bien en humildad, estimandoos inferiores los unos á los otros:",
+    "summary": "Con humildad, considera a los demás como más importantes que uno mismo."
+   },
+   {
+    "ref": "1 Pedro 5:6",
+    "text": "Humillaos pues bajo la poderosa mano de Dios, para que él os ensalce cuando fuere tiempo;",
+    "summary": "Humíllate bajo la mano poderosa de Dios, y Él te exaltará a su tiempo."
+   },
+   {
+    "ref": "Proverbios 22:4",
+    "text": "Riquezas, y honra, y vida, son la remuneracion de la humildad y del temor de Jehová.",
+    "summary": "El fruto de la humildad es la riqueza, la honra y la vida."
+   },
+   {
+    "ref": "Mateo 23:12",
+    "text": "Porque el que se ensalzare, será humillado; y el que se humillare, será ensalzado.",
+    "summary": "El que se humilla será enaltecido."
+   },
+   {
+    "ref": "Proverbios 11:2",
+    "text": "Cuando viene la soberbia, viene también la deshonra: mas con los humildes es la sabiduría.",
+    "summary": "Con la soberbia viene la deshonra, pero con la humildad viene la sabiduría."
+   },
+   {
+    "ref": "Lucas 14:11",
+    "text": "Porque cualquiera que se ensalza, será humillado; y el que se humilla, será ensalzado.",
+    "summary": "El que se enaltece será humillado, y el que se humilla será enaltecido."
+   },
+   {
+    "ref": "Colosenses 3:12",
+    "text": "Vestíos pues, como escogidos de Dios, santos y amados, de entrañas de misericordia, de benignidad, de humildad, de mansedumbre, de tolerancia;",
+    "summary": "Vístanse de humildad, amabilidad y paciencia."
+   }
+  ],
+  "generosidad": [
+   {
+    "ref": "2 Corintios 9:7",
+    "text": "Cada uno dé como propuso en su corazon: no con tristeza, ó por necesidad; porque Dios ama el dador alegre.",
+    "summary": "Dios ama al que da con alegría, no de mala gana ni por obligación."
+   },
+   {
+    "ref": "Proverbios 11:25",
+    "text": "El alma liberal será engordada: y el que saciare, él también será saciado.",
+    "summary": "El que reparte con generosidad prospera; el que reanima será reanimado."
+   },
+   {
+    "ref": "Lucas 6:38",
+    "text": "Dad, y se os dará; medida buena, apretada, remecida, y rebosando daran en vuestro seno: porque con la misma medida que midiereis, os será vuelto á medir.",
+    "summary": "Den, y se les dará; recibirán en la medida en que ustedes den."
+   },
+   {
+    "ref": "Hechos 20:35",
+    "text": "En todo os he enseñado que, trabajando así, es necesario sobrellevar á los enfermos, y tener presente las palabras del Señor Jesús, el cual dijo: Mas bienaventurada cosa es dar que recibir.",
+    "summary": "Hay más dicha en dar que en recibir."
+   },
+   {
+    "ref": "Proverbios 19:17",
+    "text": "A Jehová empresta el que da al pobre, y él le dará su paga.",
+    "summary": "Servir al pobre es como prestarle al Señor, y Él te lo pagará."
+   },
+   {
+    "ref": "2 Corintios 9:6",
+    "text": "Esto empero digo: El que siembra escasamente, también segará escasamente; y el que siembra en bendiciones, en bendiciones también segará.",
+    "summary": "El que siembra con generosidad, también cosechará con generosidad."
+   },
+   {
+    "ref": "Proverbios 3:9-10",
+    "text": "Honra á Jehová de tu sustancia, y de las primicias de todos tus frutos; Y seran llenas tus trojes con abundancia, y tus lagares rebosaran de mosto.",
+    "summary": "Honra al Señor con tus bienes, y tus graneros se llenarán en abundancia."
+   },
+   {
+    "ref": "Mateo 6:3-4",
+    "text": "Mas cuando tú haces limosna, no sepa tu izquierda lo que hace tu derecha; Para que sea tu limosna en secreto: y tu Padre que ve en secreto, él te recompensará en público.",
+    "summary": "Cuando des, que tu mano izquierda no sepa lo que hace tu mano derecha."
+   },
+   {
+    "ref": "Deuteronomio 15:10",
+    "text": "Sin falta le daras, y no sea tu corazon maligno cuando le dieres: que por ello te bendecirá Jehová tu Dios en todos tus hechos, y en todo lo que pusieres mano.",
+    "summary": "Da generosamente, sin resentimiento, y el Señor bendecirá todo lo que hagas."
+   }
+  ],
+  "tentacion": [
+   {
+    "ref": "1 Corintios 10:13",
+    "text": "No os ha tomado tentacion, sino humana: mas fiel es Dios, que no os dejará ser tentados mas de lo que podéis llevar; antes dará también juntamente con la tentacion la salida, para que podais aguantar.",
+    "summary": "Dios es fiel; no permitirá que seas tentado más de lo que puedas resistir."
+   },
+   {
+    "ref": "Santiago 1:14",
+    "text": "Sino que cada uno es tentado, cuando de su propia concupiscencia es atraído, y cebado.",
+    "summary": "Cada uno es tentado cuando sus propios malos deseos lo arrastran."
+   },
+   {
+    "ref": "Mateo 26:41",
+    "text": "Velad y orad, para que no entréis en tentacion: el espíritu á la verdad está presto, mas la carne enferma.",
+    "summary": "Vigilen y oren, para no caer en tentación."
+   },
+   {
+    "ref": "Hebreos 2:18",
+    "text": "Porque en cuanto él mismo padeció siendo tentado, es poderoso para socorrer á los que son tentados.",
+    "summary": "Porque Él mismo padeció y fue tentado, puede ayudar a los que son tentados."
+   },
+   {
+    "ref": "Santiago 4:7",
+    "text": "Someteos pues á Dios; resistid al diablo, y de vosotros huirá.",
+    "summary": "Resistan al diablo, y él huirá de ustedes."
+   },
+   {
+    "ref": "Efesios 6:11",
+    "text": "Vestíos de toda la armadura de Dios, para que podais estar firmes contra las asechanzas del diablo.",
+    "summary": "Vístanse con toda la armadura de Dios para resistir las asechanzas del enemigo."
+   },
+   {
+    "ref": "Salmo 119:11",
+    "text": "En mi corazon he guardado tus dichos, para no pecar contra ti.",
+    "summary": "En mi corazón atesoro tu palabra, para no pecar contra ti."
+   },
+   {
+    "ref": "2 Pedro 2:9",
+    "text": "Sabe el Señor librar de tentacion á los píos, y reservar á los injustos para ser atormentados en el día del juicio;",
+    "summary": "El Señor sabe librar de tentación a los que le son fieles."
+   },
+   {
+    "ref": "1 Juan 2:16",
+    "text": "Porque todo lo que hay en el mundo, la concupiscencia de la carne, y la concupiscencia de los ojos, y la soberbia de la vida, no es del Padre, mas es del mundo.",
+    "summary": "Todo lo que hay en el mundo no proviene del Padre, sino del mundo."
+   }
+  ],
+  "alegria": [
+   {
+    "ref": "Salmo 16:11",
+    "text": "Me mostraras la senda de la vida: hartura de alegrías hay con tu rostro; deleites en tu diestra para siempre.",
+    "summary": "En tu presencia hay plenitud de gozo, delicias a tu diestra para siempre."
+   },
+   {
+    "ref": "Filipenses 4:4",
+    "text": "Gozaos en el Señor siempre: otra vez digo: Que os gocéis.",
+    "summary": "Alégrense siempre en el Señor; lo repito, alégrense."
+   },
+   {
+    "ref": "Salmo 30:5",
+    "text": "Porque un momento será su furor; mas en su voluntad está la vida: por la tarde durará el lloro, y á la mañana vendrá la alegría.",
+    "summary": "Por la noche dura el llanto, pero por la mañana llega la alegría."
+   },
+   {
+    "ref": "Juan 15:11",
+    "text": "Estas cosas os he hablado, para que mi gozo esté en vosotros, y vuestro gozo sea cumplido.",
+    "summary": "Les he dicho esto para que mi gozo esté en ustedes, y su gozo sea completo."
+   },
+   {
+    "ref": "Proverbios 17:22",
+    "text": "El corazon alegre produce buena disposicion: mas el espíritu triste seca los huesos.",
+    "summary": "El corazón alegre es buena medicina, pero el ánimo triste seca los huesos."
+   },
+   {
+    "ref": "Salmo 126:5",
+    "text": "Los que sembraron con lagrimas, con regocijo segaran.",
+    "summary": "Los que siembran con lágrimas, cosecharán con gritos de alegría."
+   },
+   {
+    "ref": "Habacuc 3:18",
+    "text": "Con todo, yo me alegraré en Jehová, y me gozaré en el Dios de mi salud.",
+    "summary": "Yo me alegraré en el Señor, me gozaré en el Dios de mi salvación."
+   },
+   {
+    "ref": "Salmo 5:11",
+    "text": "Y alegrarse han todos los que en ti confían; para siempre daran voces de júbilo, porque tú los defiendes: y en ti se regocijaran los que aman tu nombre.",
+    "summary": "Que se alegren todos los que en ti confían; que canten siempre con júbilo."
+   },
+   {
+    "ref": "Santiago 1:2",
+    "text": "Hermanos míos, tened por sumo gozo cuando cayereis en diversas tentaciones;",
+    "summary": "Considérense muy dichosos cuando enfrenten diversas pruebas."
+   }
+  ],
+  "paz": [
+   {
+    "ref": "Salmo 29:11",
+    "text": "Jehová dará fortaleza á su pueblo: Jehová bendecirá á su pueblo en paz.",
+    "summary": "El Señor bendice a su pueblo con paz."
+   },
+   {
+    "ref": "Romanos 5:1",
+    "text": "Justificados pues por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo:",
+    "summary": "Justificados por la fe, tenemos paz con Dios por medio de Jesucristo."
+   },
+   {
+    "ref": "Isaías 9:6",
+    "text": "Porque un niño nos es nacido, hijo nos es dado; y el principado sobre su hombro: y llamarase su nombre Admirable, Consejero, Dios fuerte, Padre eterno, Príncipe de paz.",
+    "summary": "Se le llamará Príncipe de Paz."
+   },
+   {
+    "ref": "Gálatas 5:22",
+    "text": "Mas el fruto del Espíritu es: caridad, gozo, paz, tolerancia, benignidad, bondad, fe,",
+    "summary": "El fruto del Espíritu es amor, alegría, paz, paciencia y bondad."
+   },
+   {
+    "ref": "2 Tesalonicenses 3:16",
+    "text": "Y el mismo Señor de paz os dé siempre paz en toda manera. El Señor sea con todos vosotros.",
+    "summary": "Que el Señor de paz les dé su paz en todo momento y de toda manera."
+   },
+   {
+    "ref": "Salmo 4:8",
+    "text": "En paz me acostaré, y asimismo dormiré; porque solo tú, Jehová, me haras estar confiado.",
+    "summary": "En paz me acuesto y me duermo, porque solo tú, Señor, me haces vivir seguro."
+   },
+   {
+    "ref": "Filipenses 4:9",
+    "text": "Lo que aprendisteis y recibisteis y oísteis y visteis en mí, esto haced; y el Dios de paz será con vosotros.",
+    "summary": "El Dios de paz estará con ustedes."
+   },
+   {
+    "ref": "Salmo 34:14",
+    "text": "Apartate del mal, y haz el bien; busca la paz, y síguela.",
+    "summary": "Aléjate del mal y haz el bien; busca la paz y síguela."
+   },
+   {
+    "ref": "Efesios 2:14",
+    "text": "Porque él es nuestra paz, que de ambos hizo uno, derribando la pared intermedia de separacion;",
+    "summary": "Cristo es nuestra paz, el que ha hecho de los dos pueblos uno solo."
+   }
+  ],
+  "servicio": [
+   {
+    "ref": "Gálatas 5:13",
+    "text": "Porque vosotros, hermanos, á libertad habéis sido llamados; solamente que no uséis la libertad como ocasion á la carne, sino servíos por amor los unos á los otros.",
+    "summary": "Sírvanse los unos a los otros con amor."
+   },
+   {
+    "ref": "1 Pedro 4:10",
+    "text": "Cada uno según el don que ha recibido, adminístrelo á los otros, como buenos dispensadores de las diferentes gracias de Dios.",
+    "summary": "Cada uno use el don que ha recibido para servir a los demás."
+   },
+   {
+    "ref": "Marcos 10:45",
+    "text": "Porque el Hijo del hombre tampoco vino para ser servido, mas para servir, y dar su vida en rescate por muchos.",
+    "summary": "El Hijo del Hombre no vino para ser servido, sino para servir."
+   },
+   {
+    "ref": "Romanos 12:11",
+    "text": "En el cuidado no perezosos; ardientes en espíritu; sirviendo al Señor;",
+    "summary": "No sean perezosos, sino diligentes; sirvan al Señor con entusiasmo."
+   },
+   {
+    "ref": "Hebreos 6:10",
+    "text": "Porque Dios no es injusto para olvidar vuestra obra y el trabajo de amor que habéis mostrado á su nombre, habiendo asistido y asistiendo aún á los santos.",
+    "summary": "Dios no olvida el amor que han mostrado sirviendo a los demás."
+   },
+   {
+    "ref": "1 Corintios 10:31",
+    "text": "Si pues coméis, ó bebéis, ó hacéis otra cosa, haced lo todo á gloria de Dios.",
+    "summary": "Hagan todo para la gloria de Dios."
+   },
+   {
+    "ref": "Josué 22:5",
+    "text": "Solamente que con diligencia cuidéis de poner por obra el mandamiento y la ley, que Moisés siervo de Jehová os intimó: que améis á Jehová vuestro Dios, y andéis en todos sus caminos; que guardéis sus mandamientos, y os alleguéis á él, y le sirvais de todo vuestro corazon y de toda vuestra alma.",
+    "summary": "Amen al Señor su Dios, sírvanle de todo corazón y con toda el alma."
+   },
+   {
+    "ref": "Mateo 25:40",
+    "text": "Y respondiendo el Rey, les dirá: De cierto os digo que en cuanto lo hicisteis á uno de estos mis hermanos pequeñitos, á mí lo hicisteis.",
+    "summary": "Cuando lo hicieron por uno de estos, mis hermanos más pequeños, lo hicieron por mí."
+   },
+   {
+    "ref": "1 Samuel 12:24",
+    "text": "Solamente temed á Jehová, y servidle de verdad con todo vuestro corazon, porque considerad cuan grandes cosas ha hecho con vosotros.",
+    "summary": "Teman al Señor y sírvanle fielmente de todo corazón."
+   }
+  ],
+  "arrepentimiento": [
+   {
+    "ref": "Salmo 51:10",
+    "text": "Crea en mí, oh Dios, un corazon limpio; y renueva un espíritu recto dentro de mí.",
+    "summary": "Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí."
+   },
+   {
+    "ref": "Hechos 3:19",
+    "text": "Así que, arrepentíos y convertíos, para que sean borrados vuestros pecados; pues que vendran los tiempos del refrigerio de la presencia del Señor,",
+    "summary": "Arrepiéntanse y conviértanse, para que sean borrados sus pecados."
+   },
+   {
+    "ref": "2 Crónicas 7:14",
+    "text": "Si se humillare mi pueblo, sobre los cuales ni nombre es invocado, y oraren, y buscaren mi rostro, y se convirtieren de sus malos caminos; entonces yo oiré desde los cielos, y perdonaré sus pecados, y sanaré su tierra.",
+    "summary": "Si mi pueblo se humilla y ora, yo sanaré su tierra."
+   },
+   {
+    "ref": "Isaías 1:18",
+    "text": "Venid luego, dirá Jehová, y estemos á cuenta: si vuestros pecados fueren como la grana, como la nieve seran emblanquecidos: si fueren rojos como el carmesí, vendran á ser como blanca lana.",
+    "summary": "Aunque sus pecados sean como escarlata, quedarán blancos como la nieve."
+   },
+   {
+    "ref": "Salmo 32:5",
+    "text": "Mi pecado te declaré, y no encubrí mi iniquidad. Confesaré, dije, contra mí mis rebeliones á Jehová; y tú perdonaste la maldad de mi pecado. (Selah.)",
+    "summary": "Reconocí mi pecado, y tú perdonaste mi maldad."
+   },
+   {
+    "ref": "Joel 2:13",
+    "text": "Y lacerad vuestro corazon, y no vuestros vestidos; y convertíos á Jehová vuestro Dios; porque misericordioso es y clemente, tardo para la ira, y grande en misericordia, y que se arrepiente del castigo.",
+    "summary": "Vuélvanse al Señor, porque Él es clemente y compasivo, lento para la ira."
+   },
+   {
+    "ref": "Lucas 15:7",
+    "text": "Os digo, que así habrá mas gozo en el cielo de un pecador que se arrepiente, que de noventa y nueve justos, que no necesitan arrepentimiento.",
+    "summary": "Habrá más alegría en el cielo por un pecador que se arrepiente."
+   },
+   {
+    "ref": "Isaías 55:7",
+    "text": "Deje el impío su camino, y el hombre inicuo sus pensamientos; y vuélvase á Jehová, el cual tendrá de él misericordia, y al Dios nuestro, el cual será amplio en perdonar.",
+    "summary": "Que el malvado abandone su camino, y se vuelva al Señor, que tendrá de él misericordia."
+   },
+   {
+    "ref": "Ezequiel 36:26",
+    "text": "Y os daré corazon nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazon de piedra, y os daré corazon de carne.",
+    "summary": "Les daré un corazón nuevo y pondré en ustedes un espíritu nuevo."
+   }
+  ],
+  "guia": [
+   {
+    "ref": "Salmo 119:105",
+    "text": "Nun. Lampara es á mis pies tu palabra, y lumbrera á mi camino.",
+    "summary": "Tu palabra es lámpara a mis pies y luz para mi camino."
+   },
+   {
+    "ref": "Isaías 58:11",
+    "text": "Y Jehová te pastoreará siempre, y en las sequías hartará tu alma, y engordará tus huesos; y seras como huerta de riego, y como manadero de aguas, cuyas aguas nunca faltan.",
+    "summary": "El Señor te guiará siempre y saciará tu alma en tiempos difíciles."
+   },
+   {
+    "ref": "Juan 16:13",
+    "text": "Pero cuando viniere aquel Espíritu de verdad, él os guiará á toda verdad; porque no hablará de sí mismo, sino que hablará todo lo que oyere, y os hará saber las cosas que han de venir.",
+    "summary": "El Espíritu de verdad los guiará a toda la verdad."
+   },
+   {
+    "ref": "Salmo 25:9",
+    "text": "Encaminará á los humildes por el juicio, y enseñará á los mansos su carrera.",
+    "summary": "Él guía a los humildes hacia la justicia, y les enseña su camino."
+   },
+   {
+    "ref": "Proverbios 20:24",
+    "text": "De Jehová son los pasos del hombre: ¿como pues entenderá el hombre su camino?",
+    "summary": "El Señor dirige los pasos del hombre; ¿cómo podría entender su propio camino?"
+   },
+   {
+    "ref": "Salmo 48:14",
+    "text": "Porque este Dios es Dios nuestro eternalmente y para siempre: él nos capitaneará hasta la muerte.",
+    "summary": "Este Dios es nuestro Dios eternamente; Él nos guiará."
+   },
+   {
+    "ref": "Salmo 73:24",
+    "text": "Hasme guiado según tu consejo, y después me recibiras en gloria.",
+    "summary": "Me guías según tu consejo, y después me recibirás en gloria."
+   },
+   {
+    "ref": "Juan 10:27",
+    "text": "Mis ovejas oyen mi voz, y yo las conozco, y me siguen;",
+    "summary": "Mis ovejas oyen mi voz; yo las conozco y ellas me siguen."
+   },
+   {
+    "ref": "Salmo 143:10",
+    "text": "Enséñame á hacer tu voluntad, porque tú eres mi Dios: tu buen espíritu me guíe á tierra de rectitud.",
+    "summary": "Enséñame a hacer tu voluntad, porque tú eres mi Dios."
+   }
+  ],
+  "matrimonio": [
+   {
+    "ref": "Eclesiastés 4:9-10",
+    "text": "Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantará á su compañero: mas ¡ay del solo! que cuando cayere, no habrá segundo que lo levante.",
+    "summary": "Mejor es estar de a dos que solo, pues si caen, el uno levanta al otro."
+   },
+   {
+    "ref": "Proverbios 18:22",
+    "text": "El que halló esposa halló el bien, y alcanzó la benevolencia de Jehová.",
+    "summary": "El que halla esposa, halla algo bueno, y recibe favor del Señor."
+   },
+   {
+    "ref": "1 Corintios 13:7",
+    "text": "Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.",
+    "summary": "El amor todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta."
+   },
+   {
+    "ref": "Marcos 10:9",
+    "text": "Pues lo que Dios juntó, no lo aparte el hombre.",
+    "summary": "Lo que Dios ha unido, que no lo separe el hombre."
+   },
+   {
+    "ref": "Cantares 8:6",
+    "text": "Ponme como un sello sobre tu corazon, como una marca sobre tu brazo: porque fuerte es como la muerte el amor; duro como el sepulcro el celo: sus brasas, brasas de fuego, fuerte llama.",
+    "summary": "Ponme como un sello sobre tu corazón; el amor es fuerte como la muerte."
+   },
+   {
+    "ref": "Colosenses 3:19",
+    "text": "Maridos, amad á vuestras mujeres, y no seais desapacibles con ellas.",
+    "summary": "Esposos, amen a sus esposas y no sean ásperos con ellas."
+   }
+  ],
+  "dinero": [
+   {
+    "ref": "Mateo 6:33",
+    "text": "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os seran añadidas.",
+    "summary": "Busquen primero el reino de Dios, y todo lo demás vendrá por añadidura."
+   },
+   {
+    "ref": "1 Timoteo 6:10",
+    "text": "Porque el amor del dinero es la raíz de todos los males: el cual codiciando algunos, se descaminaron de la fe, y fueron traspasados de muchos dolores.",
+    "summary": "El amor al dinero es raíz de muchos males."
+   },
+   {
+    "ref": "Malaquías 3:10",
+    "text": "Traed todos los diezmos al alfolí, y haya alimento en mi casa; y probadme ahora en esto, dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos, y vaciaré sobre vosotros bendicion hasta que sobreabunde.",
+    "summary": "Traigan el diezmo, y prueben si no derramaré bendición sin medida."
+   },
+   {
+    "ref": "Proverbios 22:7",
+    "text": "El rico se enseñoreará de los pobres; y el que toma prestado, siervo es del que empresta.",
+    "summary": "El rico manda sobre el pobre, y el deudor es esclavo del que presta."
+   },
+   {
+    "ref": "Lucas 12:15",
+    "text": "Y díjoles: Mirad, y guardaos de toda avaricia; porque la vida del hombre no consiste en la abundancia de los bienes que posee.",
+    "summary": "La vida no depende de la abundancia de los bienes que uno posea."
+   },
+   {
+    "ref": "Proverbios 13:11",
+    "text": "Disminuiranse las riquezas de vanidad: empero multiplicará el que allega con su mano.",
+    "summary": "La riqueza ganada con paciencia se acrecienta."
+   }
+  ],
+  "incertidumbre": [
+   {
+    "ref": "Proverbios 27:1",
+    "text": "No te jactes del día de mañana; porque no sabes qué dará de sí el día.",
+    "summary": "No te jactes del día de mañana, pues no sabes qué traerá."
+   },
+   {
+    "ref": "Santiago 4:14",
+    "text": "Y no sabéis lo que será mañana. Porque ¿qué es vuestra vida? Ciertamente es un vapor que se aparece por un poco de tiempo, y luego se desvanece.",
+    "summary": "Ustedes ni siquiera saben qué sucederá mañana; la vida es como neblina."
+   },
+   {
+    "ref": "Salmo 31:14-15",
+    "text": "Mas yo en ti confié, oh Jehová: yo dije: Dios mío eres tú. En tu mano estan mis tiempos: líbrame de la mano de mis enemigos, y de mis perseguidores.",
+    "summary": "Yo, Señor, en ti confío; en tus manos están mis años."
+   },
+   {
+    "ref": "Eclesiastés 11:5",
+    "text": "Como tú no sabes cual es el camino del viento, ó como se crían los huesos en el vientre de la mujer preñada, así ignoras la obra de Dios, el cual hace todas las cosas.",
+    "summary": "Así como no sabes por dónde va el viento, no puedes conocer la obra de Dios."
+   },
+   {
+    "ref": "Isaías 55:8-9",
+    "text": "Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová. Como son mas altos los cielos que la tierra, así son mis caminos mas altos que vuestros caminos, y mis pensamientos mas que vuestros pensamientos.",
+    "summary": "Mis pensamientos no son los de ustedes, dice el Señor."
+   },
+   {
+    "ref": "Proverbios 16:1",
+    "text": "Del hombre son las disposiciones del corazon: mas de Jehová la respuesta de la lengua.",
+    "summary": "El hombre propone, pero Dios dispone la respuesta de su lengua."
+   }
+  ],
+  "ira": [
+   {
+    "ref": "Efesios 4:26",
+    "text": "Airaos, y no pequéis; no se ponga el sol sobre vuestro enojo;",
+    "summary": "Si se enojan, no pequen; que el sol no se ponga sobre su enojo."
+   },
+   {
+    "ref": "Santiago 1:19-20",
+    "text": "Por esto, mis amados hermanos, todo hombre sea pronto para oir, tardío para hablar, tardío para airarse: Porque la ira del hombre no obra la justicia de Dios.",
+    "summary": "Sean lentos para hablar y para la ira, pues la ira humana no produce justicia."
+   },
+   {
+    "ref": "Proverbios 15:1",
+    "text": "La blanda respuesta quita la ira: mas la palabra áspera hace subir el furor.",
+    "summary": "La respuesta amable calma la ira, pero la palabra hiriente hace enfurecer."
+   },
+   {
+    "ref": "Proverbios 29:11",
+    "text": "El necio da suelta á todo su espíritu; mas el sabio al fin le sosiega.",
+    "summary": "El necio da rienda suelta a su ira, pero el sabio la sabe controlar."
+   },
+   {
+    "ref": "Colosenses 3:8",
+    "text": "Mas ahora, dejad también vosotros todas estas cosas: ira, enojo, malicia, maledicencia, torpes palabras de vuestra boca.",
+    "summary": "Abandonen la ira, el enojo, la malicia."
+   },
+   {
+    "ref": "Eclesiastés 7:9",
+    "text": "No te apresures en tu espíritu á enojarte: porque la ira en el seno de los necios reposa.",
+    "summary": "No te apresures a enojarte, porque la ira reside en el corazón del necio."
+   }
+  ],
+  "alabanza": [
+   {
+    "ref": "Salmo 150:6",
+    "text": "Todo lo que respira alabe á JAH. Aleluya.",
+    "summary": "Que todo lo que respira alabe al Señor."
+   },
+   {
+    "ref": "Salmo 34:1",
+    "text": "Bendeciré á Jehová en todo tiempo; su alabanza será siempre en mi boca.",
+    "summary": "Bendeciré al Señor en todo tiempo; mi boca siempre lo alabará."
+   },
+   {
+    "ref": "Salmo 103:1",
+    "text": "Bendice, alma mía, á Jehová; y bendigan todas mis entrañas su santo nombre.",
+    "summary": "Bendice, alma mía, al Señor; bendiga todo mi ser su santo nombre."
+   },
+   {
+    "ref": "Salmo 96:1",
+    "text": "Cantad á Jehová cancion nueva; cantad á Jehová, toda la tierra.",
+    "summary": "Canten al Señor un cántico nuevo; canten al Señor toda la tierra."
+   },
+   {
+    "ref": "Hebreos 13:15",
+    "text": "Así que, ofrezcamos por medio de él á Dios siempre sacrificio de alabanza, es á saber, fruto de labios que confiesen á su nombre.",
+    "summary": "Ofrezcamos siempre a Dios sacrificio de alabanza, fruto de labios que confiesan su nombre."
+   },
+   {
+    "ref": "Salmo 145:3",
+    "text": "Grande es Jehová y digno de suprema alabanza: y su grandeza es inescrutable.",
+    "summary": "Grande es el Señor, y digno de suprema alabanza."
+   }
+  ],
+  "nuevos_comienzos": [
+   {
+    "ref": "Isaías 43:19",
+    "text": "He aquí que yo hago cosa nueva: presto saldrá á luz: ¿no la sabréis? Otra vez pondré camino en el desierto, y ríos en la soledad.",
+    "summary": "Estoy por hacer algo nuevo; ya está brotando, ¿no lo notan?"
+   },
+   {
+    "ref": "2 Corintios 5:17",
+    "text": "De modo que si alguno está en Cristo, nueva criatura es: las cosas viejas pasaron; he aquí todas son hechas nuevas.",
+    "summary": "Si alguno está en Cristo, es una nueva creación; lo viejo pasó, todo es nuevo."
+   },
+   {
+    "ref": "Filipenses 3:13",
+    "text": "Hermanos, yo mismo no hago cuenta de haber lo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atras, y extendiéndome á lo que está delante,",
+    "summary": "Olvidando lo que queda atrás, me extiendo hacia lo que está delante."
+   },
+   {
+    "ref": "Josué 1:2",
+    "text": "Mi siervo Moisés es muerto: levantate pues ahora, y pasa este Jordan, tú y todo este pueblo, á la tierra que yo les doy á los hijos de Israel.",
+    "summary": "Levántate y prepárate para pasar y comenzar lo que viene."
+   },
+   {
+    "ref": "Salmo 40:3",
+    "text": "Puso luego en mi boca cancion nueva, alabanza á nuestro Dios. Veran esto muchos, y temeran, y esperaran en Jehová.",
+    "summary": "Puso en mi boca un cántico nuevo, de alabanza a nuestro Dios."
+   },
+   {
+    "ref": "Eclesiastés 3:11",
+    "text": "Todo lo hizo hermoso en su tiempo: y aun el mundo dió en su corazon, de tal manera que no alcance el hombre la obra de Dios desde el principio hasta el cabo.",
+    "summary": "Todo lo hizo hermoso en su momento."
+   }
+  ],
+  "general": [
+   {
+    "ref": "Mateo 11:28",
+    "text": "Venid á mí todos los que estais trabajados y cargados, que yo os haré descansar.",
+    "summary": "Ven a mí, todos los cansados, y encontrarás descanso."
+   },
+   {
+    "ref": "Salmo 46:1",
+    "text": "Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.",
+    "summary": "Dios es refugio y fortaleza, ayuda segura en momentos difíciles."
+   },
+   {
+    "ref": "1 Juan 2:17",
+    "text": "Y el mundo se pasa, y su concupiscencia; mas el que hace la voluntad de Dios, permanece para siempre.",
+    "summary": "El mundo pasa, pero quien vive según Dios permanece para siempre."
+   },
+   {
+    "ref": "Marcos 13:31",
+    "text": "El cielo y la tierra pasaran, mas mis palabras no pasaran.",
+    "summary": "El cielo y la tierra pasarán, pero mis palabras no pasarán."
+   },
+   {
+    "ref": "Salmo 139:14",
+    "text": "Te alabaré; porque formidables, maravillosas son tus obras: estoy maravillado, y mi alma lo conoce mucho.",
+    "summary": "Soy una creación admirable; tus obras son maravillosas."
+   },
+   {
+    "ref": "Josué 1:9",
+    "text": "Mira que te mando que te esfuerces y seas valiente: no temas ni desmayes, porque Jehová tu Dios será contigo en donde quiera que fueres.",
+    "summary": "Sé fuerte y valiente; no temas, porque el Señor tu Dios está contigo."
+   },
+   {
+    "ref": "Salmo 121:2",
+    "text": "Mi socorro viene de Jehová, que hizo los cielos y la tierra.",
+    "summary": "Mi ayuda viene del Señor, que hizo el cielo y la tierra."
+   },
+   {
+    "ref": "Filipenses 4:19",
+    "text": "Mi Dios, pues, suplirá todo lo que os falta conforme á sus riquezas en gloria en Cristo Jesús.",
+    "summary": "Mi Dios suplirá todo lo que les falta, conforme a sus riquezas en gloria."
+   },
+   {
+    "ref": "Romanos 8:31",
+    "text": "¿Pues qué diremos á esto? Si Dios por nosotros, ¿quién contra nosotros?",
+    "summary": "Si Dios está por nosotros, ¿quién puede estar en contra?"
+   },
+   {
+    "ref": "Salmo 23:1",
+    "text": "Jehová es mi pastor; nada me faltará.",
+    "summary": "El Señor es mi pastor; nada me faltará."
+   },
+   {
+    "ref": "Apocalipsis 21:5",
+    "text": "Y el que estaba sentado en el trono dijo: He aquí, yo hago nuevas todas las cosas. Y me dijo: Escribe; porque estas palabras son fieles y verdaderas.",
+    "summary": "Yo hago nuevas todas las cosas."
+   }
+  ]
+ }
+}

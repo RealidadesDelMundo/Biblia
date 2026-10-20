@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-20",
+  "note": "Revisar antes de lanzar y al menos una vez al año. Fuentes: Ministerio de Sanidad (ES), CONASAMA (MX), 988lifeline.org (US), Ministerio de Salud de Chile (minsal.cl), Ministerio de Salud y Protección Social (CO), MINSA (PE), Ministerio de Salud Pública (EC), Centro de Asistencia al Suicida (AR).",
+  "countries": {
+    "ES": { "name": "España", "line": "024", "note": "Línea de atención a la conducta suicida. Gratuita, las 24 horas.", "emergency": "112" },
+    "AD": { "name": "Andorra", "line": null, "note": null, "emergency": "112" },
+    "MX": { "name": "México", "line": "800 911 2000", "note": "Línea de la Vida. Gratuita, las 24 horas.", "emergency": "911" },
+    "US": { "name": "Estados Unidos", "line": "988", "note": "Línea 988 de Prevención del Suicidio y Crisis. 24 horas, con atención en español.", "emergency": "911" },
+    "CA": { "name": "Canadá", "line": "988", "note": "Línea 988 de ayuda en crisis suicida. 24 horas.", "emergency": "911" },
+    "AR": { "name": "Argentina", "line": "135 (Buenos Aires y alrededores) · 0800 345 1435", "note": "Centro de Asistencia al Suicida.", "emergency": "911" },
+    "CL": { "name": "Chile", "line": "*4141", "note": "Línea de prevención del suicidio del Ministerio de Salud. Gratuita, las 24 horas.", "emergency": "131" },
+    "CO": { "name": "Colombia", "line": "192, opción 4", "note": "Línea nacional de salud mental del Ministerio de Salud. Gratuita, las 24 horas.", "emergency": "123" },
+    "PE": { "name": "Perú", "line": "113, opción 5", "note": "Línea de salud mental del Ministerio de Salud. Gratuita, las 24 horas.", "emergency": null },
+    "EC": { "name": "Ecuador", "line": "171, opción 6", "note": "Línea de salud mental del Ministerio de Salud Pública.", "emergency": "911" }
+  }
+}
