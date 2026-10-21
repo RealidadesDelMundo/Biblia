@@ -2,11 +2,15 @@ import { loadConfig } from './config.js';
 import { createDb } from './db.js';
 import { createApp } from './app.js';
 import { createAI } from './services/ai.js';
+import { createPush } from './services/push.js';
+import { startReminderScheduler } from './services/reminders.js';
 
 const config = loadConfig();
 const db = await createDb(config);
 const ai = createAI(config);
-const app = createApp({ config, db, ai });
+const push = await createPush(db, config);
+const app = createApp({ config, db, ai, push });
+startReminderScheduler({ db, push }); // recordatorios de oración (cada minuto)
 
 const warn = [];
 if (config.isProd && ai.mode === 'demo') warn.push('Sin ANTHROPIC_API_KEY: la app responde con oraciones de respaldo, sin IA.');

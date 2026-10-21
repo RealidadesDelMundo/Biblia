@@ -58,13 +58,13 @@ export default function Companion() {
   return (
     <main className="shell stack-lg">
       <header>
-        <h1 className="screen-title">Acompañante</h1>
-        <p className="screen-lead">Una IA con la que ordenar lo que sientes y orar. No es Dios, ni un pastor, ni un terapeuta.</p>
+        <h1 className="screen-title">Un espacio para tu corazón</h1>
+        <p className="screen-lead">Soy tu acompañante de vida y de fe. Aquí puedes hablar con libertad de tus alegrías, preocupaciones y sueños, y te ayudo a convertir lo que sientes en oración y a encontrar inspiración en la Biblia.</p>
       </header>
 
       {items && items.length === 0 && (
         <div className="stack">
-          <p className="muted">Escribe lo que quieras compartir. Algunas ideas para empezar:</p>
+          <p className="muted">¿Qué deseas poner hoy en manos de Dios? Algunas ideas para empezar:</p>
           <div className="chips">{IDEAS.map((i) => <button key={i} className="chip" onClick={() => setText(i)}>{i}</button>)}</div>
         </div>
       )}
@@ -89,7 +89,9 @@ export default function Companion() {
               note={chat.credits ? `Además tienes ${chat.credits} mensajes de crédito.` : (auth.usage ? `Se renuevan el ${dateShort(auth.usage.resetsAt)}` : undefined)} />
           </div>
         )}
-        {available > 0 ? (
+        {chat === null ? (
+          <p className="small muted" aria-live="polite">Cargando…</p>
+        ) : available > 0 ? (
           <form className="row" onSubmit={send}>
             <div className="field" style={{ flex: 1 }}>
               <label htmlFor="msg" className="sr-only">Tu mensaje</label>
@@ -109,7 +111,7 @@ export default function Companion() {
           <span className="tiny muted">{chat ? `${plural(available, 'mensaje disponible', 'mensajes disponibles')}${chat.credits ? ` (${chat.credits} de crédito)` : ''}` : ''}</span>
           {items?.length > 0 && <button className="btn quiet sm" onClick={clear}>Borrar conversación</button>}
         </div>
-        <p className="tiny muted">Las respuestas las genera una IA y pueden contener errores. No sustituye ayuda profesional.</p>
+        <p className="tiny muted">Soy un acompañante virtual, no una persona. No soy la voz de Dios ni sustituyo la orientación espiritual o profesional, y puedo equivocarme.</p>
       </div>
     </main>
   );

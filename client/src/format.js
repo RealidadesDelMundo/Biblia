@@ -12,3 +12,17 @@ export function remaining(ms) {
 }
 export const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 export const telHref = (line) => (/^[\d\s*#+]+$/.test(line || '') ? `tel:${encodeURIComponent(line.replace(/\s/g, ''))}` : null);
+
+/**
+ * La persona escribe «por quién» enciende la vela desde SU punto de vista («mi madre»). Cuando la app se lo dice a ella
+ * («¿apagar la vela de…?») hay que pasarlo a segunda persona: «tu madre». Solo cambia los posesivos y pronombres más comunes.
+ */
+export function toSecondPerson(text) {
+  const w = (s) => new RegExp(`(?<![\\p{L}])${s}(?![\\p{L}])`, 'giu');
+  const keep = (from, to) => (m) => (m[0] === m[0].toUpperCase() && m[0] !== m[0].toLowerCase() ? to[0].toUpperCase() + to.slice(1) : to);
+  return String(text || '')
+    .replace(w('mis'), keep('mis', 'tus')).replace(w('mi'), keep('mi', 'tu'))
+    .replace(w('mío'), keep('mío', 'tuyo')).replace(w('mía'), keep('mía', 'tuya')).replace(w('míos'), keep('míos', 'tuyos')).replace(w('mías'), keep('mías', 'tuyas'))
+    .replace(w('mí'), keep('mí', 'ti')).replace(w('conmigo'), keep('conmigo', 'contigo'));
+}
+

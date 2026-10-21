@@ -19,10 +19,11 @@ import { candleRoutes } from './routes/candles.js';
 import { companionRoutes } from './routes/companion.js';
 import { billingRoutes } from './routes/billing.js';
 import { adminRoutes } from './routes/admin.js';
+import { reminderRoutes } from './routes/reminders.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
-export function createApp({ config, db, ai, stripe, mailer, billing, clientDir } = {}) {
+export function createApp({ config, db, ai, stripe, mailer, billing, push = null, clientDir } = {}) {
   ai ??= createAI(config);
   stripe ??= config.stripe.secretKey ? new Stripe(config.stripe.secretKey) : null;
   mailer ??= createMailer(config);
@@ -57,7 +58,7 @@ export function createApp({ config, db, ai, stripe, mailer, billing, clientDir }
   app.use(express.json({ limit: '50kb' }));
   app.use('/api', originCheck(config), apiLimiter, loadUser({ db, config }));
 
-  app.use('/api', metaRoutes({ db, config, ai }));
+  app.use('/api', metaRoutes({ db, config, ai, push }));
   app.use('/api/auth', authLimiter, authRoutes({ db, config, mailer }));
   app.use('/api/me', meRoutes({ db, config, stripe }));
   app.use('/api', prayerRoutes({ db, config, ai, aiLimiter }));
@@ -65,6 +66,7 @@ export function createApp({ config, db, ai, stripe, mailer, billing, clientDir }
   app.use('/api/companion', companionRoutes({ db, config, ai, aiLimiter }));
   app.use('/api/billing', billingRoutes({ db, config, stripe, billing }));
   app.use('/api/admin', adminRoutes({ db, config, stripe }));
+  app.use('/api/reminders', reminderRoutes({ db, push }));
   app.use('/api', (_req, res) => res.status(404).json({ error: 'No encontrado.' }));
 
   // Frontend (React compilado)

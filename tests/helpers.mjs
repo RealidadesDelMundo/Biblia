@@ -5,16 +5,22 @@ import { createAI } from '../server/services/ai.js';
 
 process.env.RATE_LIMIT_DISABLED ??= '1';
 
-export async function startApp({ env = {}, aiClient, stripe, mailer, rateLimits = false } = {}) {
+/** Servicio push falso: registra los envíos y puede simular un dispositivo caducado (404/410). */
+export function fakePush() {
+  const sent = []; let failWith = null;
+  return { publicKey: 'BFakePublicKeyForTests', sent, failWith: (code) => { failWith = code; }, send: async (sub, payload) => { if (failWith) { const e = new Error('gone'); e.statusCode = failWith; throw e; } sent.push({ sub, payload }); } };
+}
+
+export async function startApp({ env = {}, aiClient, stripe, mailer, push = fakePush(), rateLimits = false } = {}) {
   if (rateLimits) delete process.env.RATE_LIMIT_DISABLED;
   const config = loadConfig({ NODE_ENV: 'test', SQLITE_PATH: ':memory:', BCRYPT_ROUNDS: '4', JWT_SECRET: 'test-secret', PORT: '0', PAYMENTS_MODE: 'demo', APP_URL: 'http://localhost:3000', ...env });
   const db = await createDb(config);
   const ai = createAI(config, aiClient ? { client: aiClient } : {});
-  const app = createApp({ config, db, ai, stripe, mailer, clientDir: '/nonexistent' });
+  const app = createApp({ config, db, ai, stripe, mailer, push, clientDir: '/nonexistent' });
   const server = await new Promise((resolve) => { const s = app.listen(0, '127.0.0.1', () => resolve(s)); });
   const base = `http://127.0.0.1:${server.address().port}`;
   if (rateLimits) process.env.RATE_LIMIT_DISABLED = '1';
-  return { base, config, db, ai, close: async () => { await new Promise((r) => server.close(r)); await db.destroy(); } };
+  return { base, config, db, ai, push, close: async () => { await new Promise((r) => server.close(r)); await db.destroy(); } };
 }
 
 export function client(base) {
@@ -34,6 +40,8 @@ export function client(base) {
     get: (p, h) => call('GET', p, undefined, h),
     post: (p, b, h) => call('POST', p, b ?? {}, h),
     patch: (p, b, h) => call('PATCH', p, b, h),
+    put: (p, b, h) => call('PUT', p, b, h),
+    raw: (m, p, b, h) => call(m, p, b, h),
     del: (p, b, h) => call('DELETE', p, b ?? {}, h),
     postRaw: (p, raw, h) => call('POST', p, undefined, h, raw),
     get cookie() { return cookie; },

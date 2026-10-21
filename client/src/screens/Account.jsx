@@ -4,6 +4,7 @@ import { api } from '../api.js';
 import { useApp } from '../store.jsx';
 import { dateLong, dateShort, money } from '../format.js';
 import Usage from '../components/Usage.jsx';
+import Reminders from '../components/Reminders.jsx';
 import Sheet from '../components/Sheet.jsx';
 
 const SCALES = [{ v: '100', label: 'A', title: 'Tamaño normal' }, { v: '112', label: 'A', title: 'Tamaño grande' }, { v: '125', label: 'A', title: 'Tamaño muy grande' }];
@@ -90,6 +91,8 @@ export default function Account() {
           <p className="tiny muted">Los contadores se renuevan el {dateShort(auth.usage.resetsAt)}.</p>
         </section>
       )}
+
+      <Reminders />
 
       <section className="card stack" aria-labelledby="read-h">
         <h2 id="read-h" className="label">Lectura</h2>

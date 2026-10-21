@@ -4,7 +4,7 @@ import * as V from '../services/verses.js';
 import { helplineForRequest, listCountries } from '../services/crisis.js';
 import { isPremium } from '../plans.js';
 
-export function metaRoutes({ db, config, ai }) {
+export function metaRoutes({ db, config, ai, push }) {
   const r = Router();
 
   r.get('/health', (_req, res) => res.json({ ok: true }));
@@ -12,6 +12,7 @@ export function metaRoutes({ db, config, ai }) {
   r.get('/config', (_req, res) => {
     res.json({
       aiMode: ai.mode,
+      push: { enabled: !!push, publicKey: push?.publicKey || null },
       paymentsMode: config.paymentsMode,
       translation: V.TRANSLATION,
       prices: { currency: config.currency, ...config.prices },

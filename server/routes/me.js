@@ -26,6 +26,8 @@ export function meRoutes({ db, config, stripe }) {
   // Derecho de acceso y portabilidad (RGPD art. 15 y 20)
   r.get('/export', wrap(async (req, res) => {
     const id = req.user.id;
+    const rem = await db('reminder_settings').where({ user_id: id }).first();
+    const devices = Number((await db('push_subscriptions').where({ user_id: id }).count({ n: '*' }).first()).n);
     const [entries, candles, chat] = await Promise.all([
       db('entries').where({ user_id: id }).orderBy('created_at'),
       db('candles').where({ user_id: id }).orderBy('created_at'),
@@ -36,7 +38,8 @@ export function meRoutes({ db, config, stripe }) {
       exportedAt: new Date().toISOString(),
       account: { email: req.user.email, createdAt: iso(req.user.created_at), consentAt: iso(req.user.consent_at), consentVersion: req.user.consent_version, plan: req.user.plan },
       prayers: entries.map((e) => ({ date: iso(e.created_at), whatYouWrote: e.original, prayer: e.prayer, verse: `${e.verse_ref}: ${e.verse_text}`, theme: e.theme })),
-      candles: candles.map((c) => ({ date: iso(c.created_at), for: c.name, intention: c.intention, size: c.size, verse: c.verse_ref })),
+      candles: candles.map((c) => ({ date: iso(c.created_at), for: c.name, intention: c.intention, size: c.size, verse: c.verse_ref, extinguished: iso(c.extinguished_at) })),
+      reminders: { enabled: !!rem?.enabled, times: rem ? JSON.parse(rem.times) : [], timeZone: rem?.tz || null, devices },
       companionConversation: chat.map((m) => ({ date: iso(m.created_at), role: m.role, text: m.content })),
     };
     res.setHeader('Content-Disposition', 'attachment; filename="mis-datos-oracion.json"');

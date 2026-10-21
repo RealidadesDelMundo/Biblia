@@ -25,6 +25,8 @@ export function Privacy() {
       <ul>
         <li>Tu correo y tu contraseña (guardada cifrada, nunca en claro).</li>
         <li>Lo que escribes: oraciones, intenciones de velas y conversaciones con el acompañante. Pueden revelar tus creencias religiosas y tu estado emocional, que son datos de categoría especial.</li>
+        <li>Un registro de actividad: la fecha y el tipo de cada acción (oración, vela, mensaje, o petición desviada por salirse del ámbito del acompañante), sin el contenido de lo que escribes. Lo usamos para controlar el servicio y detectar abusos.</li>
+        <li>Si activas los recordatorios de oración: tus horarios y los datos técnicos de tu navegador necesarios para enviarte los avisos. Puedes desactivarlos cuando quieras y se borran con tu cuenta.</li>
         <li>Tu plan, tus compras y tu uso mensual. Los pagos los procesa Stripe: nosotros no vemos los datos de tu tarjeta.</li>
         <li>Tu dirección IP, solo en el momento de la petición, para deducir tu país y mostrarte el teléfono de ayuda correcto. No la guardamos.</li>
       </ul>
@@ -40,7 +42,7 @@ export function Privacy() {
       <h2>5. Detección de riesgo</h2>
       <p>Analizamos automáticamente lo que escribes para detectar señales de riesgo (por ejemplo, de suicidio o autolesión) y mostrarte ayuda. Es automático, puede equivocarse y no sustituye a un profesional. Si detectamos riesgo alto, no generamos la oración y no guardamos ese texto.</p>
       <h2>6. Con quién lo compartimos</h2>
-      <p>Con proveedores que nos prestan servicio: IA (Anthropic), pagos (Stripe), alojamiento y base de datos (Railway) y correo (Resend). Algunos están en Estados Unidos; las transferencias se amparan en las garantías previstas por el RGPD (por ejemplo, cláusulas contractuales tipo). No vendemos tus datos ni los usamos para publicidad.</p>
+      <p>Con proveedores que nos prestan servicio: IA (Anthropic), pagos (Stripe), alojamiento y base de datos (Railway), correo (Resend) y, solo si activas los recordatorios, el servicio de notificaciones de tu navegador (Google, Apple, Mozilla o Microsoft, según tu dispositivo), que recibe un aviso genérico sin contenido personal. Algunos están en Estados Unidos; las transferencias se amparan en las garantías previstas por el RGPD (por ejemplo, cláusulas contractuales tipo). No vendemos tus datos ni los usamos para publicidad.</p>
       <h2>7. Cuánto tiempo los guardamos</h2>
       <p>Mientras tengas cuenta. Si la borras, eliminamos tu diario, velas y conversaciones. Conservaremos solo lo que la ley nos obligue (por ejemplo, datos de facturación) durante el plazo legal.</p>
       <h2>8. Tus derechos</h2>

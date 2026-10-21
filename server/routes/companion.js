@@ -24,13 +24,26 @@ export function companionRoutes({ db, config, ai, aiLimiter }) {
     if (u.chat.available <= 0) return res.status(402).json({ error: 'Has agotado tus mensajes con el acompañante este mes.', code: 'LIMIT_CHAT', usage: u.chat });
 
     const floor = assessRiskPatterns(message);
-    const a = await ai.assess(message);
+    const last = await db('chat_messages').where({ user_id: user.id, role: 'assistant' }).orderBy('id', 'desc').first();
+    const a = await ai.assess(message, { context: last?.content });
     const risk = maxRisk(floor.risk, a.risk);
     const hl = helplineForRequest(req, user);
     if (risk === 'high') {
       // No se envía a la IA, no se guarda y no se descuenta.
       const kind = floor.kind || 'self';
       return res.json({ risk: 'high', kind, messages: highRiskText(kind, hl), helpline: hl, usage: u.chat });
+    }
+
+    // Fuera del ámbito del acompañante (recetas, código, deberes…): respuesta fija y amable, sin llamar al modelo grande,
+    // sin guardar el mensaje y sin gastar cupo. Solo se anota la fecha (nunca el contenido) para que el administrador vea cuántas veces ocurre.
+    if (risk === 'none' && a.scope === 'out') {
+      await db('scope_flags').insert({ user_id: user.id, created_at: Date.now() });
+      const redirects = [
+        'Para eso no soy la ayuda adecuada: este espacio es para acompañarte en lo que sientes, en tu fe y en tu oración. Si hay algo que llevas en el corazón, cuéntamelo y lo vemos juntos.',
+        'Me gustaría ayudarte, pero aquí solo puedo acompañarte en lo personal y lo espiritual: cómo te sientes, qué te preocupa o qué quieres llevar a oración. ¿Cómo estás hoy, de verdad?',
+        'Eso se sale de lo que puedo hacer aquí. Este es tu lugar para hablar de lo que vives y para orar. Si quieres, cuéntame cómo va tu día o qué tienes en la mente y lo acompañamos con una oración.',
+      ];
+      return res.json({ reply: redirects[Math.floor(Math.random() * redirects.length)], risk: 'none', offTopic: true, usage: u.chat });
     }
 
     const prev = await db('chat_messages').where({ user_id: user.id }).orderBy('id', 'desc').limit(20);

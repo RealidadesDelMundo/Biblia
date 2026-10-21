@@ -72,6 +72,13 @@ Con solo estas variables funciona: `NODE_ENV=production`, `JWT_SECRET`, `DATABAS
 - **Panel de administración:** define `ADMIN_EMAILS` con tu correo y **regístrate tú primero**. Verás en Cuenta una sección «Administración» con la lista de personas (alta, último acceso, plan y cuántas oraciones, velas y mensajes tienen) y podrás borrar cuentas. Nunca muestra lo que escriben.
 - Además, en Railway puedes ver las tablas en el servicio PostgreSQL → pestaña Database. Ahí sí se ve el contenido que escribe la gente: evítalo, y menciona en la política de privacidad quién tiene acceso.
 
+### Recordatorios de oración (notificaciones push)
+Cada persona elige en **Cuenta → Recordatorios de oración** una frecuencia (cada 3 h, cada 2 h, 3 veces al día, 1 vez al día) o sus propias horas, y recibe un aviso breve y genérico (sin nada personal). No hace falta configurar nada: las claves de notificaciones (VAPID) se generan solas la primera vez y se guardan en la base de datos. Si quieres fijarlas tú (por ejemplo para no perderlas si reinicias la base de datos), define `VAPID_PUBLIC_KEY` y `VAPID_PRIVATE_KEY` (se generan con `npx web-push generate-vapid-keys`).
+- **Cómo funciona:** el servidor revisa cada minuto qué avisos tocan, según la zona horaria de cada persona, y los envía por el servicio de notificaciones del navegador (Google, Apple, Mozilla o Microsoft). Cada aviso se reclama en la base de datos de forma atómica, así que nunca se duplica aunque haya varias instancias. Si el servidor está caído, un aviso se puede enviar con hasta 5 minutos de retraso; pasado ese margen se omite.
+- **Límites reales:** en **iPhone/iPad** solo funciona con la app instalada en la pantalla de inicio (iOS 16.4 o superior). En **ordenador** el navegador debe estar abierto o en segundo plano. En **Android** funciona con la app cerrada. Los avisos dependen del sistema operativo (modos «No molestar», ahorro de batería) y no se garantizan al minuto exacto.
+- **Importante en Railway:** si activas la opción de *App Sleeping* (serverless) del servicio, el proceso se duerme y los recordatorios no salen. Déjala desactivada.
+- **No he podido probar la entrega real** con Google/Apple desde mi entorno. Probado: reglas de horario y zona horaria, no duplicar, dispositivos caducados, el service worker y toda la interfaz. Prueba tú en tu móvil y en tu ordenador con el botón «Enviar una prueba».
+
 ### Stripe (primero en modo test)
 1. Crea la cuenta de Stripe y copia la clave secreta **de test** en `STRIPE_SECRET_KEY`.
 2. Developers → Webhooks → añade el endpoint `https://TU-DOMINIO/api/billing/webhook` con estos eventos: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_failed`.
@@ -98,6 +105,7 @@ Crea una cuenta en Resend, verifica tu dominio y pon `RESEND_API_KEY` y `MAIL_FR
 Decisiones de diseño que conviene conocer:
 - **Cómo se elige el versículo:** (1) una IA rápida detecta de 1 a 2 temas; (2) el servidor reúne los versículos de esos temas (sin los vistos hace poco); (3) la IA elige el que mejor encaja **solo entre esos candidatos**; si devuelve algo que no está en la lista, se ignora; (4) la oración se escribe a partir de ese versículo, sin citarlo. Sin IA (o si falla) se elige por coincidencia de palabras con lo escrito. Así nunca se inventa una cita. Con ~10 versículos por tema el ajuste tiene un techo: ampliar la base mejora la relevancia.
 - Riesgo = máximo entre los patrones fijos y la IA. La IA puede subirlo, nunca bajarlo.
+- **El acompañante se ciñe a su ámbito:** antes de contestar, un clasificador decide si el mensaje es personal/espiritual o una tarea ajena (recetas, código, deberes…). Si es ajena, responde una frase fija amable sin llamar al modelo grande, no guarda el mensaje ni gasta cupo, y el panel de administración cuenta el desvío (solo fecha, nunca el contenido). Además el propio prompt le prohíbe actuar como asistente general.
 - Riesgo alto: no se genera oración, **no se guarda el texto** y no gasta cupo.
 - Si la IA falla, se entrega una oración de respaldo y **no se gasta el cupo** del usuario.
 - Al dejar de ser Premium no se borra nada: el diario sigue guardado, solo se ve parcialmente.

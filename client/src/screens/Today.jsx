@@ -5,8 +5,11 @@ import { useApp } from '../store.jsx';
 import { dateShort, localDay, plural } from '../format.js';
 import Candle from '../components/Candle.jsx';
 import Usage from '../components/Usage.jsx';
+import { reminderSupport } from '../components/Reminders.jsx';
 import Verse from '../components/Verse.jsx';
 import { CrisisCard, HelpFooter } from '../components/Crisis.jsx';
+
+const NUDGE_KEY = 'oracion.remNudgeUntil';
 
 export default function Today() {
   const { config, auth, isPremium, setUsage, go, toast, setPremiumOpen } = useApp();
@@ -16,6 +19,16 @@ export default function Today() {
   const [result, setResult] = useState(null);
   const paymentsOn = config?.paymentsMode !== 'off';
   const crisisRef = useRef(null);
+  // Aviso «¿Quieres que te recordemos orar?»: solo tras una oración, si los recordatorios se pueden usar y aún no están activados.
+  const [remStatus, setRemStatus] = useState(null);
+  const [nudgeOff, setNudgeOff] = useState(false);
+  useEffect(() => {
+    if (!result?.entry || !config?.push?.enabled) return;
+    api.get('/api/reminders').then(setRemStatus).catch(() => {});
+  }, [result?.entry]); // eslint-disable-line react-hooks/exhaustive-deps
+  const snoozed = () => { try { return Number(localStorage.getItem(NUDGE_KEY) || 0) > Date.now(); } catch { return false; } };
+  const snooze = (days) => { try { localStorage.setItem(NUDGE_KEY, String(Date.now() + days * 86400000)); } catch { /* sin almacenamiento */ } };
+  const showNudge = !!result?.entry && !nudgeOff && !!remStatus?.available && !remStatus.enabled && !snoozed() && ['ok', 'ios-install'].includes(reminderSupport());
   // Si hay riesgo alto, la ayuda debe verse al instante, sin tener que buscarla
   useEffect(() => { if (result?.risk === 'high') crisisRef.current?.scrollIntoView?.({ block: 'start', behavior: 'smooth' }); }, [result]);
 
@@ -75,18 +88,28 @@ export default function Today() {
           <Verse verse={result.entry.verse} small openGist />
           <hr className="divider" style={{ margin: '4px 0' }} />
           <div className="prayer">{result.entry.prayer.split(/\n{2,}/).map((p, i) => <p key={i}>{p}</p>)}</div>
-          <p className="tiny muted">Oración escrita por una IA. Guardada en tu diario.</p>
-          {result.aiFallback && <p className="notice">Hoy la IA no está disponible, así que te dejamos una oración de este tema. No se ha gastado ninguna de tus oraciones.</p>}
+          <p className="tiny muted">Oración creada para ti por tu acompañante virtual. Guardada en tu diario.</p>
+          {result.aiFallback && <p className="notice">Hoy tu acompañante no está disponible, así que te dejamos una oración de este tema. No se ha gastado ninguna de tus oraciones.</p>}
           {result.risk === 'moderate' && <HelpFooter helpline={result.helpline} onHelpline={setHelpline} />}
           <div className="row-wrap">
             <button className="btn sm" onClick={() => go('capilla', { intention: result.entry.original.slice(0, 140) })}><Flame size={16} /> Encender una vela</button>
             <button className="btn quiet sm" onClick={() => setResult(null)}>Escribir otra</button>
           </div>
+          {showNudge && (
+            <div className="notice" role="region" aria-label="Recordatorios de oración">
+              <b>¿Quieres que te recordemos orar?</b>
+              <p className="small" style={{ margin: '4px 0 10px' }}>Te avisamos con un mensaje breve a las horas que elijas, por ejemplo cada 3 horas.</p>
+              <div className="row-wrap">
+                <button className="btn primary sm" onClick={() => { snooze(3); go('cuenta', { focus: 'reminders' }); }}>Activar recordatorios</button>
+                <button className="btn quiet sm" onClick={() => { snooze(30); setNudgeOff(true); }}>Ahora no</button>
+              </div>
+            </div>
+          )}
         </section>
       ) : (
         <form className="card stack" onSubmit={write}>
           <div className="field">
-            <label htmlFor="intention">¿Qué quieres llevar a oración hoy?</label>
+            <label htmlFor="intention">¿Qué oración nace hoy de tu corazón?</label>
             <textarea id="intention" value={intention} maxLength={1000} onChange={(e) => setIntention(e.target.value)} disabled={blocked}
               placeholder="Por ejemplo: mañana tengo una entrevista de trabajo y estoy nervioso." />
           </div>

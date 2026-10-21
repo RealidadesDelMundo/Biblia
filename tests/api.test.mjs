@@ -3,6 +3,13 @@ import assert from 'node:assert/strict';
 import { startApp, client, signup, fakeAnthropic } from './helpers.mjs';
 import * as V from '../server/services/verses.js';
 import { selectVerse } from '../server/services/verseSelect.js';
+import { tick, localParts, validTz } from '../server/services/reminders.js';
+import os from 'node:os';
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadConfig } from '../server/config.js';
+import { createDb } from '../server/db.js';
+import { ensureVapid } from '../server/services/push.js';
 import { assessRiskPatterns } from '../server/services/crisis.js';
 
 // ───────────────────────── Contenido y utilidades puras ─────────────────────────
@@ -771,3 +778,297 @@ describe('El versículo parte de lo que escribe la persona', () => {
     } finally { await app.close(); }
   });
 });
+
+describe('Actividad en el panel (sin contenido)', () => {
+  let app; before(async () => { app = await startApp({ aiClient: fakeAnthropic(), env: { ADMIN_EMAILS: 'jefe@example.com' } }); }); after(() => app.close());
+
+  test('el administrador ve fecha y tipo de cada acción, nunca el contenido ni el tema; el resto no puede', async () => {
+    const admin = client(app.base); await admin.post('/api/auth/register', { email: 'jefe@example.com', password: 'clave-segura-1', consent: true });
+    const { c: user, user: u } = await signup(app.base, { email: 'otra@example.com' });
+    await user.post('/api/prayers', { intention: 'algo muy personal y secreto' });
+    await user.post('/api/candles', { size: 'pequena', intention: 'vela de prueba' });
+    await user.post('/api/companion', { message: 'hola, necesito hablar' });
+    const act = await admin.get(`/api/admin/users/${u.id}/activity`);
+    assert.equal(act.status, 200);
+    assert.deepEqual([...new Set(act.json.events.map((e) => e.type))].sort(), ['mensaje', 'oracion', 'vela']);
+    const txt = JSON.stringify(act.json);
+    for (const prohibido of ['secreto', 'personal', 'vela de prueba', 'necesito hablar', 'ansiedad']) assert.ok(!txt.includes(prohibido), prohibido);
+    assert.equal((await user.get(`/api/admin/users/${u.id}/activity`)).status, 403);
+    assert.equal((await client(app.base).get('/api/admin/users/1/activity')).status, 401);
+    assert.equal((await admin.get('/api/admin/users/999999/activity')).status, 404);
+    const list = (await admin.get('/api/admin/users')).json;
+    assert.equal(list.users.find((x) => x.email === 'otra@example.com').monthPrayers, 1);
+    assert.equal('aiCostMonth' in list, false); // sin control de gasto de IA
+  });
+});
+
+describe('El acompañante se ciñe a su ámbito', () => {
+  let ai, app;
+  const assess = (txt) => ({ risk: /me quiero morir/.test(txt) ? 'high' : /agotad/.test(txt) ? 'moderate' : 'none', theme: 'ansiedad', scope: /arepa|python|tarea de mates/i.test(txt) ? 'out' : 'in' });
+  before(async () => { ai = fakeAnthropic({ assess }); app = await startApp({ aiClient: ai, env: { ADMIN_EMAILS: 'jefe@example.com' } }); });
+  after(() => app.close());
+  const sonnetCalls = () => ai.calls.filter((c) => c.model === 'claude-sonnet-5-5').length;
+
+  test('una petición ajena (receta, código…) recibe una respuesta fija amable, sin llamar al modelo grande, sin guardarse y sin gastar cupo', async () => {
+    const { c, user } = await signup(app.base, { email: 'curiosa@example.com' });
+    const antes = sonnetCalls();
+    const r = await c.post('/api/companion', { message: 'cómo se hace una arepa' });
+    assert.equal(r.status, 200);
+    assert.equal(r.json.offTopic, true);
+    assert.match(r.json.reply, /acompañarte|personal|oración/i);
+    assert.equal(sonnetCalls(), antes);                                              // el modelo grande no se llama
+    assert.equal((await app.db('chat_messages').where({ user_id: user.id })).length, 0); // no se guarda
+    assert.equal(r.json.usage.used, 0);                                              // no gasta cupo
+    assert.equal((await app.db('scope_flags').where({ user_id: user.id })).length, 1);
+    assert.ok(!JSON.stringify(await app.db('scope_flags')).includes('arepa'));       // solo la fecha, nunca el contenido
+    // y a partir de ahí la conversación normal sigue funcionando
+    const ok = await c.post('/api/companion', { message: 'me siento perdido con mi trabajo' });
+    assert.equal(ok.status, 201); assert.equal(ok.json.usage.used, 1);
+    assert.equal(sonnetCalls(), antes + 1);
+  });
+
+  test('una respuesta a la pregunta del acompañante no se confunde con algo ajeno: el clasificador recibe el mensaje anterior como contexto', async () => {
+    const { c } = await signup(app.base, { email: 'contexto@example.com' });
+    await c.post('/api/companion', { message: 'quiero dar gracias por algo' });
+    await c.post('/api/companion', { message: 'por la cocina de mi madre' });
+    const ultima = ai.calls.filter((x) => x.model === 'claude-haiku-5-5' && /clasificador/.test(x.system)).at(-1);
+    assert.match(ultima.messages[0].content, /Mensaje anterior del acompañante/);
+    assert.match(ultima.messages[0].content, /Señor, gracias por escucharme/);
+  });
+
+  test('si hay malestar serio, se responde aunque el mensaje parezca ajeno; el riesgo alto sigue mostrando ayuda', async () => {
+    const { c } = await signup(app.base, { email: 'mixto@example.com' });
+    const m = await c.post('/api/companion', { message: 'estoy agotado, no puedo más con la tarea de mates' });
+    assert.equal(m.status, 201); assert.equal(m.json.risk, 'moderate'); assert.ok(!m.json.offTopic);
+    const h = await c.post('/api/companion', { message: 'me quiero morir' });
+    assert.equal(h.json.risk, 'high'); assert.ok(h.json.helpline);
+  });
+
+  test('el administrador ve cuántos desvíos hubo y cuándo, nunca el contenido; se borran con la cuenta', async () => {
+    const admin = client(app.base); await admin.post('/api/auth/register', { email: 'jefe@example.com', password: 'clave-segura-1', consent: true });
+    const { c, user } = await signup(app.base, { email: 'abusona@example.com' });
+    await c.post('/api/companion', { message: 'dame una receta de arepa' });
+    await c.post('/api/companion', { message: 'escribe un programa en python' });
+    const list = (await admin.get('/api/admin/users')).json.users.find((x) => x.email === 'abusona@example.com');
+    assert.equal(list.offTopic, 2); assert.equal(list.monthOffTopic, 2);
+    const act = (await admin.get(`/api/admin/users/${user.id}/activity`)).json;
+    assert.equal(act.events.filter((e) => e.type === 'fuera_de_tema').length, 2);
+    assert.ok(!JSON.stringify(act).includes('python') && !JSON.stringify(act).includes('arepa'));
+    await c.del('/api/me', { password: 'clave-segura-1' });
+    assert.equal((await app.db('scope_flags').where({ user_id: user.id })).length, 0);
+  });
+
+  test('las instrucciones del acompañante le prohíben actuar como asistente general', () => {
+    // Defensa en profundidad: además del filtro previo, el propio prompt cierra el ámbito.
+    const sys = ai.calls.find((x) => x.model === 'claude-sonnet-5-5')?.system || '';
+    assert.match(sys, /No eres un asistente general/);
+    assert.match(sys, /recetas, código, tareas escolares/);
+  });
+});
+
+describe('Recordatorios de oración (notificaciones push)', () => {
+  let app; before(async () => { app = await startApp(); }); after(() => app.close());
+  const sub = (n = 1) => ({ endpoint: `https://push.example/dispositivo-${n}`, keys: { p256dh: 'p'.repeat(87), auth: 'a'.repeat(22) } });
+  const utc = (h, m, d = 21) => Date.UTC(2026, 9, d, h, m); // 21-oct-2026: Madrid = UTC+2 (CEST)
+  async function listo(email, times, tz = 'Europe/Madrid', n = 1) {
+    const { c, user } = await signup(app.base, { email });
+    assert.equal((await c.post('/api/reminders/subscribe', { subscription: sub(n) })).status, 201);
+    const r = await c.put?.('/api/reminders', { enabled: true, times, tz }) ?? await fetchPut(c, { enabled: true, times, tz });
+    assert.equal(r.status, 200, JSON.stringify(r.json));
+    return { c, user };
+  }
+  // el cliente de pruebas no tiene PUT: lo emulamos con una petición manual conservando la cookie
+  async function fetchPut(c, body) { return c.raw('PUT', '/api/reminders', body); }
+
+  test('la configuración pública indica que los recordatorios están disponibles y da la clave pública', async () => {
+    const cfg = (await client(app.base).get('/api/config')).json;
+    assert.equal(cfg.push.enabled, true); assert.ok(cfg.push.publicKey);
+  });
+
+  test('por defecto no hay nada activado; solo se puede activar tras registrar un dispositivo, con horas y zona válidas', async () => {
+    const { c } = await signup(app.base);
+    const v = (await c.get('/api/reminders')).json;
+    assert.deepEqual([v.enabled, v.times, v.devices, v.available], [false, [], 0, true]);
+    assert.equal((await fetchPut(c, { enabled: true, times: ['08:00'], tz: 'Europe/Madrid' })).json.code, 'NO_DEVICE');
+    await c.post('/api/reminders/subscribe', { subscription: sub(2) });
+    for (const bad of [{ times: ['8:00'] }, { times: ['25:00'] }, { times: ['08:60'] }, { times: [] }, { times: Array.from({ length: 13 }, (_, i) => `${String(i).padStart(2, '0')}:00`) }, { times: ['08:00'], tz: 'Mundo/Inventado' }, { enabled: 'si' }]) {
+      const r = await fetchPut(c, { enabled: true, times: ['08:00'], tz: 'Europe/Madrid', ...bad });
+      assert.equal(r.status, 400, JSON.stringify(bad));
+    }
+    const ok = await fetchPut(c, { enabled: true, times: ['14:00', '08:00', '08:00'], tz: 'Europe/Madrid' });
+    assert.deepEqual([ok.status, ok.json.enabled, ok.json.times, ok.json.devices], [200, true, ['08:00', '14:00'], 1]); // ordena y quita repetidas
+    assert.equal((await client(app.base).get('/api/reminders')).status, 401);
+  });
+
+  test('las suscripciones se validan, se pueden repetir sin duplicarse y hay un máximo de dispositivos', async () => {
+    const { c } = await signup(app.base);
+    for (const bad of [{}, { endpoint: 'http://inseguro/x', keys: sub().keys }, { endpoint: 'https://x/y', keys: { p256dh: 'corto', auth: 'corto' } }]) assert.equal((await c.post('/api/reminders/subscribe', { subscription: bad })).status, 400);
+    await c.post('/api/reminders/subscribe', { subscription: sub(10) });
+    assert.equal((await c.post('/api/reminders/subscribe', { subscription: sub(10) })).json.devices, 1); // el mismo dispositivo no se duplica
+    for (let i = 11; i <= 16; i++) await c.post('/api/reminders/subscribe', { subscription: sub(i) });
+    assert.equal((await c.get('/api/reminders')).json.devices, 5); // máximo 5; se descarta el más antiguo
+    const un = await c.post('/api/reminders/unsubscribe', { endpoint: sub(16).endpoint });
+    assert.equal(un.json.devices, 4);
+  });
+
+  test('si se quitan todos los dispositivos, los recordatorios se desactivan solos', async () => {
+    const { c } = await listo('sin-dispositivos@example.com', ['08:00']);
+    const un = await c.post('/api/reminders/unsubscribe', { endpoint: sub(1).endpoint });
+    assert.deepEqual([un.json.devices, un.json.enabled], [0, false]);
+  });
+
+  test('zona horaria: la hora se interpreta en la zona de cada persona', () => {
+    assert.deepEqual(localParts(utc(6, 0), 'Europe/Madrid'), { date: '2026-10-21', minutes: 8 * 60 });
+    assert.deepEqual(localParts(utc(6, 0), 'America/Mexico_City'), { date: '2026-10-21', minutes: 0 });
+    assert.deepEqual(localParts(utc(23, 30), 'Asia/Tokyo'), { date: '2026-10-22', minutes: 8 * 60 + 30 });
+    assert.equal(validTz('Europe/Madrid'), true); assert.equal(validTz('Nada/Nada'), false);
+  });
+
+  test('el aviso sale a su hora, una sola vez, y no sale si se pasó de la ventana de 5 minutos o antes de tiempo', async () => {
+    const { user } = await listo('puntual@example.com', ['08:00', '11:00']);
+    const mios = () => app.push.sent.filter((x) => x.sub.endpoint === sub(1).endpoint).length;
+    const base = mios();
+    await tick({ db: app.db, push: app.push, now: utc(5, 59) });  // 07:59 en Madrid: aún no
+    assert.equal(mios(), base);
+    await tick({ db: app.db, push: app.push, now: utc(6, 0) });   // 08:00: sale
+    assert.equal(mios(), base + 1);
+    await tick({ db: app.db, push: app.push, now: utc(6, 0) });   // mismo minuto: no se repite
+    await tick({ db: app.db, push: app.push, now: utc(6, 4) });   // 08:04: sigue sin repetirse
+    assert.equal(mios(), base + 1);
+    await tick({ db: app.db, push: app.push, now: utc(9, 20) });  // 11:20: se pasó de la ventana (el servidor estuvo caído): no
+    assert.equal(mios(), base + 1);
+    await tick({ db: app.db, push: app.push, now: utc(9, 3) });   // 11:03: dentro de la ventana
+    assert.equal(mios(), base + 2);
+    await tick({ db: app.db, push: app.push, now: utc(6, 0, 22) }); // al día siguiente vuelve a salir
+    assert.equal(mios(), base + 3);
+    const last = app.push.sent.at(-1).payload;
+    assert.equal(last.title, 'Un momento para orar');
+    assert.ok(last.body.length > 10 && last.url === '/');
+    assert.ok(!JSON.stringify(last).includes('puntual'));          // nada personal en el aviso
+    assert.ok(user.id);
+  });
+
+  test('cada persona recibe a SU hora local; los desactivados no reciben nada', async () => {
+    await listo('mexico@example.com', ['00:00'], 'America/Mexico_City', 21);
+    const { c } = await listo('apagado@example.com', ['08:00'], 'Europe/Madrid', 22);
+    await fetchPut(c, { enabled: false, times: ['08:00'], tz: 'Europe/Madrid' });
+    await tick({ db: app.db, push: app.push, now: utc(6, 0, 25) }); // 25-oct: Madrid ya en horario de invierno (UTC+1) → 07:00 allí; México 00:00
+    const endpoints = app.push.sent.slice(-5).map((x) => x.sub.endpoint);
+    assert.ok(endpoints.includes(sub(21).endpoint));      // México: 00:00 local
+    assert.ok(!endpoints.includes(sub(22).endpoint));     // desactivado
+  });
+
+  test('si dos instancias del servidor comprueban a la vez, el aviso no se duplica', async () => {
+    await listo('doble@example.com', ['15:30'], 'Europe/Madrid', 30);
+    const antes = app.push.sent.filter((x) => x.sub.endpoint === sub(30).endpoint).length;
+    await Promise.all([tick({ db: app.db, push: app.push, now: utc(13, 30, 23) }), tick({ db: app.db, push: app.push, now: utc(13, 30, 23) }), tick({ db: app.db, push: app.push, now: utc(13, 31, 23) })]);
+    assert.equal(app.push.sent.filter((x) => x.sub.endpoint === sub(30).endpoint).length, antes + 1);
+  });
+
+  test('un dispositivo caducado (410) se elimina y, si era el único, se desactivan los recordatorios', async () => {
+    const { c } = await listo('caducado@example.com', ['16:00'], 'Europe/Madrid', 40);
+    app.push.failWith(410);
+    await tick({ db: app.db, push: app.push, now: utc(14, 0, 24) });
+    app.push.failWith(null);
+    const v = (await c.get('/api/reminders')).json;
+    assert.deepEqual([v.devices, v.enabled], [0, false]);
+  });
+
+  test('"Enviar una prueba" llega solo a los dispositivos de esa persona y tiene un tiempo de espera entre pruebas', async () => {
+    const { c } = await signup(app.base);
+    await c.post('/api/reminders/subscribe', { subscription: sub(50) });
+    const antes = app.push.sent.length;
+    const r = await c.post('/api/reminders/test');
+    assert.deepEqual([r.status, r.json.sent], [200, 1]);
+    assert.equal(app.push.sent.length, antes + 1);
+    assert.equal(app.push.sent.at(-1).sub.endpoint, sub(50).endpoint);
+    assert.equal((await c.post('/api/reminders/test')).status, 429);
+  });
+
+  test('al borrar la cuenta se borran dispositivos y horarios; el export de datos incluye los recordatorios', async () => {
+    const { c, user } = await listo('borrar@example.com', ['09:00'], 'Europe/Madrid', 60);
+    const exp = (await c.get('/api/me/export')).json;
+    assert.deepEqual([exp.reminders.enabled, exp.reminders.times, exp.reminders.devices], [true, ['09:00'], 1]);
+    await c.del('/api/me', { password: 'clave-segura-1' });
+    assert.equal((await app.db('push_subscriptions').where({ user_id: user.id })).length, 0);
+    assert.equal((await app.db('reminder_settings').where({ user_id: user.id })).length, 0);
+  });
+
+  test('las claves VAPID se generan una vez y se reutilizan; las de entorno mandan', async () => {
+    const a = await ensureVapid(app.db, app.config); const b = await ensureVapid(app.db, app.config);
+    assert.deepEqual(a, b); assert.ok(a.publicKey.length > 60 && a.privateKey.length > 30);
+    const fromEnv = await ensureVapid(app.db, { vapid: { publicKey: 'PUB', privateKey: 'PRIV' } });
+    assert.deepEqual(fromEnv, { publicKey: 'PUB', privateKey: 'PRIV' });
+  });
+
+  test('sin servicio push, la app funciona y avisa de que los recordatorios no están disponibles', async () => {
+    const off = await startApp({ push: null });
+    try {
+      assert.equal((await client(off.base).get('/api/config')).json.push.enabled, false);
+      const { c } = await signup(off.base);
+      assert.equal((await c.post('/api/reminders/subscribe', { subscription: sub() })).status, 503);
+      assert.equal((await c.get('/api/reminders')).json.available, false);
+    } finally { await off.close(); }
+  });
+});
+
+describe('Apagar velas', () => {
+  let app; before(async () => { app = await startApp(); }); after(() => app.close());
+  const light = async (c, intention) => (await c.post('/api/candles', { size: 'pequena', intention })).json.candle.id;
+
+  test('se puede apagar la propia vela: desaparece de la capilla pero sigue contando para el límite mensual (no se puede encender y apagar sin fin)', async () => {
+    const { c } = await signup(app.base);
+    const ids = [await light(c, 'vela uno'), await light(c, 'vela dos'), await light(c, 'vela tres')];
+    assert.equal((await c.post('/api/candles', { size: 'pequena', intention: 'otra' })).status, 402); // límite de 3 alcanzado
+    const off = await c.del(`/api/candles/${ids[0]}`);
+    assert.equal(off.status, 200); assert.equal(off.json.ok, true);
+    const list = (await c.get('/api/candles')).json;
+    assert.deepEqual(list.candles.map((x) => x.id).sort(), [ids[1], ids[2]].sort());
+    assert.equal(list.usage.smallCandles.used, 3);                                                   // sigue contando
+    assert.equal((await c.post('/api/candles', { size: 'pequena', intention: 'otra' })).status, 402); // no se puede saltar el límite
+    assert.ok((await app.db('candles').where({ id: ids[0] }).first()).extinguished_at > 0);          // se conserva, marcada
+  });
+
+  test('no se puede apagar la vela de otra persona, ni dos veces, ni sin sesión, ni con un id inválido', async () => {
+    const { c: a } = await signup(app.base); const { c: b } = await signup(app.base);
+    const id = await light(a, 'de a');
+    assert.equal((await b.del(`/api/candles/${id}`)).status, 404);                 // ajena
+    assert.equal((await a.get('/api/candles')).json.candles.length, 1);            // la de a sigue encendida
+    assert.equal((await client(app.base).del(`/api/candles/${id}`)).status, 401);  // sin sesión
+    assert.equal((await a.del('/api/candles/abc')).status, 404);                   // id inválido
+    assert.equal((await a.del('/api/candles/99999999')).status, 404);              // inexistente
+    assert.equal((await a.del(`/api/candles/${id}`)).status, 200);
+    assert.equal((await a.del(`/api/candles/${id}`)).status, 404);                 // ya apagada
+  });
+
+  test('la exportación de datos indica qué velas se apagaron y cuándo', async () => {
+    const { c } = await signup(app.base);
+    const id = await light(c, 'para exportar'); await light(c, 'sigue encendida');
+    await c.del(`/api/candles/${id}`);
+    const exp = (await c.get('/api/me/export')).json.candles;
+    assert.equal(exp.length, 2);
+    assert.ok(exp.find((x) => x.intention === 'para exportar').extinguished);
+    assert.equal(exp.find((x) => x.intention === 'sigue encendida').extinguished, null);
+  });
+
+  test('migración: una base de datos ya existente (sin la columna nueva) la recibe al arrancar, sin perder velas', async () => {
+    const file = path.join(os.tmpdir(), `oracion-mig-${Date.now()}.sqlite`);
+    const cfg = loadConfig({ NODE_ENV: 'test', SQLITE_PATH: file, BCRYPT_ROUNDS: '4', JWT_SECRET: 'x', PORT: '0' });
+    let db1, db2;
+    try {
+      db1 = await createDb(cfg);
+      const now = Date.now();
+      const [uid] = await db1('users').insert({ email: 'vieja@example.com', password_hash: 'x', created_at: now, consent_at: now, consent_version: 'v0' });
+      await db1('candles').insert({ user_id: uid, name: 'Anónimo', intention: 'antigua', size: 'pequena', created_at: now, expires_at: now + 1e6 });
+      await db1.raw('ALTER TABLE candles DROP COLUMN extinguished_at'); // así era la base de datos antes de esta versión
+      await db1.destroy(); db1 = null;
+      db2 = await createDb(cfg);
+      assert.equal(await db2.schema.hasColumn('candles', 'extinguished_at'), true);
+      assert.equal((await db2('candles').where({ intention: 'antigua' }).first()).extinguished_at, null);
+    } finally {
+      await db1?.destroy(); await db2?.destroy();
+      for (const f of [file, `${file}-wal`, `${file}-shm`]) fs.rmSync(f, { force: true });
+    }
+  });
+});
+

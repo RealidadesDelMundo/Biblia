@@ -37,6 +37,9 @@ export function loadConfig(overrides = {}) {
     sqlitePath: e.SQLITE_PATH || './data/oracion.sqlite',
     pgSsl: e.PGSSL, // 'true' | 'false' | undefined (auto)
 
+    // Claves de notificaciones push (opcionales: si faltan se generan solas y se guardan en la base de datos)
+    vapid: { publicKey: e.VAPID_PUBLIC_KEY || '', privateKey: e.VAPID_PRIVATE_KEY || '' },
+
     ai: {
       apiKey: e.ANTHROPIC_API_KEY || '',
       model: e.ANTHROPIC_MODEL || 'claude-sonnet-5-5', // oraciones y acompañante

@@ -4,7 +4,7 @@ import { APP_NAME } from '../brand.js';
 
 const SLIDES = [
   { title: 'Un rato de calma para orar', body: 'Cuéntanos lo que llevas en el corazón. Recibirás una oración pensada para ti y un versículo de la Biblia que la acompaña.' },
-  { title: 'La Palabra, tal cual', body: 'Cada oración va acompañada de un versículo de la Biblia, con su texto tal como está escrito. Nada inventado.' },
+  { title: 'Una Palabra para lo que estás viviendo', body: 'Cada día te espera un versículo, y cada oración llega con uno elegido para lo que cuentas. Palabras reales de las Escrituras, nunca inventadas.' },
   { title: 'Aquí cuidamos de ti', body: 'No somos Dios, ni un pastor, ni un terapeuta. Si lo que escribes suena a que estás en peligro, te mostraremos ayuda real en tu país.' },
 ];
 

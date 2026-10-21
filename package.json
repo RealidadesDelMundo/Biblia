@@ -27,7 +27,8 @@
     "jsonwebtoken": "^9.0.3",
     "knex": "^3.3.0",
     "pg": "^8.23.1",
-    "stripe": "^23.0.0"
+    "stripe": "^23.0.0",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "sharp": "^0.35.5"

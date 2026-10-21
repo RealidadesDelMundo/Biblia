@@ -30,6 +30,10 @@ export async function createDb(config) {
   return db;
 }
 
+async function ensureColumn(db, table, column, build) {
+  if (!(await db.schema.hasColumn(table, column))) await db.schema.alterTable(table, build);
+}
+
 async function ensure(db, name, build) {
   if (!(await db.schema.hasTable(name))) await db.schema.createTable(name, build);
 }
@@ -79,6 +83,8 @@ export async function migrate(db) {
     t.bigInteger('expires_at').notNullable();
     t.index(['user_id', 'expires_at']);
   });
+  // Apagar una vela la marca (no la borra): así no se puede saltar el límite mensual encendiendo y apagando.
+  await ensureColumn(db, 'candles', 'extinguished_at', (t) => t.bigInteger('extinguished_at'));
   await ensure(db, 'orders', (t) => {
     t.increments('id');
     t.integer('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE');
@@ -96,6 +102,30 @@ export async function migrate(db) {
     t.text('content').notNullable();
     t.bigInteger('created_at').notNullable();
     t.index(['user_id', 'created_at']);
+  });
+  await ensure(db, 'scope_flags', (t) => {
+    t.increments('id');
+    t.integer('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE');
+    t.bigInteger('created_at').notNullable(); // solo la fecha: nunca el contenido
+    t.index(['user_id', 'created_at']);
+  });
+  await ensure(db, 'app_settings', (t) => { t.string('key').primary(); t.text('value').notNullable(); });
+  await ensure(db, 'reminder_settings', (t) => {
+    t.integer('user_id').primary().references('id').inTable('users').onDelete('CASCADE');
+    t.boolean('enabled').notNullable().defaultTo(false);
+    t.text('times').notNullable().defaultTo('[]'); // JSON: ["08:00","11:00"] en la hora local de la persona
+    t.string('tz').notNullable().defaultTo('UTC');
+    t.string('last_key'); // último aviso enviado (fecha|hora), para no duplicar
+    t.bigInteger('updated_at').notNullable();
+  });
+  await ensure(db, 'push_subscriptions', (t) => {
+    t.increments('id');
+    t.integer('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE');
+    t.text('endpoint').notNullable().unique();
+    t.string('p256dh').notNullable();
+    t.string('auth').notNullable();
+    t.bigInteger('created_at').notNullable();
+    t.index(['user_id']);
   });
   await ensure(db, 'password_resets', (t) => {
     t.increments('id');
