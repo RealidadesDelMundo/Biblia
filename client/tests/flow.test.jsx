@@ -196,4 +196,22 @@ describe('Recorrido completo de la interfaz', () => {
     await waitFor(() => expect(screen.queryByRole('heading', { name: 'Personas registradas' })).not.toBeInTheDocument());
     expect(screen.getByRole('navigation', { name: 'Secciones' })).toBeInTheDocument(); // sigue en la app normal
   });
+
+  test('contadores de uso mensual: 0/3 al empezar, 1/3 tras una oración y resumen en Cuenta', async () => {
+    const user = userEvent.setup();
+    await registrar(user);
+    expect(await screen.findByRole('group', { name: 'Oraciones este mes: 0 de 3' })).toBeInTheDocument();
+    await user.type(screen.getByLabelText(/qué quieres llevar a oración/i), 'Quiero dar gracias por mi familia');
+    await user.click(screen.getByRole('button', { name: 'Escribir mi oración' }));
+    await screen.findByText(/Oración escrita por una IA/);
+    await user.click(screen.getByRole('button', { name: 'Escribir otra' }));
+    expect(await screen.findByRole('group', { name: 'Oraciones este mes: 1 de 3' })).toBeInTheDocument();
+    await user.click(tab('Capilla'));
+    expect(await screen.findByRole('group', { name: 'Velas pequeñas este mes: 0 de 3' })).toBeInTheDocument();
+    await user.click(tab('Hablar'));
+    expect(await screen.findByRole('group', { name: 'Mensajes este mes: 0 de 3' })).toBeInTheDocument();
+    await user.click(tab('Cuenta'));
+    expect(await screen.findByRole('heading', { name: 'Tu uso este mes' })).toBeInTheDocument();
+    expect(screen.getByRole('group', { name: 'Oraciones: 1 de 3' })).toBeInTheDocument();
+  });
 });

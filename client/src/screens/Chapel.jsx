@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { api } from '../api.js';
 import { useApp } from '../store.jsx';
-import { money, plural, remaining } from '../format.js';
+import { dateShort, money, plural, remaining } from '../format.js';
+import Usage from '../components/Usage.jsx';
 import Candle from '../components/Candle.jsx';
 import { HelpFooter } from '../components/Crisis.jsx';
 
@@ -63,7 +64,7 @@ export default function Chapel() {
               );
             })}
           </div>
-          {size === 'pequena' && <p className="tiny muted">Pequeñas gratis este mes: te quedan {smallLeft} de {u?.limit}.</p>}
+          {size === 'pequena' && u && <Usage label="Velas pequeñas este mes" used={u.used} limit={u.limit} note={`Se renuevan el ${dateShort(auth.usage.resetsAt)}`} />}
         </div>
         <div className="field">
           <label htmlFor="cname">¿Por quién la enciendes? <span className="muted">(opcional)</span></label>

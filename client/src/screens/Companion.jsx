@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Send } from 'lucide-react';
 import { api } from '../api.js';
 import { useApp } from '../store.jsx';
-import { money, plural } from '../format.js';
+import { dateShort, money, plural } from '../format.js';
+import Usage from '../components/Usage.jsx';
 import { CrisisCard, HelpFooter } from '../components/Crisis.jsx';
 
 const IDEAS = ['Estoy pasando un mal momento', 'Tengo una decisión difícil', 'Quiero dar gracias por algo'];
 
 export default function Companion() {
-  const { config, toast, applySession, setPremiumOpen, isPremium } = useApp();
+  const { config, auth, toast, applySession, setPremiumOpen, isPremium } = useApp();
   const [items, setItems] = useState(null); // {role:'user'|'assistant'|'crisis', content?, data?}
   const [chat, setChat] = useState(null);
   const [text, setText] = useState('');
@@ -82,6 +83,12 @@ export default function Companion() {
       </div>
 
       <div className="composer">
+        {chat && chat.allowance != null && (
+          <div style={{ marginBottom: 12 }}>
+            <Usage label="Mensajes este mes" used={chat.used} limit={chat.allowance}
+              note={chat.credits ? `Además tienes ${chat.credits} mensajes de crédito.` : (auth.usage ? `Se renuevan el ${dateShort(auth.usage.resetsAt)}` : undefined)} />
+          </div>
+        )}
         {available > 0 ? (
           <form className="row" onSubmit={send}>
             <div className="field" style={{ flex: 1 }}>

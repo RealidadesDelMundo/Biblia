@@ -5,7 +5,7 @@ import { dateLong, plural } from '../format.js';
 
 /** Panel de administración: cuánto usa cada persona (contadores), nunca lo que escribe. */
 export default function Admin() {
-  const { route, toast } = useApp();
+  const { config, route, toast } = useApp();
   const [data, setData] = useState(null);
   const [confirm, setConfirm] = useState(null);
 
@@ -22,6 +22,7 @@ export default function Admin() {
         <button className="btn quiet" style={{ paddingLeft: 0 }} onClick={() => route.navigate('/')}>Volver</button>
         <h1 className="screen-title">Personas registradas</h1>
         <p className="screen-lead">{data ? `${data.total} en total.` : 'Cargando…'} Solo ves cuánto usa cada persona, no lo que escribe.</p>
+        {config && <p className="small muted">Límites mensuales del plan gratuito: {config.limits.free.prayers} oraciones, {config.limits.free.smallCandles} velas pequeñas y {config.limits.free.chat} mensajes. Se renuevan el día 1.</p>}
       </div>
       {data?.users.map((u) => (
         <article key={u.id} className="card stack" style={{ gap: 8 }}>
@@ -30,7 +31,8 @@ export default function Admin() {
             <span className="small muted">{u.plan === 'premium' ? 'Premium' : 'Gratis'}{u.isAdmin ? ' · admin' : ''}</span>
           </div>
           <p className="small muted">Alta: {dateLong(u.createdAt)} · Último acceso: {u.lastLoginAt ? dateLong(u.lastLoginAt) : '—'}</p>
-          <p className="small">{plural(u.prayers, 'oración', 'oraciones')} · {plural(u.candles, 'vela', 'velas')} · {plural(u.messages, 'mensaje', 'mensajes')}</p>
+          <p className="small">Este mes: {plural(u.monthPrayers, 'oración', 'oraciones')} · {plural(u.monthCandles, 'vela pequeña', 'velas pequeñas')} · {plural(u.monthMessages, 'mensaje', 'mensajes')}</p>
+          <p className="tiny muted">En total: {plural(u.prayers, 'oración', 'oraciones')} · {plural(u.candles, 'vela', 'velas')} · {plural(u.messages, 'mensaje', 'mensajes')}</p>
           {!u.isAdmin && (confirm === u.id
             ? <div className="row"><button className="btn danger sm" onClick={() => remove(u.id)}>Sí, borrar todo</button><button className="btn quiet sm" onClick={() => setConfirm(null)}>No</button></div>
             : <button className="btn quiet sm" style={{ alignSelf: 'flex-start', paddingLeft: 0 }} onClick={() => setConfirm(u.id)}>Borrar cuenta y datos</button>)}

@@ -697,6 +697,7 @@ describe('Registro cerrado y panel de administración', () => {
     assert.equal(list.status, 200);
     const amiga = list.json.users.find((x) => x.email === 'amiga@example.com');
     assert.equal(amiga.prayers, 1); assert.equal(amiga.candles, 1); assert.equal(amiga.plan, 'free');
+    assert.equal(amiga.monthPrayers, 1); assert.equal(amiga.monthCandles, 1); assert.equal(amiga.monthMessages, 0); // uso de este mes
     assert.ok(!JSON.stringify(list.json).includes('muy privado')); assert.ok(!JSON.stringify(list.json).includes('vela privada'));
     assert.ok(!JSON.stringify(list.json).includes('password'));
     const adminRow = list.json.users.find((x) => x.email === 'jefe@example.com');

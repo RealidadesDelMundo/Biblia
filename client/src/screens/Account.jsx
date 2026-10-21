@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Download } from 'lucide-react';
 import { api } from '../api.js';
 import { useApp } from '../store.jsx';
-import { dateLong, money } from '../format.js';
+import { dateLong, dateShort, money } from '../format.js';
+import Usage from '../components/Usage.jsx';
 import Sheet from '../components/Sheet.jsx';
 
 const SCALES = [{ v: '100', label: 'A', title: 'Tamaño normal' }, { v: '112', label: 'A', title: 'Tamaño grande' }, { v: '125', label: 'A', title: 'Tamaño muy grande' }];
@@ -19,6 +20,7 @@ export default function Account() {
   const [installEvt, setInstallEvt] = useState(window.__installPrompt || null);
   const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.matchMedia?.('(display-mode: standalone)').matches;
 
+  useEffect(() => { refresh().catch(() => {}); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { api.get('/api/helpline').then((r) => setHelpline(r.helpline)).catch(() => {}); }, []);
   useEffect(() => { const f = (e) => { e.preventDefault(); window.__installPrompt = e; setInstallEvt(e); }; window.addEventListener('beforeinstallprompt', f); return () => window.removeEventListener('beforeinstallprompt', f); }, []);
 
@@ -75,6 +77,19 @@ export default function Account() {
         )}
         {config.paymentsMode === 'demo' && <button className="btn quiet sm" onClick={devToggle}>Modo de pruebas: {isPremium ? 'quitar' : 'activar'} Premium</button>}
       </section>
+
+      {auth.usage && (
+        <section className="card stack" aria-labelledby="use-h">
+          <h2 id="use-h" className="label">Tu uso este mes</h2>
+          {auth.usage.prayers.limit != null
+            ? <Usage label="Oraciones" used={auth.usage.prayers.used} limit={auth.usage.prayers.limit} />
+            : <p className="small">Oraciones: sin límite ({auth.usage.prayers.used} este mes)</p>}
+          <Usage label="Velas pequeñas" used={auth.usage.smallCandles.used} limit={auth.usage.smallCandles.limit} />
+          <Usage label="Mensajes con el acompañante" used={auth.usage.chat.used} limit={auth.usage.chat.allowance}
+            note={auth.usage.chat.credits ? `Además tienes ${auth.usage.chat.credits} mensajes de crédito.` : undefined} />
+          <p className="tiny muted">Los contadores se renuevan el {dateShort(auth.usage.resetsAt)}.</p>
+        </section>
+      )}
 
       <section className="card stack" aria-labelledby="read-h">
         <h2 id="read-h" className="label">Lectura</h2>

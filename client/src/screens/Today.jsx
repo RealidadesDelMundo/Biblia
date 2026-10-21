@@ -4,6 +4,7 @@ import { api } from '../api.js';
 import { useApp } from '../store.jsx';
 import { dateShort, localDay, plural } from '../format.js';
 import Candle from '../components/Candle.jsx';
+import Usage from '../components/Usage.jsx';
 import Verse from '../components/Verse.jsx';
 import { CrisisCard, HelpFooter } from '../components/Crisis.jsx';
 
@@ -97,7 +98,7 @@ export default function Today() {
           ) : (
             <>
               <button className="btn primary block" disabled={busy || intention.trim().length < 3}>{busy ? 'Escribiendo tu oración…' : 'Escribir mi oración'}</button>
-              {left !== null && <p className="tiny muted center">Te quedan {plural(left, 'oración gratuita', 'oraciones gratuitas')} este mes.</p>}
+              {limit != null && <Usage label="Oraciones este mes" used={usage.prayers.used} limit={limit} note={`Se renuevan el ${dateShort(usage.resetsAt)}`} />}
             </>
           )}
         </form>
